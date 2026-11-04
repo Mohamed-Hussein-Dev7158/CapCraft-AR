@@ -353,6 +353,25 @@ fun localizedText(context: Context, source: String): String {
         "Type or paste a script. Each line becomes a caption of its own." -> R.string.script_hint
         "A clearer, sharper picture, made on this phone. A photo takes a moment; a video goes frame by frame and takes a while." -> R.string.super_resolution_description
         "Blurring" -> R.string.blur_label
+        "Search fonts" -> R.string.search_fonts
+        "Import a .cube look" -> R.string.cube_import_description
+        "Teleprompter" -> R.string.teleprompter
+        "Recording %1$s · tap to stop" -> R.string.recording_tap_stop
+        "Tap to stop" -> R.string.tap_to_stop
+        "Tap to record" -> R.string.tap_to_record
+        "Voice changer" -> R.string.voice_changer
+        "Turn what is said into text, then cut the video by deleting its lines." -> R.string.transcript_edit_description
+        "Download and transcribe (%1$.0f MB)" -> R.string.download_and_transcribe
+        "Transcribe" -> R.string.transcribe
+        "Runs on this phone. The model is downloaded once." -> R.string.runs_on_phone_model_downloaded
+        "Clear current captions" -> R.string.clear_current_captions
+        "Voice model" -> R.string.voice_model
+        "Auto (fast)" -> R.string.auto_fast
+        "Download" -> R.string.download
+        "Generating" -> R.string.generating
+        "Smooth" -> R.string.smooth
+        "Brighten" -> R.string.brighten
+        "Record voice-over" -> R.string.record_voiceover
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
