@@ -315,11 +315,8 @@ fun localizedText(context: Context, source: String): String {
         "Choose a file" -> R.string.choose_file
         "Duration" -> R.string.duration
         "Original" -> R.string.original
-        "To front" -> R.string.to_front_label
-        "To back" -> R.string.to_back_label
         "Search music" -> R.string.search_music
         "No results" -> R.string.no_results
-        "Cancel" -> R.string.cancel_generation
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
