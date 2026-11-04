@@ -332,6 +332,10 @@ androidComponents {
             iconsDir.set(File(crateDir, "assets/icons-material"))
         }
         val repoDir = cargoWorkspaceDir.parentFile
+        val arabicFont = tasks.register<CopyFiles>("capcraftArabicFont$name") {
+            files.from(File(cargoWorkspaceDir, "crates/concat-text/fonts/NotoSansArabicUI-Concat.ttf"))
+            targets.set(mapOf("NotoSansArabicUI-Concat.ttf" to "font/capcraft_arabic.ttf"))
+        }
         val licences = tasks.register<CopyFiles>("capcraftLicences$name") {
             files.from(
                 File(repoDir, "LICENSE"),
@@ -350,6 +354,7 @@ androidComponents {
                 ),
             )
         }
+        variant.sources.res?.addGeneratedSourceDirectory(arabicFont, CopyFiles::outputDir)
         variant.sources.assets?.addGeneratedSourceDirectory(licences, CopyFiles::outputDir)
         variant.sources.java?.addGeneratedSourceDirectory(icons, LucideIconsTask::outputDir)
         variant.sources.java?.addGeneratedSourceDirectory(materialIcons, MaterialIconsTask::outputDir)
