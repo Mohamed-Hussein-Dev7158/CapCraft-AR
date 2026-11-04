@@ -854,7 +854,7 @@ private fun DrawScope.drawLeadingTiles(
             with(icon) { draw(Size(s, s), colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Palette.DockText)) }
         }
         val label = measurer.measure(
-            if (muted) "Unmute\nclip" else "Mute\nclip",
+            localizedText(context, if (muted) "Unmute\nclip" else "Mute\nclip"),
             TextStyle(color = Palette.DockText, fontSize = 11.sp, lineHeight = 13.sp, textAlign = androidx.compose.ui.text.style.TextAlign.Center),
             constraints = androidx.compose.ui.unit.Constraints(maxWidth = mute.width.roundToInt().coerceAtLeast(1)),
         )
