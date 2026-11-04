@@ -349,4 +349,26 @@
     <string name="expand">توسيع</string>
     <string name="minimize">تصغير</string>
     <string name="add_to_fx">إضافة</string>
+    <string name="partial_photo_video_access">يستطيع CapCraft الوصول إلى الصور ومقاطع الفيديو التي اخترتها فقط</string>
+    <string name="manage_access">إدارة</string>
+    <string name="no_videos">لا توجد فيديوهات</string>
+    <string name="no_photos">لا توجد صور</string>
+    <string name="albums">الألبومات</string>
+    <string name="photos">الصور</string>
+    <string name="videos">الفيديوهات</string>
+    <string name="remove">إزالة</string>
+    <string name="resolution">الدقة</string>
+    <string name="frame_rate">معدل الإطارات</string>
+    <string name="bitrate_mbps">معدل البت (ميجابت/ث)</string>
+    <string name="small_file_sharing">ملف صغير للمشاركة السريعة</string>
+    <string name="good_most_sharing">مناسب لمعظم حالات المشاركة</string>
+    <string name="sharp_any_phone">واضح على معظم الهواتف</string>
+    <string name="extra_sharp_big_screens">حدة أعلى للشاشات الكبيرة</string>
+    <string name="finest_detail_biggest_file">أعلى تفاصيل مع أكبر حجم ملف</string>
+    <string name="smoother_motion">إطارات أكثر وحركة أنعم</string>
+    <string name="steady_everyday_motion">حركة ثابتة للاستخدام اليومي</string>
+    <string name="looping_picture_no_sound">صورة متحركة متكررة بدون صوت</string>
+    <string name="photo_under_playhead">الصورة عند موضع مؤشر التشغيل، وسيتم حفظها كصورة</string>
+    <string name="estimated_file_size">حجم الملف المتوقع: %1$s ميجابايت</string>
+    <string name="suggested_for_video">المقترح لهذا الفيديو: %1$d</string>
 </resources>
