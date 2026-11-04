@@ -216,4 +216,7 @@
     <string name="text_shows_for_whole_video">The text now stays visible throughout the video.</string>
     <string name="applied_to_all">Applied to all</string>
     <string name="cache_cleared">Cleared %1$s of temporary files</string>
+
+    <string name="export_notification_channel">Exports</string>
+    <string name="exporting_video">Exporting video</string>
 </resources>
