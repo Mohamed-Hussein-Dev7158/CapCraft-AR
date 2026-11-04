@@ -360,7 +360,7 @@ private fun clipTools(vm: EditorViewModel, clip: ClipView, row: RowKind, pickers
     val inside = vm.playhead > clip.startUs + 30_000 && vm.playhead < clip.startUs + clip.durationUs - 30_000
     // always offered, as the reference does; at a clip's very edge there is nothing to cut
     val split = Tool("split", "Split", LucideIcons.SquareSplitHorizontal) {
-        if (inside) vm.edit { split(listOf(clip.id), vm.playhead) } else vm.message = "Move the playhead inside the clip to split it"
+        if (inside) vm.edit { split(listOf(clip.id), vm.playhead) } else vm.message = localizedText("Move the playhead inside the clip to split it")
     }
     val delete = Tool("delete", "Delete", LucideIcons.Trash) {
         vm.edit { delete(listOf(clip.id)) }
@@ -536,7 +536,7 @@ private fun clipTools(vm: EditorViewModel, clip: ClipView, row: RowKind, pickers
             // on screen from the first frame to the last
             Tool("lasting", "Lasting text", LucideIcons.MoveHorizontal) {
                 vm.edit(select = { clip.id }) { lastingText(clip.id) }
-                vm.message = "The text now shows for the whole video"
+                vm.message = localizedText("The text now shows for the whole video")
             },
             Tool("texteffects", "Effects", LucideIcons.WandSparkles, enabled = clip.kind == "text") { vm.panel = Panel.Text(clip.id, tab = 4) },
             Tool("tracking", "Tracking", LucideIcons.Crosshair) { vm.panel = Panel.Tracking },
@@ -632,7 +632,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                         localizedText("Flip video horizontally") to { target()?.let { vm.mirror(it) } ?: run { vm.message = localizedText("Add a clip first") } },
                         localizedText("Add auto captions") to { vm.panel = Panel.Captions },
                         localizedText("Reduce video noise") to {
-                            target()?.let { vm.toggleCleaner(it, "concat.denoise", localizedText("Noise reduction")) } ?: run { vm.message = "Add a clip first" }
+                            target()?.let { vm.toggleCleaner(it, "concat.denoise", localizedText("Noise reduction")) } ?: run { vm.message = localizedText("Add a clip first") }
                         },
                     ).forEach { (line, act) ->
                         Text(
