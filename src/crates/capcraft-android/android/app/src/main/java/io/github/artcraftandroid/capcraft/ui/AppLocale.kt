@@ -346,6 +346,13 @@ fun localizedText(context: Context, source: String): String {
         "Type the words first, then give them an effect." -> R.string.type_words_effect
         "Type the words first, then give them this." -> R.string.type_words_style
         "Read by: Text to speech" -> R.string.read_by_tts
+        "Delete beat" -> R.string.delete_beat
+        "Add beat" -> R.string.add_beat
+        "Stop" -> R.string.stop
+        "Try an example" -> R.string.try_example
+        "Type or paste a script. Each line becomes a caption of its own." -> R.string.script_hint
+        "A clearer, sharper picture, made on this phone. A photo takes a moment; a video goes frame by frame and takes a while." -> R.string.super_resolution_description
+        "Blurring" -> R.string.blur_label
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
