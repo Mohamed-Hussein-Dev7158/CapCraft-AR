@@ -403,6 +403,17 @@ fun localizedText(context: Context, source: String): String {
 
         "Add keyframe" -> R.string.add_keyframe
         "Remove keyframe" -> R.string.remove_keyframe
+        "Save preset" -> R.string.save_preset
+        "Undo the last stroke" -> R.string.undo_last_stroke
+        "Pen" -> R.string.pen
+        "Eraser" -> R.string.eraser
+        "A photo of your own" -> R.string.own_photo
+        "Bookmark" -> R.string.bookmark
+        "Use" -> R.string.use
+        "Cut this line" -> R.string.cut_this_line
+        "Pick a colour" -> R.string.pick_a_colour
+        "Duration: %1$.1f s" -> R.string.duration_seconds
+        "Hi!" -> R.string.hi_preview
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
