@@ -2,16 +2,23 @@
   <img src="docs/images/capcraft-512.png" alt="CapCraft's app icon" width="128">
 </p>
 
-<h1 align="center">CapCraft for Android</h1>
+<h1 align="center">CapCraft AR</h1>
 
 <p align="center">
-  <b>CapCraft-android is an open-source reimplementation of the CapCut android app.</b><br>
-  Many credits to the original maintainers, <a href="https://github.com/jub0t">jub0t</a> and the Concat contributors.
+  <b>An independent, Arabic-first community fork of CapCraft for Android.</b><br>
+  Developed by Alaa El Din Labs on top of the upstream CapCraft app and Concat editing engine.<br>
+  <a href="https://github.com/artcraft-android/capcraft-android">Original upstream repository</a> ·
+  <a href="ARABIC_SUPPORT.md">Arabic localization and terminology guide</a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/artcraft-android/capcraft-android/releases"><img src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/main/get-it-on-github.png" alt="Get it on GitHub" height="60"></a>
-  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/artcraft-android/capcraft-android"><img src="https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="60"></a>
+  <b>This project is not affiliated with, endorsed by, or connected to ByteDance or CapCut.</b><br>
+  Upstream credits and third-party notices are retained in <a href="NOTICE">NOTICE</a> and <a href="THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>.
+</p>
+
+<p align="center">
+  <a href="https://github.com/Mohamed-Hussein-Dev7158/CapCraft-AR/releases"><img src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/main/get-it-on-github.png" alt="CapCraft AR releases" height="60"></a>
+  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/Mohamed-Hussein-Dev7158/CapCraft-AR"><img src="https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png" alt="Add CapCraft AR to Obtainium" height="60"></a>
 </p>
 
 <p align="center">
@@ -34,6 +41,8 @@
 </p>
 
 <br>
+
+> **Screenshot note:** The screenshots below are inherited upstream reference images. They are not screenshots of the localized CapCraft AR interface.
 
 <p align="center">
   <img src="docs/images/editor.png" alt="The editor: a moving gradient test clip with the title Made with CapCraft on a pink plate and a yellow WOW sticker, the transport row, and the timeline with the main track, a sticker row, a Rainbow effect row and Add audio, over the tools Edit, Audio, Text, Effects, Overlay, Captions, Filters, Adjust and Stickers" width="250">
