@@ -248,10 +248,10 @@ private fun AnimHeader(
         Box(
             Modifier.size(32.dp).clip(CircleShape).background(Color(0xFF3A3A3A)).clickable { onQuery("") },
             contentAlignment = Alignment.Center,
-        ) { Glyph(LucideIcons.Search, Palette.DockText, size = 16.dp, description = "Search animations") }
+        ) { Glyph(LucideIcons.Search, Palette.DockText, size = 16.dp, description = localizedText("Search animations")) }
         Box(Modifier.padding(horizontal = 8.dp).size(1.dp, 16.dp).background(Color(0xFF444444)))
         Box(Modifier.size(32.dp).clickable(onClick = onKept), contentAlignment = Alignment.Center) {
-            Glyph(LucideIcons.Bookmark, if (kept) Palette.Text else Palette.TextSecondary, size = 18.dp, description = "Favorites")
+            Glyph(LucideIcons.Bookmark, if (kept) Palette.Text else Palette.TextSecondary, size = 18.dp, description = localizedText("Favorites"))
         }
         Tabs(listOf("In", "Out", third), if (kept) -1 else tab) { onTab(it) }
     }
@@ -417,7 +417,7 @@ fun AnimationChoices(vm: EditorViewModel, clipId: String, fixedTab: Int? = null,
         }
         val none = if (query.isBlank() && !kept) 1 else 0
         if (kept && list.isEmpty()) {
-            Text("Press and hold one to keep it here", style = Type.Small, modifier = Modifier.padding(24.dp))
+            Text(localizedText("Press and hold one to keep it here"), style = Type.Small, modifier = Modifier.padding(24.dp))
         }
         ChoiceGrid(list.size + none, Modifier.weight(1f)) { i ->
             if (i < none) {
@@ -593,7 +593,7 @@ fun BackgroundPanel(vm: EditorViewModel, tab: Int) {
         Row(Modifier.clickable(onClick = ::applyToAll).padding(vertical = 8.dp, horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically) {
             Glyph(LucideIcons.Layers, Palette.DockText, size = 18.dp)
             Spacer(Modifier.width(6.dp))
-            Text("Apply to all", style = Type.Body.copy(color = Palette.DockText))
+            Text(localizedText("Apply to all"), style = Type.Body.copy(color = Palette.DockText))
         }
     }) {
         Row(
