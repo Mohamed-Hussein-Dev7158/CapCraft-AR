@@ -723,7 +723,7 @@ private fun SearchSubheading(title: String, onMore: () -> Unit) {
     Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
         Text(title, style = Type.Body.copy(color = Palette.DockText, fontSize = 14.sp), modifier = Modifier.weight(1f))
         Row(Modifier.clickable(onClick = onMore).padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("More", style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 13.sp))
+            Text(localizedText("More"), style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 13.sp))
             Glyph(LucideIcons.ChevronRight, Palette.TextSecondary, size = 16.dp)
         }
     }
