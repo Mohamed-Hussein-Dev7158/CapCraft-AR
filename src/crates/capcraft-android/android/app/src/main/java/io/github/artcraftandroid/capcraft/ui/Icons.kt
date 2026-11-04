@@ -51,8 +51,8 @@ fun Glyph(image: ImageVector, tint: Color, modifier: Modifier = Modifier, size: 
     val directional = image.name.lowercase() in setOf(
         "chevron-left", "chevron-right", "chevrons-left", "chevrons-right",
         "arrow-left", "arrow-right", "arrow-left-circle", "arrow-right-circle",
-        "corner-up-left", "corner-up-right",
+        "corner-up-left", "corner-up-right", "arrow-left-to-line", "arrow-right-to-line",
     )
     val iconModifier = if (rtl && directional) modifier.graphicsLayer { scaleX = -1f } else modifier
-    Icon(image, contentDescription = description, tint = tint, modifier = iconModifier.size(size))
+    Icon(image, contentDescription = description?.let(::localizedText), tint = tint, modifier = iconModifier.size(size))
 }
