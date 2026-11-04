@@ -192,4 +192,8 @@
     <string name="loudness_adjustment">ضبط مستوى الصوت</string>
     <string name="noise_reduction_description">يقلّل الهسهسة والطنين في خلفية الصوت.</string>
     <string name="text_to_speech">تحويل النص إلى كلام</string>
+
+    <string name="transitions">الانتقالات</string>
+    <string name="change_audio_pitch">تغيير طبقة الصوت</string>
+    <string name="press_and_hold_to_save">اضغط مطولًا على العنصر لحفظه هنا.</string>
 </resources>
