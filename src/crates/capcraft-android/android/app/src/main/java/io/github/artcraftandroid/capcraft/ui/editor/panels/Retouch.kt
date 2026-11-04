@@ -21,6 +21,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlin.math.roundToInt
 import org.json.JSONArray
@@ -70,7 +71,7 @@ fun RetouchPanel(vm: EditorViewModel) {
             val tint = if (params != null) Palette.DockText else Palette.Disabled
             Glyph(LucideIcons.RotateCcw, tint, size = 16.dp)
             Spacer(Modifier.width(6.dp))
-            Text("Reset", style = Type.Small.copy(color = tint))
+            Text(localizedText("Reset"), style = Type.Small.copy(color = tint))
         }
     }) {
         Column(Modifier.fillMaxWidth().padding(top = 18.dp)) {
