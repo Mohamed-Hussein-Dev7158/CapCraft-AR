@@ -401,7 +401,7 @@ private fun LookChip(l: CaptionLook, selected: Boolean, onClick: () -> Unit) {
             if (l.stroke != null) {
                 Text(localizedText("Hi there"), style = base.copy(color = Color(android.graphics.Color.parseColor(l.stroke)), drawStyle = Stroke(width = 5f), shadow = null))
             }
-            Text("Hi there", style = base.copy(color = colour))
+            Text(localizedText("Hi there"), style = base.copy(color = colour))
         }
     }
 }
