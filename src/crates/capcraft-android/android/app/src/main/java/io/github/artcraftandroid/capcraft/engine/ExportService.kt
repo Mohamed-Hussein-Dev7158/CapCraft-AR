@@ -59,13 +59,14 @@ class ExportService : Service() {
         }
 
         private fun running(context: Context, fraction: Float) = AppLocale.wrap(context).let { localized ->
-            NotificationCompat.Builder(localized, CHANNEL.also { channel(localized) })
+            channel(localized)
+            NotificationCompat.Builder(localized, CHANNEL)
                 .setSmallIcon(android.R.drawable.stat_sys_upload)
                 .setContentTitle(localized.getString(R.string.exporting_video))
-            .setContentText("${(fraction * 100).toInt()}%")
-            .setProgress(100, (fraction * 100).toInt(), false)
-            .setOngoing(true)
-            .setOnlyAlertOnce(true)
+                .setContentText("${(fraction * 100).toInt()}%")
+                .setProgress(100, (fraction * 100).toInt(), false)
+                .setOngoing(true)
+                .setOnlyAlertOnce(true)
                 .setContentIntent(opening(localized))
                 .build()
         }
