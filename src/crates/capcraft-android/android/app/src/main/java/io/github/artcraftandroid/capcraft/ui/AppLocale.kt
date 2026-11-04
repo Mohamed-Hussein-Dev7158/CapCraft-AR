@@ -311,12 +311,41 @@ fun localizedText(context: Context, source: String): String {
         "No stickers found" -> R.string.no_stickers_found
         "Search sound effects" -> R.string.search_sound_effects
         "Search sounds" -> R.string.search_sounds
-        "Extract audio" -> R.string.extract_audio_action
         "Choose a file" -> R.string.choose_file
         "Duration" -> R.string.duration
         "Original" -> R.string.original
         "Search music" -> R.string.search_music
         "No results" -> R.string.no_results
+        "Downloading" -> R.string.downloading
+        "Unpacking" -> R.string.unpacking
+        "Reading the sound" -> R.string.reading_sound
+        "Loading" -> R.string.loading
+        "Separating the voice" -> R.string.separating_voice
+        "Recognizing" -> R.string.recognizing
+        "Captions added" -> R.string.captions_added
+        "Hi there" -> R.string.preview_sample_greeting
+        "This effect has nothing to set" -> R.string.effect_no_settings
+        "Blurring…" -> R.string.blurring
+        "Steadying…" -> R.string.steadying
+        "Smoothing the motion…" -> R.string.smoothing_motion
+        "Removing flickers…" -> R.string.removing_flickers
+        "Curves" -> R.string.curves
+        "Size" -> R.string.size
+        "Thickness" -> R.string.thickness
+        "Zoom" -> R.string.zoom
+        "Character" -> R.string.character_spacing
+        "Line" -> R.string.line_spacing
+        "Round" -> R.string.round
+        "Width" -> R.string.width
+        "Height" -> R.string.height
+        "Intensity" -> R.string.intensity
+        "Range" -> R.string.range
+        "Distance" -> R.string.distance
+        "Angle" -> R.string.angle
+        "Press and hold one to keep it here." -> R.string.press_hold_save_period
+        "Type the words first, then give them an effect." -> R.string.type_words_effect
+        "Type the words first, then give them this." -> R.string.type_words_style
+        "Read by: Text to speech" -> R.string.read_by_tts
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
