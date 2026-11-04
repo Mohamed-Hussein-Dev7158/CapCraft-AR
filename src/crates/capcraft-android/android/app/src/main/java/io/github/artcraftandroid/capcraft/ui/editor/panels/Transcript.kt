@@ -195,7 +195,7 @@ fun TranscriptPanel(vm: EditorViewModel) {
                 }
                 Spacer(Modifier.height(16.dp))
                 Text(
-                    "Stop",
+                    localizedText("Stop"),
                     style = Type.BodyStrong.copy(color = Palette.DockText),
                     modifier = Modifier.clickable { runCatching { cancelSpeech() }; job = null }.padding(8.dp),
                 )
@@ -205,7 +205,7 @@ fun TranscriptPanel(vm: EditorViewModel) {
                 Glyph(LucideIcons.FileText, Palette.DockText, size = 34.dp)
                 Spacer(Modifier.height(14.dp))
                 Text(
-                    "Turn what is said into text, then cut the video by deleting its lines.",
+                    localizedText("Turn what is said into text, then cut the video by deleting its lines."),
                     style = Type.Body.copy(color = Palette.Text, textAlign = TextAlign.Center),
                 )
                 Spacer(Modifier.height(22.dp))
