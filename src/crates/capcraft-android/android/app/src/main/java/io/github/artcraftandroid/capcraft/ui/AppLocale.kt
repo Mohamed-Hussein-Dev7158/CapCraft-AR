@@ -75,6 +75,7 @@ fun localizedText(context: Context, source: String): String {
         "Projects" -> R.string.projects
         "Me" -> R.string.account
         "Settings" -> R.string.settings
+        "App language" -> R.string.language
         "Clear cache" -> R.string.clear_cache
         "Licences" -> R.string.licences
         "About CapCraft" -> R.string.about_capcraft
@@ -148,6 +149,60 @@ fun localizedText(context: Context, source: String): String {
         "Cover" -> R.string.cover
         "Mute\nclip" -> R.string.mute_clip
         "Unmute\nclip" -> R.string.unmute_clip
+
+        "Add text" -> R.string.add_text
+        "Video effects" -> R.string.video_effects
+        "Body effects" -> R.string.body_effects
+        "Enter captions" -> R.string.enter_captions
+        "Caption templates" -> R.string.caption_templates
+        "Import captions" -> R.string.import_captions
+        "Export captions" -> R.string.export_captions
+        "Text template" -> R.string.text_template
+        "Auto lyrics" -> R.string.auto_lyrics
+        "Add overlay" -> R.string.add_overlay
+        "Text to audio" -> R.string.text_to_audio
+        "Auto Captions" -> R.string.auto_captions_tool
+        "Draw" -> R.string.draw
+        "Curve" -> R.string.curve
+        "Mirror" -> R.string.mirror
+        "Auto removal" -> R.string.auto_removal
+        "Custom removal" -> R.string.custom_removal
+        "Chroma key" -> R.string.chroma_key
+        "Change BG" -> R.string.change_background
+        "Split" -> R.string.split
+        "Graphs" -> R.string.graphs
+        "Layers" -> R.string.layers
+        "Animations" -> R.string.animations
+        "Multi-select" -> R.string.multi_select
+        "Basic" -> R.string.basic
+        "Tracking" -> R.string.tracking
+        "Edit captions" -> R.string.edit_captions
+        "Text to speech" -> R.string.speech_to_text
+        "Splice" -> R.string.splice
+        "Beats" -> R.string.beats
+        "Crop" -> R.string.crop
+        "Maintrack" -> R.string.main_track
+        "Video quality" -> R.string.video_quality
+        "Remove BG" -> R.string.remove_bg
+        "Relight" -> R.string.relight
+        "Motion blur" -> R.string.motion_blur
+        "Transform" -> R.string.transform
+        "Layer" -> R.string.layer
+        "Auto reframe" -> R.string.auto_reframe
+        "Stabilize" -> R.string.stabilize
+        "Camera tracking" -> R.string.camera_tracking
+        "Recover audio" -> R.string.recover_audio
+        "Isolate voice" -> R.string.isolate_voice
+        "Audio effects" -> R.string.audio_effects
+        "Freeze" -> R.string.freeze
+        "Reverse" -> R.string.reverse
+        "Mask" -> R.string.mask
+        "Lasting text" -> R.string.lasting_text
+        "Auto split" -> R.string.auto_split
+        "Object" -> R.string.object
+        "Describe what you want to do" -> R.string.describe_edit
+        "Full screen" -> R.string.full_screen
+        "Exit full screen" -> R.string.exit_full_screen
         "Opacity" -> R.string.opacity
         "Fade" -> R.string.fade
         "Fade in" -> R.string.fade_in
