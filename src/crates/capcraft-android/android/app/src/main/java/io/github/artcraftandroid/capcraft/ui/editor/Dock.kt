@@ -238,7 +238,7 @@ private fun ToolItem(tool: Tool, width: androidx.compose.ui.unit.Dp = 60.dp) {
         Glyph(tool.icon, tint, size = 23.dp)
         Spacer(Modifier.height(6.dp))
         Text(
-            tool.label,
+            localizedText(tool.label),
             style = Type.DockLabel.copy(color = tint, textAlign = TextAlign.Center),
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
@@ -663,7 +663,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                             }
                             Spacer(Modifier.width(14.dp))
                             Column(Modifier.weight(1f)) {
-                                Text(name, style = Type.Body.copy(color = Palette.Text, fontSize = 15.sp))
+                                Text(localizedText(name), style = Type.Body.copy(color = Palette.Text, fontSize = 15.sp))
                                 val seconds = io.github.artcraftandroid.capcraft.ui.editor.panels.soundFxSeconds(name) ?: 0.0
                                 Text("00:%02d".format(kotlin.math.ceil(seconds).toInt()), style = Type.Small.copy(fontSize = 12.sp, color = Palette.TextSecondary))
                             }
@@ -673,7 +673,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                                     onClose()
                                 },
                                 contentAlignment = Alignment.Center,
-                            ) { Glyph(LucideIcons.Plus, Palette.Text, size = 18.dp, description = "Add $name") }
+                            ) { Glyph(LucideIcons.Plus, Palette.Text, size = 18.dp, description = localizedText("Add") + " " + localizedText(name)) }
                         }
                     }
                     Spacer(Modifier.height(24.dp))
@@ -696,7 +696,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                     }
                     if (found.isNotEmpty()) {
                         Spacer(Modifier.height(12.dp))
-                        SearchHeading("Effects")
+                        SearchHeading(localizedText("Effects"))
                         found.chunked(4).forEach { line ->
                             EffectRow(vm, line) { e ->
                                 onClose()
@@ -714,7 +714,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
 /** A section's title in the search sheet. */
 @Composable
 private fun SearchHeading(title: String) {
-    Text(title, style = Type.BodyStrong.copy(color = Palette.Text, fontSize = 17.sp), modifier = Modifier.padding(top = 8.dp, bottom = 6.dp))
+    Text(localizedText(title), style = Type.BodyStrong.copy(color = Palette.Text, fontSize = 17.sp), modifier = Modifier.padding(top = 8.dp, bottom = 6.dp))
 }
 
 /** A trending shelf's name, and More at the right to open its whole panel. */
@@ -743,7 +743,7 @@ private fun EffectRow(
                     io.github.artcraftandroid.capcraft.ui.editor.panels.PreviewTile(vm, e.id)
                 }
                 Spacer(Modifier.height(4.dp))
-                Text(e.name, style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 11.sp), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(localizedText(e.name), style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 11.sp), maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
         }
         repeat(4 - line.size) { Spacer(Modifier.weight(1f)) }
