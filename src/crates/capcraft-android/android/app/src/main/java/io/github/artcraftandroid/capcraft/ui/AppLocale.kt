@@ -107,6 +107,11 @@ fun localizedText(context: Context, source: String): String {
 
         "Clear cache" -> R.string.clear_cache
         "Licences" -> R.string.licences
+        "GNU Affero General Public License" -> R.string.gnu_agpl
+        "Engine third-party notices" -> R.string.engine_third_party_notices
+        "Lucide icons" -> R.string.lucide_icons
+        "Material Symbols" -> R.string.material_symbols
+        "Noto Sans Arabic UI font" -> R.string.noto_sans_arabic_ui_font
         "About CapCraft" -> R.string.about_capcraft
         "Version" -> R.string.version
         "Clear the cache? Previews and waveforms are made again when needed; projects are kept." -> R.string.clear_cache_question
