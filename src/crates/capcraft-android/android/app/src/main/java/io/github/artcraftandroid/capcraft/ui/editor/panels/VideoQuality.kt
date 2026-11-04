@@ -40,6 +40,7 @@ import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.MaterialIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Panel
 import kotlin.math.abs
@@ -452,22 +453,22 @@ internal fun ColumnScope.QualityContent(vm: EditorViewModel) {
     var held by remember(which, clip?.id) { mutableStateOf<Float?>(null) }
     when {
         smoothing != null -> Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("Smoothing the motion… ${((smoothing ?: 0f) * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
+            Text("${localizedText("Smoothing the motion…")} ${((smoothing ?: 0f) * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
             Text(
-                "Cancel",
+                localizedText("Cancel"),
                 style = Type.Small.copy(color = Palette.Text),
                 modifier = Modifier.clickable { runCatching { io.github.artcraftandroid.capcraft.core.cancelSmoothSlowMotion() } }.padding(8.dp),
             )
         }
         evening != null -> Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("Removing flickers… ${((evening ?: 0f) * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
+            Text("${localizedText("Removing flickers…")} ${((evening ?: 0f) * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
             Text(
                 "Cancel",
                 style = Type.Small.copy(color = Palette.Text),
                 modifier = Modifier.clickable { runCatching { io.github.artcraftandroid.capcraft.core.cancelDeflicker() } }.padding(8.dp),
             )
         }
-        working -> Text("Reading the picture…", style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.padding(horizontal = 20.dp))
+        working -> Text(localizedText("Reading the picture…"), style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.padding(horizontal = 20.dp))
         strength != null -> ValueSlider(
             value = held ?: strength.toFloat(),
             range = 0f..100f,
@@ -498,7 +499,7 @@ internal fun ColumnScope.QualityContent(vm: EditorViewModel) {
         ) {
             Glyph(LucideIcons.RotateCcw, Palette.DockText, size = 18.dp)
             Spacer(Modifier.width(6.dp))
-            Text("Reset", style = Type.Body.copy(color = Palette.DockText))
+            Text(localizedText("Reset"), style = Type.Body.copy(color = Palette.DockText))
         }
     }
 }
