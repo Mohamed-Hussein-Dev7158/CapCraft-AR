@@ -54,6 +54,7 @@ import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.MaterialIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.common.MediaKinds
 import io.github.artcraftandroid.capcraft.ui.common.MediaPick
 import io.github.artcraftandroid.capcraft.ui.editor.panels.collage
@@ -190,7 +191,7 @@ fun Dock(vm: EditorViewModel) {
                         if ((selected != null && !restingMain) || choosing) LucideIcons.ChevronsLeft else LucideIcons.ChevronLeft,
                         Palette.DockText,
                         size = 22.dp,
-                        description = "Back",
+                        description = localizedText("Back"),
                     )
                 }
             }
@@ -678,7 +679,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                     Spacer(Modifier.height(24.dp))
                 } else {
                     if (tools.isEmpty() && found.isEmpty()) {
-                        Text("Nothing by that name", style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
+                        Text(localizedText("Nothing by that name"), style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
                     }
                     if (tools.isNotEmpty()) {
                         SearchHeading("Tools")
