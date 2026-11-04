@@ -398,6 +398,8 @@ fun localizedText(context: Context, source: String): String {
         "The picture under the playhead, saved as a photo" -> R.string.photo_under_playhead
         "Estimated file size: %1$s MB" -> R.string.estimated_file_size
         "Suggested for this video: %1$d" -> R.string.suggested_for_video
+        "Smaller files load faster" -> R.string.smaller_files_faster
+        "Very smooth motion" -> R.string.very_smooth_motion
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
