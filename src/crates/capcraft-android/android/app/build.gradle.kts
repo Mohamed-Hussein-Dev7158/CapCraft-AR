@@ -343,6 +343,7 @@ androidComponents {
                 File(crateDir, "NOTICE.md"),
                 File(crateDir, "assets/icons/LICENSE-lucide.txt"),
                 File(crateDir, "assets/icons-material/LICENSE-material-symbols.txt"),
+                File(crateDir.parentFile, "concat-text/fonts/LICENSE-NotoSansArabicUI.txt"),
             )
             targets.set(
                 mapOf(
@@ -351,6 +352,7 @@ androidComponents {
                     "NOTICE.md" to "licences/NOTICE.md",
                     "LICENSE-lucide.txt" to "licences/LICENSE-lucide.txt",
                     "LICENSE-material-symbols.txt" to "licences/LICENSE-material-symbols.txt",
+                    "LICENSE-NotoSansArabicUI.txt" to "licences/LICENSE-NotoSansArabicUI.txt",
                 ),
             )
         }
