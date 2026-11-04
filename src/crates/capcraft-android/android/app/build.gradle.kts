@@ -162,7 +162,7 @@ abstract class MaterialIconsTask : DefaultTask() {
     }
 }
 
-/** Files copied into the APK's assets under the names given: the licences the About screen shows. */
+/** Copies repository files into a generated Android source directory at the relative targets given. */
 abstract class CopyFiles : DefaultTask() {
     @get:InputFiles @get:PathSensitive(PathSensitivity.NAME_ONLY) abstract val files: ConfigurableFileCollection
     @get:Input abstract val targets: MapProperty<String, String>
