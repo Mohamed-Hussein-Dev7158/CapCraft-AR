@@ -211,7 +211,7 @@ fun EnterCaptionsPage(vm: EditorViewModel) {
                 }
                 if (voiceover) {
                     Spacer(Modifier.height(10.dp))
-                    val size = model?.let { if (it.downloaded) "" else " · %.0f MB download".format(it.sizeBytes.toLong() / 1_048_576.0) }.orEmpty()
+                    val size = model?.let { if (it.downloaded) "" else " · ${localizedText("%.0f MB download").format(it.sizeBytes.toLong() / 1_048_576.0)}" }.orEmpty()
                     Text(localizedText("Read by: Text to speech") + size, style = Type.Small.copy(color = Palette.TextSecondary))
                     Spacer(Modifier.height(10.dp))
                     Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
