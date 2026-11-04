@@ -200,4 +200,13 @@
 
     <string name="added_to_favorites">تمت الإضافة إلى المحفوظات</string>
     <string name="removed_from_favorites">تمت الإزالة من المحفوظات</string>
+
+    <string name="export_failed">فشل تصدير الفيديو</string>
+    <string name="try_again">إعادة المحاولة</string>
+    <string name="new_project">مشروع جديد</string>
+    <string name="export_background_tip">تقدر تخرج من CapCraft أثناء حفظ الفيديو.</string>
+    <string name="saved_to_pictures">تم الحفظ في الصور</string>
+    <string name="saved_to_device">تم الحفظ على جهازك</string>
+    <string name="share">مشاركة</string>
+    <string name="open">فتح</string>
 </resources>
