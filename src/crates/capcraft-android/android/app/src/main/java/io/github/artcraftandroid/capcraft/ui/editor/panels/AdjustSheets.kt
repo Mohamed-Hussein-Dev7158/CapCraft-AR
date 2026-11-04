@@ -42,6 +42,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import org.json.JSONObject
 import kotlin.math.roundToInt
 
@@ -52,9 +53,9 @@ private fun SheetHead(title: String, onReset: () -> Unit, onClose: () -> Unit) {
         Row(Modifier.align(Alignment.CenterStart).clickable(onClick = onReset).padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Glyph(LucideIcons.RotateCcw, Palette.TextSecondary, size = 16.dp)
             Spacer(Modifier.width(6.dp))
-            Text("Reset", style = Type.Small.copy(color = Palette.TextSecondary))
+            Text(localizedText("Reset"), style = Type.Small.copy(color = Palette.TextSecondary))
         }
-        Text(title, style = Type.Body.copy(color = Palette.Text), modifier = Modifier.align(Alignment.Center))
+        Text(localizedText(title), style = Type.Body.copy(color = Palette.Text), modifier = Modifier.align(Alignment.Center))
         Box(Modifier.align(Alignment.CenterEnd).size(40.dp).clickable(onClick = onClose), contentAlignment = Alignment.Center) {
             Glyph(LucideIcons.CircleChevronDown, Palette.DockText, size = 20.dp, description = "Close")
         }
