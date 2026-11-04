@@ -63,6 +63,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.common.MediaKinds
 import io.github.artcraftandroid.capcraft.ui.common.MediaPick
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
@@ -256,10 +257,10 @@ fun SoundsPage(vm: EditorViewModel) {
     ) {
         Row(Modifier.fillMaxWidth().height(52.dp).padding(horizontal = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(44.dp).clickable { vm.panel = null }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.X, Color.White, size = 24.dp, description = "Close")
+                Glyph(LucideIcons.X, Color.White, size = 24.dp, description = localizedText("Close"))
             }
             Text(
-                "Sounds",
+                localizedText("Sounds"),
                 style = Type.BodyStrong.copy(color = Color.White, fontSize = 17.sp),
                 modifier = Modifier.weight(1f),
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center,
@@ -273,7 +274,7 @@ fun SoundsPage(vm: EditorViewModel) {
             Glyph(LucideIcons.Search, Palette.TextSecondary, size = 18.dp)
             Spacer(Modifier.width(8.dp))
             Box(Modifier.weight(1f)) {
-                if (query.isEmpty()) Text("Search your sounds", style = Type.Body.copy(color = Palette.TextSecondary, fontSize = 15.sp))
+                if (query.isEmpty()) Text(localizedText("Search your sounds"), style = Type.Body.copy(color = Palette.TextSecondary, fontSize = 15.sp))
                 BasicTextField(
                     query,
                     { query = it },
@@ -301,12 +302,12 @@ fun SoundsPage(vm: EditorViewModel) {
                 item {
                     Column(Modifier.fillMaxWidth().padding(horizontal = 20.dp)) {
                         Spacer(Modifier.height(16.dp))
-                        Text("Your audio", style = Type.Body.copy(color = Color.White, fontSize = 17.sp))
+                        Text(localizedText("Your audio"), style = Type.Body.copy(color = Color.White, fontSize = 17.sp))
                         Spacer(Modifier.height(14.dp))
                         Row(Modifier.fillMaxWidth()) {
-                            ShelfTile("Extracted", LucideIcons.ImagePlay, !device, Modifier.weight(1f)) { device = false }
+                            ShelfTile(localizedText("Extracted"), LucideIcons.ImagePlay, !device, Modifier.weight(1f)) { device = false }
                             Spacer(Modifier.width(36.dp))
-                            ShelfTile("Device", LucideIcons.Folder, device, Modifier.weight(1f)) {
+                            ShelfTile(localizedText("Device"), LucideIcons.Folder, device, Modifier.weight(1f)) {
                                 device = true
                                 if (!allowed) ask.launch(audioPermission())
                             }
@@ -325,13 +326,13 @@ fun SoundsPage(vm: EditorViewModel) {
                                         }
                                     },
                                 contentAlignment = Alignment.Center,
-                            ) { Text("Extract audio from video", style = Type.Body.copy(color = Palette.Accent, fontSize = 15.sp)) }
+                            ) { Text(localizedText("Extract audio from video"), style = Type.Body.copy(color = Palette.Accent, fontSize = 15.sp)) }
                             Spacer(Modifier.height(8.dp))
                         } else if (!allowed) {
-                            Text("Allow access to the music on this phone to list it here.", style = Type.Small.copy(color = Palette.TextSecondary))
+                            Text(localizedText("Allow access to the music on this phone to list it here."), style = Type.Small.copy(color = Palette.TextSecondary))
                             Spacer(Modifier.height(10.dp))
                             Text(
-                                "Choose a file instead",
+                                localizedText("Choose a file instead"),
                                 style = Type.Body.copy(color = Palette.Accent),
                                 modifier = Modifier.clickable { fromFiles.launch(arrayOf("audio/*")) }.padding(vertical = 6.dp),
                             )
@@ -346,12 +347,12 @@ fun SoundsPage(vm: EditorViewModel) {
                     })
                 }
                 if (device && allowed && music != null && music.orEmpty().isEmpty()) {
-                    item { Text("No music on this phone", style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.padding(20.dp)) }
+                    item { Text(localizedText("No music on this phone"), style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.padding(20.dp)) }
                 }
             } else {
                 val list = favourites.matching()
                 if (list.isEmpty()) {
-                    item { Text("Sounds you bookmark show here.", style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.padding(20.dp)) }
+                    item { Text(localizedText("Sounds you bookmark show here."), style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.padding(20.dp)) }
                 }
                 items(list, key = { "fav|${it.uri}" }) { s ->
                     SoundRow(s, playing == s.uri, true, heard, ::seek, onPlay = { play(s) }, onUse = { use(s) }, onKeep = {
@@ -409,7 +410,7 @@ private fun SoundRow(
             }
             Spacer(Modifier.width(16.dp))
             Column(Modifier.weight(1f)) {
-                Text(s.title.ifEmpty { "Untitled" }, style = Type.Body.copy(color = Color.White, fontSize = 15.sp), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(s.title.ifEmpty { localizedText("Untitled") }, style = Type.Body.copy(color = Color.White, fontSize = 15.sp), maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(2.dp))
                 Text(
                     listOf(clock(s.durationMs), s.artist).filter { it.isNotEmpty() }.joinToString(" · "),
