@@ -789,7 +789,7 @@ private fun ProjectsTab(
                         }
                     }
                     Text(
-                        "Cancel",
+                        localizedText("Cancel"),
                         style = ink(15f),
                         modifier = Modifier.clickable { query = ""; onSearching(false) }.padding(horizontal = 10.dp, vertical = 8.dp),
                     )
@@ -817,7 +817,7 @@ private fun ProjectsTab(
             Box(Modifier.fillMaxWidth().height(1.dp).background(Home.Hairline))
             if (showingTrash) {
                 Text(
-                    "Projects here are deleted for good after 30 days.",
+                    localizedText("Projects here are deleted for good after 30 days."),
                     style = ink(13f, color = Home.Muted),
                     modifier = Modifier.padding(start = 16.dp, top = 10.dp, bottom = 4.dp),
                 )
@@ -1098,7 +1098,7 @@ private fun appVersion(context: android.content.Context): String =
 private fun SettingRow(label: String, value: String?, onClick: (() -> Unit)?) {
     Column(Modifier.fillMaxWidth().then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)) {
         Row(Modifier.fillMaxWidth().height(60.dp).padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text(label, style = ink(16f), modifier = Modifier.weight(1f))
+            Text(localizedText(label), style = ink(16f), modifier = Modifier.weight(1f))
             if (!value.isNullOrEmpty()) Text(value, style = ink(15f, color = Home.Muted))
             if (onClick != null && value == null) Glyph(LucideIcons.ChevronRight, Home.Muted, size = 20.dp)
         }
@@ -1114,7 +1114,7 @@ private fun Page(title: String, onBack: () -> Unit, content: @Composable () -> U
         Box(Modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
             Text(localizedText(title), style = ink(17f, FontWeight.SemiBold))
             Box(Modifier.align(Alignment.CenterStart).padding(start = 4.dp).size(44.dp).clickable(onClick = onBack), contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.ChevronLeft, Home.Ink, size = 24.dp, description = "Back")
+                Glyph(LucideIcons.ChevronLeft, Home.Ink, size = 24.dp, description = localizedText("Back"))
             }
         }
         content()
@@ -1295,7 +1295,7 @@ private fun ProjectSheet(p: ProjectSummary, onDismiss: () -> Unit, onRename: () 
                 Column {
                     Text(p.name.ifBlank { "Untitled" }, style = ink(15f, FontWeight.Medium), maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Spacer(Modifier.height(2.dp))
-                    Text("${size(p.sizeBytes)} · Updated ${ago(p.modifiedMs)}", style = ink(12f, color = Home.Muted))
+                    Text("${size(p.sizeBytes)} · ${localizedText("Updated")} ${ago(p.modifiedMs)}", style = ink(12f, color = Home.Muted))
                 }
             }
             Box(Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 4.dp).height(1.dp).background(Home.Hairline))
