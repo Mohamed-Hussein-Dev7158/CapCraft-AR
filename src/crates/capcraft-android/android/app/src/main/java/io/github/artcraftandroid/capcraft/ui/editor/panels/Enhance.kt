@@ -93,7 +93,7 @@ fun EnhancePanel(vm: EditorViewModel) {
             Spacer(Modifier.height(12.dp))
             val running = job
             if (running != null) {
-                Text("${running.first} ${(running.second * 100).toInt()}%", style = Type.Small.copy(color = Palette.Text))
+                Text("${localizedText(running.first)} ${(running.second * 100).toInt()}%", style = Type.Small.copy(color = Palette.Text))
                 Spacer(Modifier.height(6.dp))
                 Box(Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(2.dp)).background(Color(0xFF3A3A3A))) {
                     Box(Modifier.fillMaxWidth(running.second.coerceIn(0f, 1f)).height(4.dp).background(Palette.Accent))
