@@ -66,6 +66,7 @@ import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.MaterialIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.common.Toast
 import io.github.artcraftandroid.capcraft.ui.editor.panels.PanelHost
 import io.github.artcraftandroid.capcraft.ui.export.ExportScreen
@@ -123,7 +124,7 @@ fun EditorScreen(path: String, incoming: List<Uri>, then: String? = null, close:
 
     fun export() {
         vm.stop()
-        if ((vm.timeline?.durationUs ?: 0L) <= 0L) vm.message = "Add media first" else exporting = true
+        if ((vm.timeline?.durationUs ?: 0L) <= 0L) vm.message = localizedText("Add media first") else exporting = true
     }
 
     BackHandler {
@@ -242,7 +243,7 @@ private fun TopBar(vm: EditorViewModel, onClose: () -> Unit, onExport: () -> Uni
                 .clickable(onClick = onExport),
             contentAlignment = Alignment.Center,
         ) {
-            Text("Export", style = Type.BodyStrong.copy(color = Palette.OnAccent, fontSize = 15.sp, fontWeight = FontWeight.Medium))
+            Text(localizedText("Export"), style = Type.BodyStrong.copy(color = Palette.OnAccent, fontSize = 15.sp, fontWeight = FontWeight.Medium))
         }
         Spacer(Modifier.width(16.dp))
     }
@@ -300,7 +301,7 @@ fun Preview(vm: EditorViewModel, modifier: Modifier) {
             }
         }
         if (t.rows.all { it.clips.isEmpty() }) {
-            Text("Add media to start editing", style = Type.Small)
+            Text(localizedText("Add media to start editing"), style = Type.Small)
         }
     }
 }
@@ -477,10 +478,10 @@ private fun PlayBar(vm: EditorViewModel) {
                 }
             }
             Box(Modifier.size(36.dp).clickable(enabled = canUndo) { vm.stop(); vm.step(back = true) }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Undo2, if (canUndo) Palette.DockText else Palette.Disabled, size = 23.dp, description = "Undo")
+                Glyph(LucideIcons.Undo2, if (canUndo) Palette.DockText else Palette.Disabled, size = 23.dp, description = localizedText("Undo"))
             }
             Box(Modifier.size(36.dp).clickable(enabled = canRedo) { vm.stop(); vm.step(back = false) }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Redo2, if (canRedo) Palette.DockText else Palette.Disabled, size = 23.dp, description = "Redo")
+                Glyph(LucideIcons.Redo2, if (canRedo) Palette.DockText else Palette.Disabled, size = 23.dp, description = localizedText("Redo"))
             }
         }
     }
