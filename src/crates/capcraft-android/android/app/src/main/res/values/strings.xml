@@ -340,4 +340,9 @@
     <string name="smooth">Smooth</string>
     <string name="brighten">Brighten</string>
     <string name="record_voiceover">Record voice-over</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="expand">Expand</string>
+    <string name="minimize">Minimize</string>
+    <string name="add_to_fx">Add</string>
 </resources>
