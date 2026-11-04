@@ -377,4 +377,6 @@
     <string name="trash_retention_note">Projects here are deleted for good after 30 days.</string>
     <string name="about_project_description">A free video editor that keeps your work on your phone. Built on Concat's engine; free software under the GNU Affero General Public License, version 3 or later.</string>
     <string name="not_affiliated_short">Not affiliated with or endorsed by ByteDance or CapCut.</string>
+    <string name="add_keyframe">Add keyframe</string>
+    <string name="remove_keyframe">Remove keyframe</string>
 </resources>
