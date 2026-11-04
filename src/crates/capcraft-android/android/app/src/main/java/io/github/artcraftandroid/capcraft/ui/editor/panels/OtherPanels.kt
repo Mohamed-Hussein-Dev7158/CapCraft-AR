@@ -57,6 +57,7 @@ import io.github.artcraftandroid.capcraft.core.PackageInfo
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import java.io.File
 import kotlin.math.min
@@ -760,7 +761,7 @@ fun VoiceoverPanel(vm: EditorViewModel) {
             RecordTool(LucideIcons.AudioWaveform, voice?.name ?: "Voice changer", on = voice != null, modifier = Modifier.weight(1f)) { choosingVoice = !choosingVoice }
         }
         Text(
-            if (recorder != null) "Recording ${clock(vm.playhead - startedAt)} · tap to stop" else "Tap to record",
+            if (recorder != null) localizedText("Recording %1$s · tap to stop").format(clock(vm.playhead - startedAt)) else localizedText("Tap to record"),
             style = Type.Small.copy(color = Palette.TextSecondary),
             modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 12.dp),
         )
@@ -779,7 +780,7 @@ fun VoiceoverPanel(vm: EditorViewModel) {
                     cursorBrush = androidx.compose.ui.graphics.SolidColor(Palette.Accent),
                     decorationBox = { inner ->
                         Box {
-                            if (script.isEmpty()) Text("Type what you will say; it scrolls over the picture while you record.", style = Type.Small)
+                            if (script.isEmpty()) Text(localizedText("Type what you will say; it scrolls over the picture while you record."), style = Type.Small)
                             inner()
                         }
                     },
@@ -800,7 +801,7 @@ private fun RecordTool(icon: androidx.compose.ui.graphics.vector.ImageVector, la
         Glyph(icon, if (on) Palette.Accent else Palette.DockText, size = 23.dp)
         Spacer(Modifier.height(6.dp))
         Text(
-            label,
+            localizedText(label),
             style = Type.DockLabel.copy(color = if (on) Palette.Accent else Palette.DockText, textAlign = androidx.compose.ui.text.style.TextAlign.Center),
             maxLines = 2,
         )
