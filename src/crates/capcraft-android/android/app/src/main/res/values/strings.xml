@@ -205,4 +205,10 @@
     <string name="saved_to_device">Saved to your device</string>
     <string name="share">Share</string>
     <string name="open">Open</string>
+
+    <string name="gnu_agpl">GNU Affero General Public License</string>
+    <string name="engine_third_party_notices">Engine third-party notices</string>
+    <string name="lucide_icons">Lucide icons</string>
+    <string name="material_symbols">Material Symbols</string>
+    <string name="noto_sans_arabic_ui_font">Noto Sans Arabic UI font</string>
 </resources>
