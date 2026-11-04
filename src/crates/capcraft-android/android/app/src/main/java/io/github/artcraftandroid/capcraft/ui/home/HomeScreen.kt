@@ -917,7 +917,7 @@ private fun ProjectRow(p: ProjectSummary, ticked: Boolean?, onOpen: () -> Unit, 
         }
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {
-            Text(p.name.ifBlank { "Untitled" }, style = ink(15f, FontWeight.SemiBold), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text(p.name.ifBlank { localizedText("Untitled") }, style = ink(15f, FontWeight.SemiBold), maxLines = 1, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(4.dp))
             Text(stamp(p.modifiedMs), style = ink(13f, color = Home.Muted))
             Spacer(Modifier.height(4.dp))
@@ -1330,7 +1330,7 @@ private fun RenameSheet(current: String, onDismiss: () -> Unit, onDone: (String)
             Box(Modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
                 Text(localizedText("Rename"), style = ink(16f, FontWeight.Bold))
                 Box(Modifier.align(Alignment.CenterEnd).size(40.dp).clickable(onClick = onDismiss), contentAlignment = Alignment.CenterEnd) {
-                    Glyph(LucideIcons.X, Home.Ink, size = 22.dp, description = "Close")
+                    Glyph(LucideIcons.X, Home.Ink, size = 22.dp, description = localizedText("Close"))
                 }
             }
             Row(
