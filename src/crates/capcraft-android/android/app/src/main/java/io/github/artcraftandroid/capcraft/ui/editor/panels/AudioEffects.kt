@@ -36,6 +36,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import org.json.JSONArray
 import org.json.JSONObject
@@ -105,16 +106,16 @@ fun AudioEffectsPanel(vm: EditorViewModel) {
             if (searching) {
                 Box(Modifier.weight(1f)) { SearchField(query, { query = it }, "Search audio effects", autoFocus = true) }
                 Text(
-                    "Cancel",
+                    localizedText("Cancel"),
                     style = Type.Body.copy(color = Palette.DockText),
                     modifier = Modifier.clickable { query = ""; searching = false }.padding(horizontal = 10.dp, vertical = 8.dp),
                 )
             } else {
                 Box(Modifier.size(32.dp).clickable { searching = true }, contentAlignment = Alignment.Center) {
-                    Glyph(LucideIcons.Search, Palette.DockText, size = 18.dp, description = "Search audio effects")
+                    Glyph(LucideIcons.Search, Palette.DockText, size = 18.dp, description = localizedText("Search audio effects"))
                 }
                 Box(Modifier.padding(horizontal = 10.dp).size(1.dp, 18.dp).background(Color(0xFF444444)))
-                Text("All", style = Type.BodyStrong.copy(color = Palette.Text, fontSize = 15.sp))
+                Text(localizedText("All"), style = Type.BodyStrong.copy(color = Palette.Text, fontSize = 15.sp))
             }
         }
         LazyVerticalGrid(
@@ -125,7 +126,7 @@ fun AudioEffectsPanel(vm: EditorViewModel) {
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             if (query.isBlank()) {
-                item { SoundTile("Original", current == null, bold = true) { apply(null) } }
+                item { SoundTile(localizedText("Original"), current == null, bold = true) { apply(null) } }
             }
             items(shown.size) { i ->
                 val p = shown[i]
