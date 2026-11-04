@@ -193,4 +193,7 @@
     <string name="transitions">Transitions</string>
     <string name="change_audio_pitch">Change audio pitch</string>
     <string name="press_and_hold_to_save">Press and hold an item to save it here.</string>
+
+    <string name="added_to_favorites">Added to saved items</string>
+    <string name="removed_from_favorites">Removed from saved items</string>
 </resources>
