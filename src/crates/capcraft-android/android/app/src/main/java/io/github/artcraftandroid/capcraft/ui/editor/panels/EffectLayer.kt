@@ -30,6 +30,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Thumbs
 import org.json.JSONObject
@@ -98,7 +99,7 @@ fun LayerAdjustPanel(vm: EditorViewModel) {
             Row(Modifier.clickable(onClick = ::reset).padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
                 Glyph(LucideIcons.RotateCcw, Palette.DockText, size = 18.dp)
                 Spacer(Modifier.width(6.dp))
-                Text("Reset", style = Type.Body.copy(color = Palette.DockText))
+                Text(localizedText("Reset"), style = Type.Body.copy(color = Palette.DockText))
             }
         },
     ) {
@@ -107,7 +108,7 @@ fun LayerAdjustPanel(vm: EditorViewModel) {
             verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
         ) {
             if (knobs.isEmpty()) {
-                Text("This effect has nothing to set", style = Type.Small, modifier = Modifier.align(Alignment.CenterHorizontally))
+                Text(localizedText("This effect has nothing to set"), style = Type.Small, modifier = Modifier.align(Alignment.CenterHorizontally))
             }
             knobs.forEach { knob ->
                 key(knob.key) {
