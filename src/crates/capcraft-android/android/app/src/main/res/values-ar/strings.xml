@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CapCraft AR</string>
+    <string name="share_label">تحرير باستخدام CapCraft AR</string>
     <string name="ready_when_you_are">جاهز تبدأ؟</string>
     <string name="make_your_next_video">ابدأ مشروع فيديو جديد</string>
     <string name="search_projects">ابحث في المشاريع</string>
