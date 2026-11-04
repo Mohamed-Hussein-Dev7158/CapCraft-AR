@@ -889,7 +889,7 @@ private fun ProjectsTab(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Box(Modifier.size(20.dp).clip(RoundedCornerShape(5.dp)).background(Color.White), contentAlignment = Alignment.Center) {
-                    Glyph(LucideIcons.Plus, Palette.Accent, size = 16.dp)
+                    Glyph(LucideIcons.Plus, Palette.OnAccent, size = 16.dp)
                 }
                 Spacer(Modifier.width(8.dp))
                 Text(localizedText("Create"), style = ink(17f, FontWeight.Medium, Palette.OnAccent))
