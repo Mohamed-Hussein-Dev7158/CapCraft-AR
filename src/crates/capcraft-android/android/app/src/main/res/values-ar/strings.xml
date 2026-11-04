@@ -170,4 +170,26 @@
     <string name="describe_edit">اكتب وصفًا للتعديل الذي تريده</string>
     <string name="full_screen">ملء الشاشة</string>
     <string name="exit_full_screen">الخروج من ملء الشاشة</string>
+
+    <string name="color">اللون</string>
+    <string name="image">صورة</string>
+    <string name="blur">تمويه</string>
+    <string name="rotate">تدوير</string>
+    <string name="advanced">متقدم</string>
+    <string name="normal">عادي</string>
+    <string name="volume">مستوى الصوت</string>
+    <string name="speed">السرعة</string>
+    <string name="replace">استبدال</string>
+    <string name="style">النمط</string>
+    <string name="recommended">مقترح لك</string>
+    <string name="trending">الرائج</string>
+    <string name="tools">الأدوات</string>
+    <string name="flip_video_horizontally">اعكس الفيديو أفقيًا</string>
+    <string name="add_auto_captions">أنشئ الترجمة النصية تلقائيًا</string>
+    <string name="reduce_video_noise">قلّل التشويش في الفيديو</string>
+    <string name="noise_reduction">تقليل الضوضاء</string>
+    <string name="add_a_clip_first">أضف مقطعًا أولًا</string>
+    <string name="loudness_adjustment">ضبط مستوى الصوت</string>
+    <string name="noise_reduction_description">يقلّل الهسهسة والطنين في خلفية الصوت.</string>
+    <string name="text_to_speech">تحويل النص إلى كلام</string>
 </resources>
