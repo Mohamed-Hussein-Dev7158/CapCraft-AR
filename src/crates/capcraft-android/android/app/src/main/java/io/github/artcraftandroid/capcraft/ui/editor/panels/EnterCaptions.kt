@@ -55,6 +55,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -180,15 +181,15 @@ fun EnterCaptionsPage(vm: EditorViewModel) {
                             Text(words, style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text, lineHeight = 24.sp))
                         } else {
                             Column {
-                                Text("Enter text", style = Type.Body.copy(fontSize = 16.sp, color = Palette.TextSecondary))
+                                Text(localizedText("Enter text"), style = Type.Body.copy(fontSize = 16.sp, color = Palette.TextSecondary))
                                 Spacer(Modifier.height(4.dp))
                                 Text(
-                                    "Type or paste a script. Each line becomes a caption of its own.",
+                                    localizedText("Type or paste a script. Each line becomes a caption of its own."),
                                     style = Type.Body.copy(fontSize = 16.sp, color = Palette.TextSecondary, lineHeight = 24.sp),
                                 )
                                 Spacer(Modifier.height(12.dp))
                                 Text(
-                                    "Try an example",
+                                    localizedText("Try an example"),
                                     style = Type.Body.copy(color = Palette.Text),
                                     modifier = Modifier.clip(RoundedCornerShape(8.dp)).border(1.dp, Color(0xFF6C6F76), RoundedCornerShape(8.dp))
                                         .clickable { words = EXAMPLE }.padding(horizontal = 12.dp, vertical = 6.dp),
@@ -206,12 +207,12 @@ fun EnterCaptionsPage(vm: EditorViewModel) {
                         contentAlignment = Alignment.Center,
                     ) { if (voiceover) Glyph(LucideIcons.Check, Color.Black, size = 14.dp) }
                     Spacer(Modifier.width(10.dp))
-                    Text("Voiceover", style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text))
+                    Text(localizedText("Voiceover"), style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text))
                 }
                 if (voiceover) {
                     Spacer(Modifier.height(10.dp))
                     val size = model?.let { if (it.downloaded) "" else " · %.0f MB download".format(it.sizeBytes.toLong() / 1_048_576.0) }.orEmpty()
-                    Text("Read by: Text to speech$size", style = Type.Small.copy(color = Palette.TextSecondary))
+                    Text(localizedText("Read by: Text to speech") + size, style = Type.Small.copy(color = Palette.TextSecondary))
                     Spacer(Modifier.height(10.dp))
                     Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         voiceList.forEach { v ->
@@ -238,7 +239,7 @@ fun EnterCaptionsPage(vm: EditorViewModel) {
                     Spacer(Modifier.height(6.dp))
                     LinearProgressIndicator(progress = { fraction }, modifier = Modifier.fillMaxWidth(), color = Palette.Accent, trackColor = Palette.Disabled)
                     Spacer(Modifier.height(10.dp))
-                    Text("Cancel", style = Type.BodyStrong, modifier = Modifier.clickable { runCatching { cancelSpeech() }; busy = null; afterDownload = false })
+                    Text(localizedText("Cancel"), style = Type.BodyStrong, modifier = Modifier.clickable { runCatching { cancelSpeech() }; busy = null; afterDownload = false })
                 }
                 Spacer(Modifier.height(16.dp))
             }
