@@ -209,11 +209,11 @@ private fun TopBar(vm: EditorViewModel, onClose: () -> Unit, onExport: () -> Uni
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(Modifier.padding(start = 6.dp).size(44.dp, 50.dp).clickable(onClick = onClose), contentAlignment = Alignment.Center) {
-            Glyph(LucideIcons.X, Palette.DockText, size = 26.dp, description = "Close")
+            Glyph(LucideIcons.X, Palette.DockText, size = 26.dp, description = localizedText("Close"))
         }
         // finding a tool by its name, beside the close button as the reference has it
         Box(Modifier.size(44.dp, 50.dp).clickable { vm.stop(); vm.toolSearch = true }, contentAlignment = Alignment.Center) {
-            Glyph(LucideIcons.Search, Palette.DockText, size = 24.dp, description = "Find a tool")
+            Glyph(LucideIcons.Search, Palette.DockText, size = 24.dp, description = localizedText("Find a tool"))
         }
         Spacer(Modifier.weight(1f))
         val t = vm.timeline
@@ -446,7 +446,7 @@ private fun PlayBar(vm: EditorViewModel) {
     ) {
         Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(40.dp).clickable { vm.fullscreen = true }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Expand, Palette.DockText, size = 24.dp, description = "Full screen")
+                Glyph(LucideIcons.Expand, Palette.DockText, size = 24.dp, description = localizedText("Full screen"))
             }
         }
         Box(Modifier.size(44.dp).clickable { vm.togglePlay() }, contentAlignment = Alignment.Center) {
@@ -532,7 +532,7 @@ private fun FullscreenPreview(vm: EditorViewModel) {
             Box(Modifier.weight(1f).padding(horizontal = 12.dp)) { Scrubber(vm) }
             Text(clock(vm.timeline?.durationUs ?: 0), style = Type.Small)
             Box(Modifier.size(40.dp).clickable { vm.fullscreen = false }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Minimize, Palette.Text, size = 20.dp, description = "Exit full screen")
+                Glyph(LucideIcons.Minimize, Palette.Text, size = 20.dp, description = localizedText("Exit full screen"))
             }
         }
     }
