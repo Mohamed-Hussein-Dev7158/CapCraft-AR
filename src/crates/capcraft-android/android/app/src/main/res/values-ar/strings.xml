@@ -196,4 +196,7 @@
     <string name="transitions">الانتقالات</string>
     <string name="change_audio_pitch">تغيير طبقة الصوت</string>
     <string name="press_and_hold_to_save">اضغط مطولًا على العنصر لحفظه هنا.</string>
+
+    <string name="added_to_favorites">تمت الإضافة إلى المحفوظات</string>
+    <string name="removed_from_favorites">تمت الإزالة من المحفوظات</string>
 </resources>
