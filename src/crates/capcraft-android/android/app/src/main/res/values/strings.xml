@@ -196,4 +196,13 @@
 
     <string name="added_to_favorites">Added to saved items</string>
     <string name="removed_from_favorites">Removed from saved items</string>
+
+    <string name="export_failed">Export failed</string>
+    <string name="try_again">Try again</string>
+    <string name="new_project">New project</string>
+    <string name="export_background_tip">You can leave CapCraft while the video saves.</string>
+    <string name="saved_to_pictures">Saved to Pictures</string>
+    <string name="saved_to_device">Saved to your device</string>
+    <string name="share">Share</string>
+    <string name="open">Open</string>
 </resources>
