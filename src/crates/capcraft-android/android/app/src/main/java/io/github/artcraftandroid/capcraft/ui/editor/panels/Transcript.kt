@@ -188,7 +188,7 @@ fun TranscriptPanel(vm: EditorViewModel) {
         when {
             running != null -> Column(Modifier.fillMaxSize().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Spacer(Modifier.height(30.dp))
-                Text("${running.first} ${(running.second * 100).toInt()}%", style = Type.BodyStrong)
+                Text("${localizedText(running.first)} ${(running.second * 100).toInt()}%", style = Type.BodyStrong)
                 Spacer(Modifier.height(12.dp))
                 Box(Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(2.dp)).background(Color(0xFF3A3A3A))) {
                     Box(Modifier.fillMaxWidth(running.second.coerceIn(0f, 1f)).height(4.dp).background(Palette.Accent))
