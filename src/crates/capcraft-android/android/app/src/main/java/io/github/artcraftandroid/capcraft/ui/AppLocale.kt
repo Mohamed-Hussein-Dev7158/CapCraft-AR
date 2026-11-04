@@ -401,6 +401,8 @@ fun localizedText(context: Context, source: String): String {
         "Smaller files load faster" -> R.string.smaller_files_faster
         "Very smooth motion" -> R.string.very_smooth_motion
 
+        "Add keyframe" -> R.string.add_keyframe
+        "Remove keyframe" -> R.string.remove_keyframe
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
