@@ -1,10 +1,9 @@
 package io.github.artcraftandroid.capcraft.ui
 
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -81,7 +80,7 @@ fun CapCraftTheme(content: @Composable () -> Unit) {
         FontFamily.Default
     }
 
-    CompositionLocalProvider(LocalTextStyle provides TextStyle(fontFamily = appTypeface)) {
+    ProvideTextStyle(value = TextStyle(fontFamily = appTypeface)) {
         MaterialTheme(
             colorScheme = darkColorScheme(
                 primary = Palette.Accent,
