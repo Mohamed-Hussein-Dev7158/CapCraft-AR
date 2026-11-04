@@ -189,4 +189,8 @@
     <string name="loudness_adjustment">Loudness adjustment</string>
     <string name="noise_reduction_description">Takes the hum and hiss out from behind the sound.</string>
     <string name="text_to_speech">Text to speech</string>
+
+    <string name="transitions">Transitions</string>
+    <string name="change_audio_pitch">Change audio pitch</string>
+    <string name="press_and_hold_to_save">Press and hold an item to save it here.</string>
 </resources>
