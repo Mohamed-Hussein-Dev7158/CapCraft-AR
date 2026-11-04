@@ -58,6 +58,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Thumbs
 import kotlin.math.abs
@@ -227,7 +228,7 @@ fun CropPanel(vm: EditorViewModel) {
         }
         Spacer(Modifier.height(12.dp))
         Box(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
-            Text("Rotate", style = Type.BodyStrong.copy(color = Color.White, fontSize = 15.sp))
+            Text(localizedText("Rotate"), style = Type.BodyStrong.copy(color = Color.White, fontSize = 15.sp))
             Text(
                 "${straighten.roundToInt()}°",
                 style = Type.BodyStrong.copy(color = Color.White, fontSize = 15.sp),
@@ -236,7 +237,7 @@ fun CropPanel(vm: EditorViewModel) {
         }
         DegreeRuler(straighten, { straighten = it }, Modifier.fillMaxWidth().height(56.dp))
         Spacer(Modifier.height(10.dp))
-        Text("Aspect ratio", style = Type.BodyStrong.copy(color = Color.White, fontSize = 15.sp), modifier = Modifier.padding(horizontal = 16.dp))
+        Text(localizedText("Aspect ratio"), style = Type.BodyStrong.copy(color = Color.White, fontSize = 15.sp), modifier = Modifier.padding(horizontal = 16.dp))
         Spacer(Modifier.height(10.dp))
         Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(horizontal = 10.dp)) {
             RATIOS.forEachIndexed { i, (label, aspect) ->
@@ -293,7 +294,7 @@ fun CropPanel(vm: EditorViewModel) {
         ) {
             Glyph(LucideIcons.Trash2, Color.White, size = 16.dp)
             Spacer(Modifier.width(6.dp))
-            Text("Reset", style = Type.Small.copy(color = Color.White, fontSize = 13.sp))
+            Text(localizedText("Reset"), style = Type.Small.copy(color = Color.White, fontSize = 13.sp))
         }
         Spacer(Modifier.height(14.dp))
     }
