@@ -70,6 +70,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorMetrics
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import java.io.File
@@ -299,7 +300,7 @@ fun TextPanel(vm: EditorViewModel, clipId: String?, startTab: Int = 3) {
                 decorationBox = { inner ->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Box(Modifier.weight(1f)) {
-                            if (text.isEmpty()) Text("Enter text", style = Type.Body.copy(fontSize = 16.sp, color = Palette.TextSecondary))
+                            if (text.isEmpty()) Text(localizedText("Enter text"), style = Type.Body.copy(fontSize = 16.sp, color = Palette.TextSecondary))
                             inner()
                         }
                         Glyph(
@@ -310,7 +311,7 @@ fun TextPanel(vm: EditorViewModel, clipId: String?, startTab: Int = 3) {
                                 expanded = true
                             },
                             size = 18.dp,
-                            description = "Expand",
+                            description = localizedText("Expand"),
                         )
                     }
                 },
@@ -345,7 +346,7 @@ fun TextPanel(vm: EditorViewModel, clipId: String?, startTab: Int = 3) {
                     contentAlignment = Alignment.Center,
                 ) { if (toAll) Box(Modifier.size(7.dp).clip(CircleShape).background(Color.Black)) }
                 Spacer(Modifier.width(8.dp))
-                Text("Apply to all captions", style = Type.Small.copy(color = Palette.Text))
+                Text(localizedText("Apply to all captions"), style = Type.Small.copy(color = Palette.Text))
             }
         }
         if (tab != 0) {
@@ -447,7 +448,7 @@ fun TextPanel(vm: EditorViewModel, clipId: String?, startTab: Int = 3) {
                     5 -> {
                         val made = id
                         if (made == null) {
-                            Text("Type the words first, then choose how they come and go.", style = Type.Small, modifier = Modifier.padding(top = 16.dp))
+                            Text(localizedText("Type the words first, then choose how they come and go."), style = Type.Small, modifier = Modifier.padding(top = 16.dp))
                         } else {
                             AnimationChoices(vm, made)
                         }
@@ -757,7 +758,7 @@ private fun wornSignature(vm: EditorViewModel, clipId: String, style: JSONObject
 @Composable
 private fun WordArtTab(vm: EditorViewModel, clipId: String?, style: JSONObject, change: (String?, JSONObject.() -> Unit) -> Unit) {
     val made = clipId ?: run {
-        Text("Type the words first, then give them an effect.", style = Type.Small, modifier = Modifier.padding(16.dp))
+        Text(localizedText("Type the words first, then give them an effect."), style = Type.Small, modifier = Modifier.padding(16.dp))
         return
     }
     val context = androidx.compose.ui.platform.LocalContext.current
@@ -803,7 +804,7 @@ private fun WordArtTab(vm: EditorViewModel, clipId: String?, style: JSONObject, 
 
     KindsRow(WORD_ART_KINDS, kind, query, { kind = it; keptTab = false }, { query = it }, "Search effects", keptTab) { keptTab = true }
     if (keptTab && shown.isEmpty()) {
-        Text("Press and hold one to keep it here", style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
+        Text(localizedText("Press and hold one to keep it here"), style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
     }
     val none = if (words.isEmpty() && !keptTab) 1 else 0
     Column(Modifier.padding(vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -983,7 +984,7 @@ private fun TemplatesTab(style: JSONObject, onKept: (Boolean) -> Unit, onPick: (
                         contentAlignment = Alignment.Center,
                     ) {
                         if (t === DEFAULT_TEMPLATE) {
-                            Text("Default", style = Type.Body.copy(color = Palette.Text, fontSize = 15.sp))
+                            Text(localizedText("Default"), style = Type.Body.copy(color = Palette.Text, fontSize = 15.sp))
                             return@Box
                         }
                         if (t.key in kept) {
@@ -1249,7 +1250,7 @@ private fun StylesTab(
     }
     Spacer(Modifier.height(4.dp))
     if (part in setOf(2, 4, 5) && clipId == null) {
-        Text("Type the words first, then give them this.", style = Type.Small, modifier = Modifier.padding(top = 12.dp))
+        Text(localizedText("Type the words first, then give them this."), style = Type.Small, modifier = Modifier.padding(top = 12.dp))
         return
     }
     when (part) {
