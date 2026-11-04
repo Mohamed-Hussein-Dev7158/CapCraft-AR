@@ -223,4 +223,6 @@
 
     <string name="export_notification_channel">عمليات التصدير</string>
     <string name="exporting_video">جارٍ تصدير الفيديو</string>
+
+    <string name="editor_start_failed">تعذّر تشغيل المحرّر: %1$s</string>
 </resources>
