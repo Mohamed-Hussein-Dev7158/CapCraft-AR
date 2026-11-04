@@ -276,11 +276,11 @@ private fun MediaPickerPage(req: MediaRequest, onClose: () -> Unit, onDone: (Lis
     ) {
         Row(Modifier.fillMaxWidth().height(52.dp).padding(horizontal = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(44.dp).clickable(onClick = onClose), contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.X, Color.White, size = 24.dp, description = "Close")
+                Glyph(LucideIcons.X, Color.White, size = 24.dp, description = localizedText("Close"))
             }
             Spacer(Modifier.width(18.dp))
             Row(Modifier.clickable { albums = !albums }.padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                val name = album?.let { id -> all?.firstOrNull { it.bucketId == id }?.bucket } ?: "Albums"
+                val name = album?.let { id -> all?.firstOrNull { it.bucketId == id }?.bucket } ?: localizedText("Albums")
                 Text(name, style = Type.BodyStrong.copy(color = Color.White, fontSize = 15.sp), maxLines = 1)
                 Spacer(Modifier.width(6.dp))
                 Box(Modifier.size(16.dp).clip(RoundedCornerShape(4.dp)).background(Color.White), contentAlignment = Alignment.Center) {
@@ -296,7 +296,7 @@ private fun MediaPickerPage(req: MediaRequest, onClose: () -> Unit, onDone: (Lis
                     tab = i
                 }, contentAlignment = Alignment.Center) {
                     Text(
-                        t,
+                        localizedText(t),
                         style = Type.Body.copy(
                             color = if (i == tab) Palette.Accent else Palette.TextSecondary,
                             fontWeight = if (i == tab) FontWeight.SemiBold else FontWeight.Normal,
@@ -313,12 +313,12 @@ private fun MediaPickerPage(req: MediaRequest, onClose: () -> Unit, onDone: (Lis
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    "CapCraft can see only the photos and videos you chose",
+                    localizedText("CapCraft can see only the photos and videos you chose"),
                     style = Type.Small.copy(color = Palette.TextSecondary),
                     modifier = Modifier.weight(1f),
                 )
                 Text(
-                    "Manage",
+                    localizedText("Manage"),
                     style = Type.Small.copy(color = Palette.Accent, fontWeight = FontWeight.SemiBold),
                     modifier = Modifier.clickable { more.launch(permissions()) }.padding(horizontal = 10.dp, vertical = 8.dp),
                 )
@@ -328,7 +328,7 @@ private fun MediaPickerPage(req: MediaRequest, onClose: () -> Unit, onDone: (Lis
             when {
                 all == null -> CircularProgressIndicator(color = Palette.Accent, modifier = Modifier.align(Alignment.Center).size(28.dp), strokeWidth = 2.dp)
                 shown.isEmpty() -> Text(
-                    if (videos) "No videos" else "No photos",
+                    localizedText(if (videos) "No videos" else "No photos"),
                     style = Type.Small.copy(color = Palette.TextSecondary),
                     modifier = Modifier.align(Alignment.Center),
                 )
@@ -377,7 +377,7 @@ private fun MediaPickerPage(req: MediaRequest, onClose: () -> Unit, onDone: (Lis
                                         Modifier.align(Alignment.TopEnd).padding(top = 0.dp).size(18.dp).clip(CircleShape).background(Color.White)
                                             .clickable { chosen.remove(item) },
                                         contentAlignment = Alignment.Center,
-                                    ) { Glyph(LucideIcons.Minus, Color.Black, size = 12.dp, description = "Remove") }
+                                    ) { Glyph(LucideIcons.Minus, Color.Black, size = 12.dp, description = localizedText("Remove")) }
                                 }
                             }
                         }
@@ -489,7 +489,7 @@ private fun MediaPreview(item: Item, place: Int, multiple: Boolean, onClose: () 
         }
         Row(Modifier.fillMaxWidth().statusBarsPadding().height(52.dp).padding(horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(44.dp).clickable(onClick = onClose), contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.ChevronLeft, Color.White, size = 26.dp, description = "Back")
+                Glyph(LucideIcons.ChevronLeft, Color.White, size = 26.dp, description = localizedText("Back"))
             }
             Spacer(Modifier.weight(1f))
             if (multiple) {
@@ -547,7 +547,7 @@ private fun AlbumList(items: List<Item>, current: Long?, onChoose: (Long?) -> Un
                 Thumb(a.cover, Modifier.size(56.dp).clip(RoundedCornerShape(6.dp)))
                 Spacer(Modifier.width(14.dp))
                 Column(Modifier.weight(1f)) {
-                    Text(a.name, style = Type.Body.copy(color = if (a.id == current) Palette.Accent else Color.White), maxLines = 1)
+                    Text(localizedText(a.name), style = Type.Body.copy(color = if (a.id == current) Palette.Accent else Color.White), maxLines = 1)
                     Text("${a.count}", style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 12.sp))
                 }
             }
