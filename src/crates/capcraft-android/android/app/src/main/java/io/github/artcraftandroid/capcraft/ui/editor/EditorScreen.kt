@@ -27,6 +27,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.pointerInput
@@ -52,7 +53,9 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.AndroidUiDispatcher
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -174,7 +177,10 @@ fun EditorScreen(path: String, incoming: List<Uri>, then: String? = null, close:
                     }
                     PlayBar(vm)
                     Box(Modifier.fillMaxWidth().height(timelineHeight)) {
-                        Timeline(vm, Modifier.fillMaxSize())
+                        // Time always advances from left to right, even when the editor chrome is RTL.
+                        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+                            Timeline(vm, Modifier.fillMaxSize())
+                        }
                     }
                 }
             }
