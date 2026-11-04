@@ -151,6 +151,14 @@ fun localizedText(context: Context, source: String): String {
         "Make a voice clearer and closer." -> R.string.voice_description
         "Take a video's sound out as a clip of its own." -> R.string.extract_description
         "Export" -> R.string.export
+        "Export failed" -> R.string.export_failed
+        "Try again" -> R.string.try_again
+        "New project" -> R.string.new_project
+        "You can leave CapCraft while the video saves" -> R.string.export_background_tip
+        "Saved to Pictures" -> R.string.saved_to_pictures
+        "Saved to your device" -> R.string.saved_to_device
+        "Share" -> R.string.share
+        "Open" -> R.string.open
         "Add media to start editing" -> R.string.add_media_to_start_editing
         "Add media first" -> R.string.add_media_first
         "Find a tool" -> R.string.find_a_tool
