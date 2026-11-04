@@ -36,3 +36,8 @@ Built during the build, never in this repository:
 Downloaded at runtime, only when the user asks, never in this repository or the app: speech
 recognition, voice, background removal and picture enhancement models, each under the licence
 listed in THIRD_PARTY_NOTICES.md.
+
+
+## CapCraft AR fork
+
+CapCraft AR is an independent Arabic-first fork maintained by Alaa El Din Labs. Its localization, visual identity and Android application-id changes are modifications made in this fork. The original CapCraft, Concat and third-party rights and licence notices above remain in effect.
