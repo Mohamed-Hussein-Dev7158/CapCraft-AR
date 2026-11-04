@@ -211,4 +211,9 @@
     <string name="lucide_icons">Lucide icons</string>
     <string name="material_symbols">Material Symbols</string>
     <string name="noto_sans_arabic_ui_font">Noto Sans Arabic UI font</string>
+
+    <string name="move_playhead_to_split">Move the playhead inside the clip to split it.</string>
+    <string name="text_shows_for_whole_video">The text now stays visible throughout the video.</string>
+    <string name="applied_to_all">Applied to all</string>
+    <string name="cache_cleared">Cleared %1$s of temporary files</string>
 </resources>
