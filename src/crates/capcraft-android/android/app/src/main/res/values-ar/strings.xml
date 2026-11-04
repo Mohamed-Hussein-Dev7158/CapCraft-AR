@@ -209,4 +209,10 @@
     <string name="saved_to_device">تم الحفظ على جهازك</string>
     <string name="share">مشاركة</string>
     <string name="open">فتح</string>
+
+    <string name="gnu_agpl">رخصة GNU Affero العامة</string>
+    <string name="engine_third_party_notices">إشعارات تراخيص مكوّنات المحرك</string>
+    <string name="lucide_icons">أيقونات Lucide</string>
+    <string name="material_symbols">رموز Material</string>
+    <string name="noto_sans_arabic_ui_font">خط Noto Sans Arabic UI</string>
 </resources>
