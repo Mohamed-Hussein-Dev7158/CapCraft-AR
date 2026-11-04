@@ -255,7 +255,7 @@ private fun rootTools(vm: EditorViewModel): List<Tool> = listOfNotNull(
         null
     },
     Tool("edit", "Edit", LucideIcons.Scissors) {
-        vm.mainClipAtPlayhead()?.let { vm.select(it.id) } ?: run { vm.message = "Add a clip first" }
+        vm.mainClipAtPlayhead()?.let { vm.select(it.id) } ?: run { vm.message = localizedText("Add a clip first") }
     },
     Tool("audio", "Audio", LucideIcons.Music2) { vm.dock = vm.dock + DockLevel.Group("audio") },
     Tool("text", "Text", LucideIcons.Type) { vm.dock = vm.dock + DockLevel.Group("text") },
@@ -617,22 +617,22 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
         ) {
             Row(Modifier.fillMaxWidth().height(60.dp).padding(start = 4.dp, end = 4.dp), verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.weight(1f)) {
-                    io.github.artcraftandroid.capcraft.ui.editor.panels.SearchField(query, { query = it }, "Describe what you want to do")
+                    io.github.artcraftandroid.capcraft.ui.editor.panels.SearchField(query, { query = it }, localizedText("Describe what you want to do"))
                 }
                 Text(
-                    "Done",
+                    localizedText("Done"),
                     style = Type.BodyStrong.copy(color = Palette.Text, fontSize = 16.sp),
                     modifier = Modifier.clickable(onClick = onClose).padding(horizontal = 12.dp, vertical = 8.dp),
                 )
             }
             Column(Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp)) {
                 if (words.isEmpty()) {
-                    SearchHeading("Recommended")
+                    SearchHeading(localizedText("Recommended"))
                     listOf<Pair<String, () -> Unit>>(
-                        "Flip video horizontally" to { target()?.let { vm.mirror(it) } ?: run { vm.message = "Add a clip first" } },
-                        "Add auto captions" to { vm.panel = Panel.Captions },
-                        "Reduce video noise" to {
-                            target()?.let { vm.toggleCleaner(it, "concat.denoise", "Noise reduction") } ?: run { vm.message = "Add a clip first" }
+                        localizedText("Flip video horizontally") to { target()?.let { vm.mirror(it) } ?: run { vm.message = localizedText("Add a clip first") } },
+                        localizedText("Add auto captions") to { vm.panel = Panel.Captions },
+                        localizedText("Reduce video noise") to {
+                            target()?.let { vm.toggleCleaner(it, "concat.denoise", localizedText("Noise reduction")) } ?: run { vm.message = "Add a clip first" }
                         },
                     ).forEach { (line, act) ->
                         Text(
@@ -642,8 +642,8 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                         )
                     }
                     Spacer(Modifier.height(18.dp))
-                    SearchHeading("Trending")
-                    SearchSubheading("Effects") {
+                    SearchHeading(localizedText("Trending"))
+                    SearchSubheading(localizedText("Effects")) {
                         onClose()
                         vm.panel = Panel.Packages("effect", Panel.Target.Layer)
                     }
@@ -652,7 +652,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                         vm.addLayer(e.id, e.name)
                     }
                     Spacer(Modifier.height(16.dp))
-                    SearchSubheading("Sounds") {
+                    SearchSubheading(localizedText("Sounds")) {
                         onClose()
                         vm.panel = Panel.SoundFx
                     }
@@ -682,7 +682,7 @@ fun ToolSearch(vm: EditorViewModel, onClose: () -> Unit) {
                         Text(localizedText("Nothing by that name"), style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
                     }
                     if (tools.isNotEmpty()) {
-                        SearchHeading("Tools")
+                        SearchHeading(localizedText("Tools"))
                         tools.chunked(4).forEach { line ->
                             Row(Modifier.fillMaxWidth()) {
                                 line.forEach { tool ->
