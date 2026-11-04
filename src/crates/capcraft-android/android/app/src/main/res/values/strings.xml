@@ -393,4 +393,5 @@
     <string name="search_animation_label">Search animations</string>
     <string name="apply_all">Apply to all</string>
     <string name="reset_label">Reset</string>
+    <string name="download_size_suffix">%.0f MB download</string>
 </resources>
