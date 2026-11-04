@@ -215,4 +215,9 @@
     <string name="lucide_icons">أيقونات Lucide</string>
     <string name="material_symbols">رموز Material</string>
     <string name="noto_sans_arabic_ui_font">خط Noto Sans Arabic UI</string>
+
+    <string name="move_playhead_to_split">حرّك مؤشر التشغيل إلى داخل المقطع لتقسيمه.</string>
+    <string name="text_shows_for_whole_video">سيظل النص ظاهرًا طوال الفيديو.</string>
+    <string name="applied_to_all">تم التطبيق على الكل</string>
+    <string name="cache_cleared">تم مسح %1$s من الملفات المؤقتة</string>
 </resources>
