@@ -539,7 +539,7 @@ private fun SpeedPanel(vm: EditorViewModel, curve: Boolean) {
                 contentAlignment = Alignment.Center,
             ) { if (pitchFollows) Box(Modifier.size(7.dp).clip(CircleShape).background(Palette.OnAccent)) }
             Spacer(Modifier.width(8.dp))
-            Text("Change audio pitch", style = Type.Small.copy(color = Palette.DockText, fontSize = 13.sp), maxLines = 1)
+            Text(localizedText("Change audio pitch"), style = Type.Small.copy(color = Palette.DockText, fontSize = 13.sp), maxLines = 1)
         }
     }
     PanelFrame(if (curve) "Curve" else "Speed", vm, height = if (sound) 200.dp else 230.dp, left = if (curve || !clip.audible || sound) null else pitch) {
@@ -1057,7 +1057,7 @@ private fun TransitionPanel(vm: EditorViewModel, clipId: String) {
     }) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.padding(start = 10.dp).size(36.dp).clickable { keptTab = true; query = "" }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Bookmark, if (keptTab && query.isBlank()) Palette.Text else Palette.TextSecondary, size = 19.dp, description = "Favorites")
+                Glyph(LucideIcons.Bookmark, if (keptTab && query.isBlank()) Palette.Text else Palette.TextSecondary, size = 19.dp, description = localizedText("Favorites"))
             }
             Box(Modifier.weight(1f)) {
                 Tabs(categories, if (query.isBlank() && !keptTab) tab else -1) {
@@ -1071,7 +1071,7 @@ private fun TransitionPanel(vm: EditorViewModel, clipId: String) {
         Box(Modifier.weight(1f).fillMaxWidth()) {
             val none = if (query.isBlank() && !keptTab) 1 else 0
             if (keptTab && query.isBlank() && shown.isEmpty()) {
-                Text("Press and hold one to keep it here", style = Type.Small, modifier = Modifier.align(Alignment.Center))
+                Text(localizedText("Press and hold one to keep it here"), style = Type.Small, modifier = Modifier.align(Alignment.Center))
             }
             ChoiceGrid(shown.size + none, Modifier.fillMaxSize()) { i ->
                 if (i < none) {
@@ -1088,7 +1088,7 @@ private fun TransitionPanel(vm: EditorViewModel, clipId: String) {
                             browsing = false
                             applyTo(p.id, duration, false)
                         },
-                        onLongClick = { vm.message = if (Favorites.toggle(context, "transition", p.id)) "Added to favorites" else "Removed from favorites" },
+                        onLongClick = { vm.message = localizedText(if (Favorites.toggle(context, "transition", p.id)) "Added to favorites" else "Removed from favorites") },
                     ) {
                         TransitionGlyph(p.id, playing = true, from = from, to = to, modifier = Modifier.fillMaxSize())
                         if (p.id in kept) {
@@ -1115,7 +1115,7 @@ private fun TransitionPanel(vm: EditorViewModel, clipId: String) {
                 ) {
                     Glyph(LucideIcons.Layers, Palette.Text, size = 16.dp)
                     Spacer(Modifier.width(6.dp))
-                    Text("Apply to all", style = Type.Body.copy(color = Palette.Text))
+                    Text(localizedText("Apply to all"), style = Type.Body.copy(color = Palette.Text))
                 }
             }
         }
