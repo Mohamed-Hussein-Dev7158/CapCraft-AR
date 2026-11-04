@@ -372,6 +372,10 @@ fun localizedText(context: Context, source: String): String {
         "Smooth" -> R.string.smooth
         "Brighten" -> R.string.brighten
         "Record voice-over" -> R.string.record_voiceover
+        "Play" -> R.string.play
+        "Pause" -> R.string.pause
+        "Expand" -> R.string.expand
+        "Minimize" -> R.string.minimize
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
