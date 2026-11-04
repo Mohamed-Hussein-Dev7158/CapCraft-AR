@@ -456,7 +456,7 @@ private fun PlayBar(vm: EditorViewModel) {
             }
         }
         Box(Modifier.size(44.dp).clickable { vm.togglePlay() }, contentAlignment = Alignment.Center) {
-            Glyph(if (vm.playing) LucideIcons.Pause else LucideIcons.Play, Palette.DockText, size = 28.dp, description = if (vm.playing) "Pause" else "Play")
+            Glyph(if (vm.playing) LucideIcons.Pause else LucideIcons.Play, Palette.DockText, size = 28.dp, description = localizedText(if (vm.playing) "Pause" else "Play"))
         }
         Row(Modifier.weight(1f), horizontalArrangement = androidx.compose.foundation.layout.Arrangement.End, verticalAlignment = Alignment.CenterVertically) {
             val canUndo = t?.canUndo == true
@@ -479,7 +479,7 @@ private fun PlayBar(vm: EditorViewModel) {
                         if (onKey) LucideIcons.DiamondMinus else LucideIcons.DiamondPlus,
                         if (!inside) Palette.Disabled else if (onKey) Palette.Accent else Palette.DockText,
                         size = 24.dp,
-                        description = if (onKey) "Remove keyframe" else "Add keyframe",
+                        description = localizedText(if (onKey) "Remove keyframe" else "Add keyframe"),
                     )
                 }
             }
