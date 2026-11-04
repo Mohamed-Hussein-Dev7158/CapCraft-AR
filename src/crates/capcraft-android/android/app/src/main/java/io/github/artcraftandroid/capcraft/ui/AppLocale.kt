@@ -376,6 +376,28 @@ fun localizedText(context: Context, source: String): String {
         "Pause" -> R.string.pause
         "Expand" -> R.string.expand
         "Minimize" -> R.string.minimize
+        "CapCraft can see only the photos and videos you chose" -> R.string.partial_photo_video_access
+        "Manage" -> R.string.manage_access
+        "No videos" -> R.string.no_videos
+        "No photos" -> R.string.no_photos
+        "Albums" -> R.string.albums
+        "Photos" -> R.string.photos
+        "Videos" -> R.string.videos
+        "Remove" -> R.string.remove
+        "Resolution" -> R.string.resolution
+        "Frame rate" -> R.string.frame_rate
+        "Bitrate (Mbps)" -> R.string.bitrate_mbps
+        "Small file for quick sharing" -> R.string.small_file_sharing
+        "Good for most sharing" -> R.string.good_most_sharing
+        "Sharp on any phone" -> R.string.sharp_any_phone
+        "Extra sharp on big screens" -> R.string.extra_sharp_big_screens
+        "The finest detail, the biggest file" -> R.string.finest_detail_biggest_file
+        "More pictures, smoother motion" -> R.string.smoother_motion
+        "Steady, everyday motion" -> R.string.steady_everyday_motion
+        "A looping picture without sound" -> R.string.looping_picture_no_sound
+        "The picture under the playhead, saved as a photo" -> R.string.photo_under_playhead
+        "Estimated file size: %1$s MB" -> R.string.estimated_file_size
+        "Suggested for this video: %1$d" -> R.string.suggested_for_video
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
