@@ -219,4 +219,6 @@
 
     <string name="export_notification_channel">Exports</string>
     <string name="exporting_video">Exporting video</string>
+
+    <string name="editor_start_failed">The editor could not start: %1$s</string>
 </resources>
