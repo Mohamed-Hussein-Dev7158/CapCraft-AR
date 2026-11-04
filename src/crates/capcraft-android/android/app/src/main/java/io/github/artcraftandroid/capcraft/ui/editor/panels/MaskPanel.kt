@@ -59,6 +59,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlin.math.abs
 import kotlin.math.ceil
@@ -184,7 +185,7 @@ fun MaskPanel(vm: EditorViewModel) {
         ) {
             Glyph(LucideIcons.FlipHorizontal2, tint, size = 18.dp)
             Spacer(Modifier.width(6.dp))
-            Text("Invert", style = Type.Body.copy(color = tint))
+            Text(localizedText("Invert"), style = Type.Body.copy(color = tint))
         }
     }) {
         Row(
@@ -218,7 +219,7 @@ private fun MaskTile(label: String, selected: Boolean, adjust: Boolean, onClick:
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Glyph(LucideIcons.SlidersHorizontal, Color.White, size = 20.dp)
                     Spacer(Modifier.height(2.dp))
-                    Text("Adjust", style = Type.Tiny.copy(color = Color.White, fontWeight = FontWeight.SemiBold))
+                    Text(localizedText("Adjust"), style = Type.Tiny.copy(color = Color.White, fontWeight = FontWeight.SemiBold))
                 }
             } else {
                 glyph()
@@ -349,7 +350,7 @@ private fun MaskAdjust(vm: EditorViewModel, clipId: String, shape: Int, params: 
             }
             Spacer(Modifier.weight(1f))
             Box(Modifier.size(44.dp).clickable(onClick = onClose), contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.CircleChevronDown, Palette.DockText, size = 22.dp, description = "Close")
+                Glyph(LucideIcons.CircleChevronDown, Palette.DockText, size = 22.dp, description = localizedText("Close"))
             }
         }
         Column(Modifier.fillMaxWidth().height(110.dp), verticalArrangement = Arrangement.Center) {
@@ -396,7 +397,7 @@ private fun MaskAdjust(vm: EditorViewModel, clipId: String, shape: Int, params: 
             ) {
                 Glyph(LucideIcons.RotateCcw, Palette.DockText, size = 18.dp)
                 Spacer(Modifier.width(8.dp))
-                Text("Reset", style = Type.Body.copy(color = Palette.DockText))
+                Text(localizedText("Reset"), style = Type.Body.copy(color = Palette.DockText))
             }
         }
     }
@@ -415,7 +416,7 @@ internal fun RulerRow(
     var held by remember { mutableStateOf<Float?>(null) }
     val shown = held ?: value
     Row(Modifier.fillMaxWidth().height(46.dp).padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
-        if (label != null) Text(label, style = Type.Small.copy(color = Palette.Text, fontSize = 13.sp), modifier = Modifier.width(56.dp))
+        if (label != null) Text(localizedText(label), style = Type.Small.copy(color = Palette.Text, fontSize = 13.sp), modifier = Modifier.width(56.dp))
         TickRuler(shown, range, {
             held = it
             onChange(it)
