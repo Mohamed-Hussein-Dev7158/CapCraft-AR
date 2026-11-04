@@ -373,4 +373,8 @@
     <string name="steady_motion">Steady, everyday motion</string>
     <string name="export_resolution">Resolution</string>
     <string name="estimated_size">Estimated file size: %1$s MB</string>
+    <string name="trash_empty_title">The Trash is empty</string>
+    <string name="trash_retention_note">Projects here are deleted for good after 30 days.</string>
+    <string name="about_project_description">A free video editor that keeps your work on your phone. Built on Concat's engine; free software under the GNU Affero General Public License, version 3 or later.</string>
+    <string name="not_affiliated_short">Not affiliated with or endorsed by ByteDance or CapCut.</string>
 </resources>
