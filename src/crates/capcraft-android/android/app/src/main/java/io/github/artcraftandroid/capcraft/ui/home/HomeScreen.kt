@@ -1084,7 +1084,7 @@ private fun MeTab(onLicences: () -> Unit, onAbout: () -> Unit, onCleared: (Strin
             scope.launch {
                 val freed = withContext(Threads.commands) { clearCaches(context) }
                 cache = withContext(Threads.commands) { cacheSize(context) }
-                onCleared("Cleared ${size(freed)}")
+                onCleared(context.getString(R.string.cache_cleared, size(freed)))
             }
         }
     }
