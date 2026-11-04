@@ -1,12 +1,18 @@
 package io.github.artcraftandroid.capcraft.ui
 
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.LocalContext
+import io.github.artcraftandroid.capcraft.R
 
 /** CapCraft's palette: a black editor with one cyan accent. */
 object Palette {
@@ -68,15 +74,24 @@ object Type {
 
 @Composable
 fun CapCraftTheme(content: @Composable () -> Unit) {
-    MaterialTheme(
-        colorScheme = darkColorScheme(
-            primary = Palette.Accent,
-            onPrimary = Palette.OnAccent,
-            background = Palette.Black,
-            surface = Palette.Panel,
-            onSurface = Palette.Text,
-            onBackground = Palette.Text,
-        ),
-        content = content,
-    )
+    val context = LocalContext.current
+    val appTypeface = if (AppLocale.isArabic(context)) {
+        FontFamily(Font(R.font.capcraft_arabic, FontWeight.Normal))
+    } else {
+        FontFamily.Default
+    }
+
+    CompositionLocalProvider(LocalTextStyle provides TextStyle(fontFamily = appTypeface)) {
+        MaterialTheme(
+            colorScheme = darkColorScheme(
+                primary = Palette.Accent,
+                onPrimary = Palette.OnAccent,
+                background = Palette.Black,
+                surface = Palette.Panel,
+                onSurface = Palette.Text,
+                onBackground = Palette.Text,
+            ),
+            content = content,
+        )
+    }
 }
