@@ -12,6 +12,8 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import io.github.artcraftandroid.capcraft.R
+import io.github.artcraftandroid.capcraft.ui.AppLocale
 
 /**
  * Keeps the app alive while a video exports with the app in the background, as a foreground
@@ -40,9 +42,12 @@ class ExportService : Service() {
         @Volatile private var shown = -1
 
         private fun channel(context: Context) {
-            val manager = context.getSystemService(NotificationManager::class.java) ?: return
+            val localized = AppLocale.wrap(context)
+            val manager = localized.getSystemService(NotificationManager::class.java) ?: return
             if (manager.getNotificationChannel(CHANNEL) == null) {
-                manager.createNotificationChannel(NotificationChannel(CHANNEL, "Exports", NotificationManager.IMPORTANCE_LOW))
+                manager.createNotificationChannel(
+                    NotificationChannel(CHANNEL, localized.getString(R.string.export_notification_channel), NotificationManager.IMPORTANCE_LOW),
+                )
             }
         }
 
@@ -53,15 +58,17 @@ class ExportService : Service() {
             return PendingIntent.getActivity(context, 0, launch, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         }
 
-        private fun running(context: Context, fraction: Float) = NotificationCompat.Builder(context, CHANNEL.also { channel(context) })
-            .setSmallIcon(android.R.drawable.stat_sys_upload)
-            .setContentTitle("Exporting video")
+        private fun running(context: Context, fraction: Float) = AppLocale.wrap(context).let { localized ->
+            NotificationCompat.Builder(localized, CHANNEL.also { channel(localized) })
+                .setSmallIcon(android.R.drawable.stat_sys_upload)
+                .setContentTitle(localized.getString(R.string.exporting_video))
             .setContentText("${(fraction * 100).toInt()}%")
             .setProgress(100, (fraction * 100).toInt(), false)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
-            .setContentIntent(opening(context))
-            .build()
+                .setContentIntent(opening(localized))
+                .build()
+        }
 
         /** Starts keeping the app alive for an export. */
         fun start(context: Context) {
@@ -82,14 +89,21 @@ class ExportService : Service() {
             runCatching { context.stopService(Intent(context, ExportService::class.java)) }
             if (message == null) return
             runCatching {
-                channel(context)
-                val done = NotificationCompat.Builder(context, CHANNEL)
+                val localized = AppLocale.wrap(context)
+                channel(localized)
+                val title = when (message) {
+                    "Saved to Pictures" -> localized.getString(R.string.saved_to_pictures)
+                    "Saved to your device" -> localized.getString(R.string.saved_to_device)
+                    "Export failed" -> localized.getString(R.string.export_failed)
+                    else -> message
+                }
+                val done = NotificationCompat.Builder(localized, CHANNEL)
                     .setSmallIcon(android.R.drawable.stat_sys_upload_done)
-                    .setContentTitle(message)
+                    .setContentTitle(title)
                     .setAutoCancel(true)
-                    .setContentIntent(opening(context))
+                    .setContentIntent(opening(localized))
                     .build()
-                NotificationManagerCompat.from(context).notify(DONE_ID, done)
+                NotificationManagerCompat.from(localized).notify(DONE_ID, done)
             }
         }
     }
