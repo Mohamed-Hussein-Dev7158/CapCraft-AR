@@ -34,6 +34,7 @@ import io.github.artcraftandroid.capcraft.engine.Threads
 import io.github.artcraftandroid.capcraft.engine.userMessage
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlin.math.roundToInt
 import kotlinx.coroutines.Dispatchers
@@ -115,9 +116,9 @@ fun StabilizePanel(vm: EditorViewModel) {
         Spacer(Modifier.height(14.dp))
         if (p != null) {
             Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text("Steadying… ${(p * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
+                Text("${localizedText("Steadying…")} ${(p * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
                 Text(
-                    "Cancel",
+                    localizedText("Cancel"),
                     style = Type.Small.copy(color = Palette.Text),
                     modifier = Modifier.clickable { runCatching { cancelStabilize() } }.padding(8.dp),
                 )
