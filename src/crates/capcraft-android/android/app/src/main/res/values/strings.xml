@@ -321,4 +321,23 @@
     <string name="super_resolution_description">A clearer, sharper picture, made on this phone. A photo takes a moment; a video goes frame by frame and takes a while.</string>
     <string name="blur_label">Blurring</string>
     <string name="try_another_item">Nothing by that name</string>
+    <string name="search_fonts">Search fonts</string>
+    <string name="cube_import_description">Import a .cube look</string>
+    <string name="teleprompter">Teleprompter</string>
+    <string name="recording_tap_stop">Recording %1$s · tap to stop</string>
+    <string name="tap_to_stop">Tap to stop</string>
+    <string name="tap_to_record">Tap to record</string>
+    <string name="voice_changer">Voice changer</string>
+    <string name="transcript_edit_description">Turn what is said into text, then cut the video by deleting its lines.</string>
+    <string name="download_and_transcribe">Download and transcribe (%1$.0f MB)</string>
+    <string name="transcribe">Transcribe</string>
+    <string name="runs_on_phone_model_downloaded">Runs on this phone. The model is downloaded once.</string>
+    <string name="clear_current_captions">Clear current captions</string>
+    <string name="voice_model">Voice model</string>
+    <string name="auto_fast">Auto (fast)</string>
+    <string name="download">Download</string>
+    <string name="generating">Generating</string>
+    <string name="smooth">Smooth</string>
+    <string name="brighten">Brighten</string>
+    <string name="record_voiceover">Record voice-over</string>
 </resources>
