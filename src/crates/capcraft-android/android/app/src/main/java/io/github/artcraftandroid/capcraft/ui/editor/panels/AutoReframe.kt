@@ -35,6 +35,7 @@ import io.github.artcraftandroid.capcraft.engine.Threads
 import io.github.artcraftandroid.capcraft.engine.userMessage
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlin.math.roundToInt
 import kotlinx.coroutines.Dispatchers
@@ -130,7 +131,7 @@ fun AutoReframePanel(vm: EditorViewModel) {
             }
             if (running != null) {
                 Spacer(Modifier.height(8.dp))
-                Text(running.first, style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.align(Alignment.CenterHorizontally))
+                Text(localizedText(running.first), style = Type.Small.copy(color = Palette.TextSecondary), modifier = Modifier.align(Alignment.CenterHorizontally))
             } else {
                 Spacer(Modifier.width(1.dp))
             }
