@@ -313,4 +313,12 @@
     <string name="type_words_effect">Type the words first, then give them an effect.</string>
     <string name="type_words_style">Type the words first, then give them this.</string>
     <string name="read_by_tts">Read by: Text to speech</string>
+    <string name="delete_beat">Delete beat</string>
+    <string name="add_beat">Add beat</string>
+    <string name="stop">Stop</string>
+    <string name="try_example">Try an example</string>
+    <string name="script_hint">Type or paste a script. Each line becomes a caption of its own.</string>
+    <string name="super_resolution_description">A clearer, sharper picture, made on this phone. A photo takes a moment; a video goes frame by frame and takes a while.</string>
+    <string name="blur_label">Blurring</string>
+    <string name="try_another_item">Nothing by that name</string>
 </resources>
