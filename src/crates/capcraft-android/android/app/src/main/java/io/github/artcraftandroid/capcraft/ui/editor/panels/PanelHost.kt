@@ -64,6 +64,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorMetrics
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Panel
@@ -178,11 +179,11 @@ fun PanelFrame(
                 Box(Modifier.weight(1f)) { header() }
             } else {
                 Box(Modifier.weight(1f)) { left?.invoke() }
-                Text(title, style = Type.BodyStrong.copy(fontSize = 16.sp, color = Palette.DockText))
+                Text(localizedText(title), style = Type.BodyStrong.copy(fontSize = 16.sp, color = Palette.DockText))
             }
             Box(Modifier.then(if (header != null) Modifier.padding(end = 12.dp) else Modifier.weight(1f)), contentAlignment = Alignment.CenterEnd) {
                 Box(Modifier.size(44.dp).clickable(onClick = onDone), contentAlignment = Alignment.Center) {
-                    Glyph(LucideIcons.Check, Palette.DockText, size = 26.dp, description = "Done")
+                    Glyph(LucideIcons.Check, Palette.DockText, size = 26.dp, description = localizedText("Done"))
                 }
             }
         }
@@ -396,7 +397,7 @@ fun Tabs(labels: List<String>, selected: Int, onSelect: (Int) -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    label,
+                    localizedText(label),
                     style = Type.Body.copy(
                         color = if (i == selected) Palette.Text else Palette.TextSecondary,
                         fontWeight = if (i == selected) FontWeight.SemiBold else FontWeight.Normal,
@@ -811,9 +812,9 @@ fun SwitchRow(label: String, about: String, on: Boolean, onToggle: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
-            Text(label, style = Type.Body.copy(fontSize = 15.sp, color = Palette.DockText))
+            Text(localizedText(label), style = Type.Body.copy(fontSize = 15.sp, color = Palette.DockText))
             Spacer(Modifier.height(2.dp))
-            Text(about, style = Type.Small.copy(fontSize = 13.sp))
+            Text(localizedText(about), style = Type.Small.copy(fontSize = 13.sp))
         }
         Spacer(Modifier.width(12.dp))
         androidx.compose.material3.Switch(
@@ -861,7 +862,7 @@ fun CheckChip(label: String, on: Boolean, onClick: () -> Unit) {
             if (on) Glyph(LucideIcons.Check, Palette.Black, size = 14.dp)
         }
         Spacer(Modifier.width(6.dp))
-        Text(label, style = Type.Small.copy(color = Palette.Text))
+        Text(localizedText(label), style = Type.Small.copy(color = Palette.Text))
         Spacer(Modifier.width(10.dp))
     }
 }
@@ -1146,7 +1147,7 @@ internal fun SearchField(value: String, onChange: (String) -> Unit, hint: String
         Glyph(LucideIcons.Search, Palette.TextSecondary, size = 16.dp)
         Spacer(Modifier.width(8.dp))
         Box(Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
-            if (value.isEmpty()) Text(hint, style = Type.Body.copy(color = Palette.TextSecondary), maxLines = 1)
+            if (value.isEmpty()) Text(localizedText(hint), style = Type.Body.copy(color = Palette.TextSecondary), maxLines = 1)
             androidx.compose.foundation.text.BasicTextField(
                 value = value,
                 onValueChange = onChange,
