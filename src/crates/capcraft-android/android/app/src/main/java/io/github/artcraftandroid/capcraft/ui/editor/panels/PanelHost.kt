@@ -821,7 +821,7 @@ fun SwitchRow(label: String, about: String, on: Boolean, onToggle: () -> Unit) {
             checked = on,
             onCheckedChange = { onToggle() },
             colors = androidx.compose.material3.SwitchDefaults.colors(
-                checkedThumbColor = Color.White,
+                checkedThumbColor = Palette.OnAccent,
                 checkedTrackColor = Palette.Accent,
                 uncheckedThumbColor = Color.White,
                 uncheckedTrackColor = Color(0xFF3A3A3A),
