@@ -552,7 +552,7 @@ private fun SpeedPanel(vm: EditorViewModel, curve: Boolean) {
             } else {
                 // the lengths before and after, heading the sheet
                 Row(Modifier.padding(start = 16.dp, top = 16.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text("Duration:  %.1fs".format(sourceUs / 1e6), style = Type.Small.copy(fontSize = 14.sp, color = Palette.TextSecondary))
+                    Text(localizedText("Duration: %1$.1f s").format(sourceUs / 1e6), style = Type.Small.copy(fontSize = 14.sp, color = Palette.TextSecondary))
                     Text("  →  ", style = Type.Small.copy(fontSize = 14.sp, color = Color(0xFFFFC94D)))
                     Text("%.1fs".format(sourceUs / 1e6 / speed), style = Type.Small.copy(fontSize = 14.sp, color = Palette.Text))
                 }
