@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-11-04  
 **Audited branch:** `dev`  
-**Audited revision:** `15b4d990eafbb0a7d7046055230fc8a54ddf2e24`  
+**Audited source snapshot:** `a0e9644d96dab895813340916439e93912ea6baa`  
 **Scope:** Foundation work for stages 0–3 (repository audit, localization, RTL, typography).
 
 ## 1. Repository and build architecture
@@ -24,17 +24,18 @@
 ## 3. Localization baseline
 
 - `AppLocale` stores an app-specific `ar`/`en` language preference, defaults to Arabic, wraps the Activity base context with the selected locale, and recreates the Activity after a language change.
-- The Android resource catalogs currently contain 208 matching string keys in `values/strings.xml` and `values-ar/strings.xml`, with no duplicate keys or missing Arabic counterparts at the time of this audit.
-- Kotlin also uses a transitional `localizedText` source-string catalog because much of the upstream interface was authored with literals. That catalog currently references 199 distinct resource IDs.
-- The first localization pass covers the home screen, common editor navigation, core dock items, export and selected system messages. Several specialized panels still contain literal English text and require migration.
-- Project names, file names, user-entered text, transcript content, media metadata, and model names must not be translated as though they were interface labels.
+- The Android resource catalogs contain 380 English string keys and 380 Arabic counterparts. Static checks found no duplicate resource keys or missing Arabic counterparts.
+- Kotlin uses a transitional `localizedText` source-string catalog because much of the upstream interface was authored with literals. The catalog contains 354 distinct source-string mappings, and every referenced `R.string` ID resolves in the resource catalog.
+- The expanded localization pass covers home/project management, editor dock and search, shared UI, media selection, clip tools, text/caption workflows, audio tools, adjustment/effects panels, and export controls/status messages.
+- Literal `localizedText("...")` calls across the 60 Kotlin files were checked against the mapping catalog. User-created project names, filenames, imported media names, transcript contents, effect/model identifiers, and other user/media data are intentionally not translated.
+- This remains a source-level localization pass. A final manual audit of all upstream text, accessibility output, package names, and engine-originated error messages is still required during runtime QA.
 
 ## 4. RTL baseline and constraints
 
 - The selected Android locale is configured with its matching layout direction, and the Compose root provides RTL for Arabic.
-- Navigation glyph mirroring is handled centrally by `Glyph` for a limited set of directional icons. Action icons should remain unmirrored.
-- The timeline's coordinate and time model is intentionally left-to-right: the playhead advances from left to right in both interface languages. Its visual and gesture behavior must remain LTR while surrounding controls can follow RTL.
-- A full RTL pass must check row order, paddings, sheet headers, arrows, media pickers, dialogs, text alignment, mixed Arabic/Latin text, and the timeline interaction model.
+- Navigation glyph mirroring is handled centrally by `Glyph` for directional chevrons and arrows; action icons remain unmirrored.
+- `Timeline.kt` explicitly wraps its contents in `LayoutDirection.Ltr`. The timeline time axis and gesture coordinates therefore remain left-to-right while the surrounding interface follows the selected locale.
+- Source inspection confirms the intended direction policy, but row order, padding, sheet headers, arrows, media pickers, dialogs, text alignment, mixed Arabic/Latin content, and touch targets still require visual and interaction QA on Android.
 
 ## 5. Typography baseline
 
@@ -49,7 +50,16 @@
 - Distribution preparation must preserve upstream and third-party notices and provide the corresponding source required by the applicable copyleft terms.
 - This audit is not a complete legal review. Each release must regenerate and review the dependency/licence inventory for the actual build configuration and ABI.
 
-## 7. Required verification before calling stages 0–3 complete
+## 7. Static verification performed
+
+- English/Arabic resource parity: 380 keys in each catalog; no missing counterparts or duplicate keys.
+- Resource integrity: no unescaped XML ampersands; all 354 distinct `R.string` references in `AppLocale` resolve.
+- Localization call sites: literal `localizedText("...")` calls across all 60 Kotlin files were checked for a matching catalog case; no missing literal mappings were found.
+- Direction policy: the app root follows the locale, directional icon mirroring is centralized, and `Timeline.kt` explicitly keeps its content LTR.
+- Typography wiring: Gradle generates `res/font/capcraft_arabic.ttf` from `NotoSansArabicUI-Concat.ttf`; `Theme.kt` selects it for Arabic Compose UI. The font licence file is copied into app licence assets.
+- Native renderer source includes rustybuzz shaping, unicode-bidi processing, Arabic font fallback, and a Rust glyph-coverage test containing Arabic sample text.
+
+## 8. Required verification before calling stages 0–3 complete
 
 1. Build the Android app from a clean checkout using the documented Rust, FFmpeg, sherpa-onnx, Android SDK and NDK prerequisites.
 2. Verify both locales on an Android device or emulator and inspect every UI screen, dialog, toast, content description, and notification.
@@ -58,4 +68,4 @@
 5. Verify Arabic text clips and captions in preview and in exported video; inspect line wrapping, glyph shaping, punctuation, numbers, and clipping.
 6. Test export notifications, activity recreation after language changes, app relaunch, and project persistence.
 
-**Verification status:** Repository/source inspection only. No Gradle build, APK generation, emulator run, or on-device QA was performed as part of this audit.
+**Verification status:** Repository and source inspection plus static consistency checks only. No Gradle build, APK generation, emulator run, screenshot review, Arabic preview/export test, or on-device QA was performed. Stages 0–3 have had their source-level audit and implementation pass, but runtime/build verification remains open.
