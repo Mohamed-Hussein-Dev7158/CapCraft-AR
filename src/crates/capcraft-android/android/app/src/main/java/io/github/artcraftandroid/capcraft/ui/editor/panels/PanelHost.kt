@@ -1108,7 +1108,7 @@ private fun TransitionPanel(vm: EditorViewModel, clipId: String) {
                         .background(Color(0xF2333333))
                         .clickable {
                             applyTo(chosen, duration, true)
-                            vm.message = "Applied to all"
+                            vm.message = localizedText("Applied to all")
                         }
                         .padding(horizontal = 14.dp, vertical = 9.dp),
                     verticalAlignment = Alignment.CenterVertically,
