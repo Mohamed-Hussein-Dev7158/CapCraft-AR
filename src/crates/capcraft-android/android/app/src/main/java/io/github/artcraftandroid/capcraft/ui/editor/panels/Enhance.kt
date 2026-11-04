@@ -32,6 +32,7 @@ import io.github.artcraftandroid.capcraft.engine.Threads
 import io.github.artcraftandroid.capcraft.engine.userMessage
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -83,7 +84,7 @@ fun EnhancePanel(vm: EditorViewModel) {
                     .clickable(enabled = job == null) { set(!on) }.padding(horizontal = 14.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text("Super resolution", style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text), modifier = Modifier.weight(1f))
+                Text(localizedText("Super resolution"), style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text), modifier = Modifier.weight(1f))
                 Box(
                     Modifier.size(40.dp, 24.dp).clip(RoundedCornerShape(12.dp)).background(if (on) Palette.Accent else Color(0xFF555555)).padding(3.dp),
                     contentAlignment = if (on) Alignment.CenterEnd else Alignment.CenterStart,
@@ -99,13 +100,13 @@ fun EnhancePanel(vm: EditorViewModel) {
                 }
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "Stop",
+                    localizedText("Stop"),
                     style = Type.BodyStrong.copy(color = Palette.DockText),
                     modifier = Modifier.clickable { runCatching { cancelEnhance() }; job = null }.padding(vertical = 4.dp),
                 )
             } else {
                 Text(
-                    "A clearer, sharper picture, made on this phone. A photo takes a moment; a video goes frame by frame and takes a while.",
+                    localizedText("A clearer, sharper picture, made on this phone. A photo takes a moment; a video goes frame by frame and takes a while."),
                     style = Type.Small.copy(color = Palette.TextSecondary),
                 )
             }
