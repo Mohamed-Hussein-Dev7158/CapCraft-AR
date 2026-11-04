@@ -68,7 +68,7 @@
     <string name="record_description">Record a voice-over while the video plays.</string>
     <string name="noise_description">Reduce the hiss and hum behind a voice.</string>
     <string name="voice_description">Make a voice sound clearer and cleaner.</string>
-    <string name="extract_description">Turn a video's sound into a separate audio clip.</string>
+    <string name="extract_description">Turn a video&apos;s sound into a separate audio clip.</string>
     <string name="export">Export</string>
     <string name="add_media_to_start_editing">Add photos or videos to start editing</string>
     <string name="add_media_first">Add media first</string>
@@ -375,7 +375,7 @@
     <string name="estimated_size">Estimated file size: %1$s MB</string>
     <string name="trash_empty_title">The Trash is empty</string>
     <string name="trash_retention_note">Projects here are deleted for good after 30 days.</string>
-    <string name="about_project_description">A free video editor that keeps your work on your phone. Built on Concat's engine; free software under the GNU Affero General Public License, version 3 or later.</string>
+    <string name="about_project_description">A free video editor that keeps your work on your phone. Built on Concat&apos;s engine; free software under the GNU Affero General Public License, version 3 or later.</string>
     <string name="not_affiliated_short">Not affiliated with or endorsed by ByteDance or CapCut.</string>
     <string name="add_keyframe">Add keyframe</string>
     <string name="remove_keyframe">Remove keyframe</string>
