@@ -1059,10 +1059,10 @@ private fun MeTab(onLicences: () -> Unit, onAbout: () -> Unit, onCleared: (Strin
                 Column {
                     Text(context.getString(R.string.language_dialog_message), style = ink(14f, color = Home.Muted))
                     Spacer(Modifier.height(12.dp))
-                    androidx.compose.material3.TextButton(onClick = { AppLocale.change(context, "ar") }) {
+                    androidx.compose.material3.TextButton(onClick = { choosingLanguage = false; AppLocale.change(context, "ar") }) {
                         Text(context.getString(R.string.language_arabic), style = ink(15f, FontWeight.Medium))
                     }
-                    androidx.compose.material3.TextButton(onClick = { AppLocale.change(context, "en") }) {
+                    androidx.compose.material3.TextButton(onClick = { choosingLanguage = false; AppLocale.change(context, "en") }) {
                         Text(context.getString(R.string.language_english), style = ink(15f, FontWeight.Medium))
                     }
                 }
