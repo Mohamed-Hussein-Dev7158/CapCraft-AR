@@ -45,6 +45,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import java.io.File
 import java.io.FileOutputStream
@@ -273,7 +274,7 @@ fun StickersPanel(vm: EditorViewModel) {
             SHELVES.flatMap { it.stickers }.filter { s -> s.words.split(' ').any { it.startsWith(q) } }
         }
         if (shown.isEmpty()) {
-            Text(if (shelf == -1 && query.isBlank()) "Press and hold one to keep it here" else "No stickers found", style = Type.Small, modifier = Modifier.padding(24.dp))
+            Text(localizedText(if (shelf == -1 && query.isBlank()) "Press and hold one to keep it here" else "No stickers found"), style = Type.Small, modifier = Modifier.padding(24.dp))
         }
         ChoiceGrid(shown.size, Modifier.weight(1f)) { i ->
             val s = shown[i]
