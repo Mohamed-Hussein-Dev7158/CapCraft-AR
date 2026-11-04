@@ -50,6 +50,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Thumbs
 import kotlin.math.cos
@@ -178,7 +179,7 @@ fun RemoveBgPanel(vm: EditorViewModel) {
             val p = progress
             if (p != null && !wasOn) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("${p.first}  ${(p.second * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
+                    Text("${localizedText(p.first)}  ${(p.second * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
                     Text(
                         "Cancel",
                         style = Type.Small.copy(color = Palette.Text),
@@ -279,7 +280,7 @@ fun ChromaPanel(vm: EditorViewModel) {
                 contentAlignment = Alignment.Center,
             ) { Glyph(LucideIcons.Crosshair, if (picking || chroma != null) Palette.Accent else Palette.DockText, size = 22.dp) }
             Spacer(Modifier.height(6.dp))
-            Text("Color picker", style = Type.Small.copy(fontSize = 12.sp, color = if (picking || chroma != null) Palette.Accent else Palette.TextSecondary))
+            Text(localizedText("Color picker"), style = Type.Small.copy(fontSize = 12.sp, color = if (picking || chroma != null) Palette.Accent else Palette.TextSecondary))
         }
         Spacer(Modifier.height(12.dp))
         val on = chroma != null
