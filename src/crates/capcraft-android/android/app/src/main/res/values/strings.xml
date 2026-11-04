@@ -167,4 +167,26 @@
     <string name="describe_edit">Describe what you want to do</string>
     <string name="full_screen">Full screen</string>
     <string name="exit_full_screen">Exit full screen</string>
+
+    <string name="color">Color</string>
+    <string name="image">Image</string>
+    <string name="blur">Blur</string>
+    <string name="rotate">Rotate</string>
+    <string name="advanced">Advanced</string>
+    <string name="normal">Normal</string>
+    <string name="volume">Volume</string>
+    <string name="speed">Speed</string>
+    <string name="replace">Replace</string>
+    <string name="style">Style</string>
+    <string name="recommended">Recommended</string>
+    <string name="trending">Trending</string>
+    <string name="tools">Tools</string>
+    <string name="flip_video_horizontally">Flip video horizontally</string>
+    <string name="add_auto_captions">Add auto captions</string>
+    <string name="reduce_video_noise">Reduce video noise</string>
+    <string name="noise_reduction">Noise reduction</string>
+    <string name="add_a_clip_first">Add a clip first</string>
+    <string name="loudness_adjustment">Loudness adjustment</string>
+    <string name="noise_reduction_description">Takes the hum and hiss out from behind the sound.</string>
+    <string name="text_to_speech">Text to speech</string>
 </resources>
