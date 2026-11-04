@@ -1266,7 +1266,7 @@ private fun TrashSheet(p: ProjectSummary, onDismiss: () -> Unit, onRestore: () -
                 }
                 Spacer(Modifier.width(12.dp))
                 Column {
-                    Text(p.name.ifBlank { "Untitled" }, style = ink(15f, FontWeight.Medium), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(p.name.ifBlank { localizedText("Untitled") }, style = ink(15f, FontWeight.Medium), maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Spacer(Modifier.height(2.dp))
                     Text(size(p.sizeBytes), style = ink(12f, color = Home.Muted))
                 }
