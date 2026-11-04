@@ -397,4 +397,5 @@
     <string name="search_animation_label">ابحث عن الحركات</string>
     <string name="apply_all">تطبيق على الكل</string>
     <string name="reset_label">إعادة ضبط</string>
+    <string name="download_size_suffix">%1$.0f ميجابايت للتنزيل</string>
 </resources>
