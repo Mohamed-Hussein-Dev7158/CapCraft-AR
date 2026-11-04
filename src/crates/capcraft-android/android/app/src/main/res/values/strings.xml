@@ -379,4 +379,18 @@
     <string name="not_affiliated_short">Not affiliated with or endorsed by ByteDance or CapCut.</string>
     <string name="add_keyframe">Add keyframe</string>
     <string name="remove_keyframe">Remove keyframe</string>
+    <string name="save_preset">Save preset</string>
+    <string name="undo_last_stroke">Undo the last stroke</string>
+    <string name="pen">Pen</string>
+    <string name="eraser">Eraser</string>
+    <string name="own_photo">A photo of your own</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="use">Use</string>
+    <string name="cut_this_line">Cut this line</string>
+    <string name="pick_a_colour">Pick a colour</string>
+    <string name="duration_seconds">Duration: %1$.1f s</string>
+    <string name="hi_preview">Hi!</string>
+    <string name="search_animation_label">Search animations</string>
+    <string name="apply_all">Apply to all</string>
+    <string name="reset_label">Reset</string>
 </resources>
