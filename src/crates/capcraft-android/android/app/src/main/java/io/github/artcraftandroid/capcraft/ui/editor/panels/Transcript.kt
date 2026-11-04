@@ -47,6 +47,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -215,15 +216,15 @@ fun TranscriptPanel(vm: EditorViewModel) {
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
-                        if (m != null && !m.downloaded) "Download and transcribe (%.0f MB)".format(m.sizeBytes.toLong() / 1_048_576.0) else "Transcribe",
+                        if (m != null && !m.downloaded) localizedText("Download and transcribe (%1$.0f MB)").format(m.sizeBytes.toLong() / 1_048_576.0) else localizedText("Transcribe"),
                         style = Type.BodyStrong.copy(fontSize = 16.sp, color = Palette.OnAccent),
                     )
                 }
                 Spacer(Modifier.height(8.dp))
-                Text("Made on this phone; nothing is uploaded.", style = Type.Tiny.copy(color = Palette.TextSecondary))
+                Text(localizedText("Made on this phone; nothing is uploaded."), style = Type.Tiny.copy(color = Palette.TextSecondary))
             }
             lines.isEmpty() -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("No speech was found", style = Type.Body.copy(color = Palette.TextSecondary))
+                Text(localizedText("No speech was found"), style = Type.Body.copy(color = Palette.TextSecondary))
             }
             else -> LazyColumn(Modifier.fillMaxSize().padding(horizontal = 8.dp)) {
                 itemsIndexed(lines, key = { _, l -> "${l.startUs}-${l.text}" }) { i, line ->
