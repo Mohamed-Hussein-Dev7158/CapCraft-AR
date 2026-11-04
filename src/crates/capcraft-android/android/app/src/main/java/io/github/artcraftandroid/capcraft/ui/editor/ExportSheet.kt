@@ -39,6 +39,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.MaterialIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.panels.Tabs
 import kotlin.math.abs
 import kotlin.math.exp
@@ -109,7 +110,7 @@ fun ExportSheet(vm: EditorViewModel, onExport: () -> Unit) {
                         .clickable { vm.exportSheet = false; onExport() },
                     contentAlignment = Alignment.Center,
                 ) {
-                    Text("Export", style = Type.BodyStrong.copy(color = Palette.OnAccent, fontSize = 15.sp, fontWeight = FontWeight.Medium))
+                    Text(localizedText("Export"), style = Type.BodyStrong.copy(color = Palette.OnAccent, fontSize = 15.sp, fontWeight = FontWeight.Medium))
                 }
                 Spacer(Modifier.width(16.dp))
             }
