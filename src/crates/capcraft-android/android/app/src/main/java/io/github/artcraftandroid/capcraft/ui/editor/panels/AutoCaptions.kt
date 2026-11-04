@@ -50,6 +50,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -194,7 +195,7 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
                         "work" -> "Separating the voice"
                         else -> "Recognizing"
                     }
-                    job = label to fraction
+                    job = localizedText(label) to fraction
                 }
             }
 
@@ -205,7 +206,7 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
                         vm.applyView(result)
                         dress()
                         vm.panel = null
-                        vm.message = "Captions added"
+                        vm.message = localizedText("Captions added")
                     } else {
                         then = true
                         refresh++
@@ -216,7 +217,7 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
             override fun onFailed(message: String) {
                 scope.launch(Dispatchers.Main) {
                     job = null
-                    vm.message = message
+                    vm.message = localizedText(message)
                 }
             }
         }
@@ -225,12 +226,12 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
     fun generate() {
         val m = models.getOrNull(model) ?: return
         if (!m.downloaded) {
-            job = "Downloading" to 0f
+            job = localizedText("Downloading") to 0f
             runCatching { downloadSpeechModel(m.id, m.family, listener) }.onFailure { job = null; vm.message = it.userMessage }
             return
         }
         val s = vm.session ?: return
-        job = "Reading the sound" to 0f
+        job = localizedText("Reading the sound") to 0f
         scope.launch(Threads.commands) {
             runCatching {
                 if (lyrics) s.autoLyrics(m.id, replace && existing > 0, listener) else s.autoCaptions(m.id, replace && existing > 0, listener)
@@ -258,22 +259,22 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
                 .navigationBarsPadding().padding(horizontal = 16.dp).padding(bottom = 14.dp),
         ) {
             Box(Modifier.fillMaxWidth().height(54.dp), contentAlignment = Alignment.Center) {
-                Text(if (lyrics) "Auto lyrics" else "Auto captions", style = Type.BodyStrong.copy(fontSize = 17.sp, color = Palette.Text))
+                Text(localizedText(if (lyrics) "Auto lyrics" else "Auto captions"), style = Type.BodyStrong.copy(fontSize = 17.sp, color = Palette.Text))
                 Box(
                     Modifier.align(Alignment.CenterEnd).size(40.dp).clickable {
                         if (job != null) runCatching { cancelSpeech() }
                         vm.panel = null
                     },
                     contentAlignment = Alignment.CenterEnd,
-                ) { Glyph(LucideIcons.X, Palette.Text, size = 24.dp, description = "Close") }
+                ) { Glyph(LucideIcons.X, Palette.Text, size = 24.dp, description = localizedText("Close")) }
             }
             Card {
-                SheetRow(LucideIcons.ScanText, "Generate from", "All sound", chevron = false) {}
+                SheetRow(LucideIcons.ScanText, localizedText("Generate from"), localizedText("All sound"), chevron = false) {}
             }
             Spacer(Modifier.height(12.dp))
             Card {
                 val m = models.getOrNull(model)
-                SheetRow(LucideIcons.Languages, "Spoken language", m?.let(::languageOf) ?: "…", chevron = true, open = choosing) { choosing = !choosing }
+                SheetRow(LucideIcons.Languages, localizedText("Spoken language"), m?.let(::languageOf) ?: "…", chevron = true, open = choosing) { choosing = !choosing }
                 if (choosing) {
                     models.forEachIndexed { i, option ->
                         Row(
@@ -294,7 +295,7 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
                 Row(Modifier.fillMaxWidth().padding(start = 14.dp, end = 14.dp, top = 14.dp, bottom = 10.dp), verticalAlignment = Alignment.CenterVertically) {
                     Glyph(LucideIcons.Captions, Palette.Text, size = 20.dp)
                     Spacer(Modifier.width(12.dp))
-                    Text("Style", style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text))
+                    Text(localizedText("Style"), style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text))
                 }
                 Row(
                     Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(start = 12.dp, end = 12.dp, bottom = 14.dp),
@@ -312,7 +313,7 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
                     ) {
                         Glyph(LucideIcons.Replace, Palette.Text, size = 20.dp)
                         Spacer(Modifier.width(12.dp))
-                        Text("Replace current captions", style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text), modifier = Modifier.weight(1f))
+                        Text(localizedText("Replace current captions"), style = Type.Body.copy(fontSize = 16.sp, color = Palette.Text), modifier = Modifier.weight(1f))
                         Switch(replace)
                     }
                 }
@@ -332,15 +333,15 @@ fun AutoCaptionsSheet(vm: EditorViewModel, lyrics: Boolean = false) {
                 Text(
                     when {
                         running != null -> "${running.first} ${(running.second * 100).toInt()}%"
-                        m != null && !m.downloaded -> "Download and generate (${mb(m.sizeBytes)})"
-                        else -> "Generate"
+                        m != null && !m.downloaded -> "${localizedText("Download and generate")} (${mb(m.sizeBytes)})"
+                        else -> localizedText("Generate")
                     },
                     style = Type.BodyStrong.copy(fontSize = 16.sp, color = if (running == null) Palette.OnAccent else Palette.Text),
                 )
             }
             Spacer(Modifier.height(8.dp))
             Text(
-                if (running != null) "Tap the cross to stop" else "Made on this phone; nothing is uploaded.",
+                if (running != null) localizedText("Tap the cross to stop") else localizedText("Made on this phone; nothing is uploaded."),
                 style = Type.Tiny.copy(color = Palette.TextSecondary),
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
@@ -383,7 +384,7 @@ private fun LookChip(l: CaptionLook, selected: Boolean, onClick: () -> Unit) {
         contentAlignment = Alignment.Center,
     ) {
         if (l.name == "Default") {
-            Text("Default", style = Type.Body.copy(color = Palette.Text))
+            Text(localizedText("Default"), style = Type.Body.copy(color = Palette.Text))
             return@Box
         }
         val colour = runCatching { Color(android.graphics.Color.parseColor(l.color)) }.getOrDefault(Color.White)
@@ -398,7 +399,7 @@ private fun LookChip(l: CaptionLook, selected: Boolean, onClick: () -> Unit) {
                 shadow = if (l.shadow) androidx.compose.ui.graphics.Shadow(Color(0xCC000000), androidx.compose.ui.geometry.Offset(2f, 3f), 6f) else null,
             )
             if (l.stroke != null) {
-                Text("Hi there", style = base.copy(color = Color(android.graphics.Color.parseColor(l.stroke)), drawStyle = Stroke(width = 5f), shadow = null))
+                Text(localizedText("Hi there"), style = base.copy(color = Color(android.graphics.Color.parseColor(l.stroke)), drawStyle = Stroke(width = 5f), shadow = null))
             }
             Text("Hi there", style = base.copy(color = colour))
         }
