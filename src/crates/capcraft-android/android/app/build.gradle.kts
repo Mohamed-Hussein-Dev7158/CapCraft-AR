@@ -253,7 +253,7 @@ android {
     ndkVersion = "29.0.14206865"
 
     defaultConfig {
-        applicationId = "io.github.artcraftandroid.capcraft"
+        applicationId = "com.alaaeldinlabs.capcraftar"
         minSdk = minApi
         targetSdk = 36
         versionCode = appVersionCode
