@@ -258,6 +258,68 @@ fun localizedText(context: Context, source: String): String {
         "Fade out" -> R.string.fade_out
         "Ratio" -> R.string.ratio
         "None" -> R.string.none
+        "Reset" -> R.string.reset
+        "Text and stickers" -> R.string.text_and_stickers
+        "To front" -> R.string.to_front
+        "Nothing on screen here to arrange" -> R.string.nothing_to_arrange
+        "To back" -> R.string.to_back
+        "Search audio effects" -> R.string.search_audio_effects
+        "Light" -> R.string.intensity_light
+        "Intense" -> R.string.intensity_intense
+        "Auto-generate" -> R.string.auto_generate
+        "Listening…" -> R.string.listening
+        "Super resolution" -> R.string.super_resolution
+        "Enter text" -> R.string.enter_text
+        "Apply to all captions" -> R.string.apply_to_all_captions
+        "Import" -> R.string.import
+        "Type the words first, then choose how they come and go." -> R.string.type_words_animations
+        "Voiceover" -> R.string.voiceover
+        "Spoken language" -> R.string.spoken_language
+        "Voice" -> R.string.voice
+        "Replace current captions" -> R.string.replace_current_captions
+        "Generate from" -> R.string.generate_from
+        "All sound" -> R.string.all_sound
+        "Download and generate" -> R.string.download_and_generate
+        "Generate" -> R.string.generate
+        "Tap the cross to stop" -> R.string.tap_cross_to_stop
+        "Made on this phone; nothing is uploaded." -> R.string.on_device_privacy
+        "Default" -> R.string.default_style
+        "No speech was found" -> R.string.no_speech_found
+        "Search your sounds" -> R.string.search_your_sounds
+        "Your audio" -> R.string.your_audio
+        "Extracted" -> R.string.extracted_audio
+        "Device" -> R.string.device_audio
+        "Extract audio from video" -> R.string.extract_audio_from_video
+        "Allow access to the music on this phone to list it here." -> R.string.allow_music_access
+        "Choose a file instead" -> R.string.choose_file_instead
+        "No music on this phone" -> R.string.no_music_on_device
+        "Sounds you bookmark show here." -> R.string.bookmarked_sounds
+        "Choose 2 to 9" -> R.string.choose_two_to_nine
+        "Add" -> R.string.add
+        "Search effects" -> R.string.search_effects
+        "Search filters" -> R.string.search_filters
+        "Search animations" -> R.string.search_animations
+        "Type what you will say; it scrolls over the picture while you record." -> R.string.type_while_recording
+        "Type the words to be read aloud" -> R.string.type_words_to_read
+        "Color picker" -> R.string.color_picker
+        "Invert" -> R.string.invert
+        "Select tracking subject" -> R.string.select_tracking_subject
+        "Custom" -> R.string.custom
+        "Reading the picture…" -> R.string.reading_picture
+        "Save" -> R.string.save
+        "Search stickers" -> R.string.search_stickers
+        "No stickers found" -> R.string.no_stickers_found
+        "Search sound effects" -> R.string.search_sound_effects
+        "Search sounds" -> R.string.search_sounds
+        "Extract audio" -> R.string.extract_audio_action
+        "Choose a file" -> R.string.choose_file
+        "Duration" -> R.string.duration
+        "Original" -> R.string.original
+        "To front" -> R.string.to_front_label
+        "To back" -> R.string.to_back_label
+        "Search music" -> R.string.search_music
+        "No results" -> R.string.no_results
+        "Cancel" -> R.string.cancel_generation
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
