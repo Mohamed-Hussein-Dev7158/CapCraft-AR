@@ -96,10 +96,13 @@ fun localizedText(context: Context, source: String): String {
         "Noise reduction" -> R.string.noise_reduction
         "Add a clip first" -> R.string.add_a_clip_first
         "Loudness adjustment" -> R.string.loudness_adjustment
+        "Transitions" -> R.string.transitions
+        "Change audio pitch" -> R.string.change_audio_pitch
+        "Press and hold one to keep it here" -> R.string.press_and_hold_to_save
         "Takes the hum and hiss out from behind the sound." -> R.string.noise_reduction_description
         "Full screen" -> R.string.full_screen
         "Exit full screen" -> R.string.exit_full_screen
-        "App language" -> R.string.language
+
         "Clear cache" -> R.string.clear_cache
         "Licences" -> R.string.licences
         "About CapCraft" -> R.string.about_capcraft
