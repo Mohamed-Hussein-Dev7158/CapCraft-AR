@@ -10,26 +10,27 @@ import androidx.compose.ui.unit.sp
 
 /** CapCraft's palette: a black editor with one cyan accent. */
 object Palette {
-    val Black = Color(0xFF000000)
+    val Black = Color(0xFF0A0A0A)
     /** The editor's chrome: top bar, timeline and dock. */
-    val Chrome = Color(0xFF0D0D0D)
+    val Chrome = Color(0xFF101010)
     /** Panels and sheets over the editor. */
-    val Panel = Color(0xFF1A1A1A)
+    val Panel = Color(0xFF151515)
     /** Cards and raised rows. */
-    val Card = Color(0xFF242424)
-    val CardPressed = Color(0xFF2E2E2E)
-    val Divider = Color(0xFF2A2A2A)
-    val Accent = Color(0xFF00CAE0)
+    val Card = Color(0xFF202020)
+    val CardPressed = Color(0xFF292929)
+    val Divider = Color(0xFF303030)
+    val Accent = Color(0xFF81CCEC)
+    val SecondaryAccent = Color(0xFF7CC5E2)
     /** Words on the accent: the Export button's dark ink. */
-    val OnAccent = Color(0xFF1E2129)
+    val OnAccent = Color(0xFF0A0A0A)
     /** The editor's top part: top bar, preview surround and play bar. */
-    val EditorTop = Color(0xFF141414)
+    val EditorTop = Color(0xFF0A0A0A)
     /** The timeline and the bottom bar under it. */
-    val Timeline = Color(0xFF1C1C1C)
+    val Timeline = Color(0xFF151515)
     /** The bottom bar while a clip is selected, and the panels. */
-    val DockSelected = Color(0xFF262626)
+    val DockSelected = Color(0xFF1D1D1D)
     /** The back button of a bottom bar level. */
-    val DockBack = Color(0xFF3C3C3C)
+    val DockBack = Color(0xFF303030)
     /** Labels and icons in the bottom bar. */
     val DockText = Color(0xFFD4D4D4)
     /** The resolution chip in the top bar. */
@@ -51,7 +52,7 @@ object Palette {
     val AudioClip = Color(0xFF2A5256)
     /** Beat marks on sound clips. */
     val Beat = Color(0xFFFFD60A)
-    val AudioWave = Color(0xFF00B2C2)
+    val AudioWave = Color(0xFF7CC5E2)
     val OverlayClip = Color(0xFF2B2B2B)
     val Danger = Color(0xFFFF4D4F)
 }
