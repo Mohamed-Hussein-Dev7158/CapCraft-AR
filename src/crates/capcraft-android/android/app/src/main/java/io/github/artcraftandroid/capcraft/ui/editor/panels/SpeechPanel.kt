@@ -209,8 +209,8 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                     val label = when {
                         m == null -> "…"
                         !ready -> "${localizedText("Download")} (${mb(m.sizeBytes)})"
-                        captions -> "Generate"
-                        else -> "Generate"
+                        captions -> localizedText("Generate")
+                        else -> localizedText("Generate")
                     }
                     Box(
                         Modifier.fillMaxWidth().height(44.dp).clip(RoundedCornerShape(8.dp))
