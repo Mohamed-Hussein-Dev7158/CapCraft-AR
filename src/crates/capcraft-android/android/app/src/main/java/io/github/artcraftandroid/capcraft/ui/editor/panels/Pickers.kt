@@ -349,7 +349,7 @@ private fun ColumnScope.PackagesContent(vm: EditorViewModel, kind: String, targe
                             verticalArrangement = Arrangement.Center,
                         ) {
                             Glyph(LucideIcons.SlidersHorizontal, Color.White, size = 20.dp)
-                            Text("Adjust", style = Type.Small.copy(color = Color.White, fontSize = 11.sp))
+                            Text(localizedText("Adjust"), style = Type.Small.copy(color = Color.White, fontSize = 11.sp))
                         }
                     }
                 }
@@ -393,7 +393,7 @@ private fun ColumnScope.PackagesContent(vm: EditorViewModel, kind: String, targe
                 Row(Modifier.clickable { filterToAll(vm, clip.id, ids) }.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
                     Glyph(LucideIcons.Layers, Palette.DockText, size = 18.dp)
                     Spacer(Modifier.width(6.dp))
-                    Text("Apply to all", style = Type.Body.copy(color = Palette.DockText))
+                    Text(localizedText("Apply to all"), style = Type.Body.copy(color = Palette.DockText))
                 }
             }
         }
@@ -902,7 +902,7 @@ private fun ColumnScope.AdjustContent(vm: EditorViewModel) {
             // how much of what the smart tool worked out is on
             val base = found?.takeIf { it.first == "${target?.id}:$which" }?.second
             when {
-                reading -> Text("Reading the picture…", style = Type.Small, modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 10.dp))
+                reading -> Text(localizedText("Reading the picture…"), style = Type.Small, modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 10.dp))
                 base != null -> ValueSlider(
                     value = strength,
                     range = 0f..100f,
@@ -935,7 +935,7 @@ private fun ColumnScope.AdjustContent(vm: EditorViewModel) {
             Row(Modifier.clickable(onClick = ::reset).padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
                 Glyph(LucideIcons.RotateCcw, Palette.DockText, size = 18.dp)
                 Spacer(Modifier.width(6.dp))
-                Text("Reset", style = Type.Body.copy(color = Palette.DockText))
+                Text(localizedText("Reset"), style = Type.Body.copy(color = Palette.DockText))
             }
             Spacer(Modifier.width(12.dp))
             Row(Modifier.clickable(onClick = ::applyToAll).padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -947,7 +947,7 @@ private fun ColumnScope.AdjustContent(vm: EditorViewModel) {
             Row(Modifier.clickable(onClick = ::savePreset).padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
                 Glyph(LucideIcons.Bookmark, Palette.DockText, size = 18.dp)
                 Spacer(Modifier.width(6.dp))
-                Text("Save preset", style = Type.Body.copy(color = Palette.DockText))
+                Text(localizedText("Save preset"), style = Type.Body.copy(color = Palette.DockText))
             }
         }
     }
