@@ -1194,6 +1194,7 @@ private fun LicencesScreen(onBack: () -> Unit) {
         "THIRD_PARTY_NOTICES.md" to "Engine third-party notices",
         "LICENSE-lucide.txt" to "Lucide icons",
         "LICENSE-material-symbols.txt" to "Material Symbols",
+        "LICENSE-NotoSansArabicUI.txt" to "Noto Sans Arabic UI font",
     )
     var open by remember { mutableStateOf<String?>(null) }
     Page(files.firstOrNull { it.first == open }?.second ?: "Licences", onBack = { if (open != null) open = null else onBack() }) {
