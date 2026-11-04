@@ -344,4 +344,9 @@
     <string name="smooth">تنعيم</string>
     <string name="brighten">تفتيح</string>
     <string name="record_voiceover">تسجيل تعليق صوتي</string>
+    <string name="play">تشغيل</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="expand">توسيع</string>
+    <string name="minimize">تصغير</string>
+    <string name="add_to_fx">إضافة</string>
 </resources>
