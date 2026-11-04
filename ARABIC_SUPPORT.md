@@ -65,6 +65,6 @@ The app label and launcher tint use the CapCraft AR identity. The upstream Kotli
 
 - This is the first localization pass, not a claim that every panel, dialog, accessibility label, or engine error is translated.
 - Several specialized panels still contain upstream English copy and will be migrated to the central string catalog in follow-up work.
-- The bundled Arabic UI font currently exists in the native text-rendering crate. It has not yet been wired as a dedicated Compose font family.
+- The existing Noto Sans Arabic UI subset is now wired into Android's generated `res/font` resources and selected as the default Compose text family when Arabic is active. The source font and its SIL Open Font License remain in the upstream text crate and third-party notices. This wiring has not been build- or device-verified.
 - Arabic shaping and bidi logic exist in the native renderer, but Arabic preview/export behavior has not been device-tested in this pass.
 - No Android build or APK generation was run, as requested. Static repository checks do not replace a build or on-device QA.
