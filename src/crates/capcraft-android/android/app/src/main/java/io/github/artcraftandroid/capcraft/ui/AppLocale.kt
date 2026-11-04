@@ -76,6 +76,30 @@ fun localizedText(context: Context, source: String): String {
         "Me" -> R.string.account
         "Settings" -> R.string.settings
         "App language" -> R.string.language
+        "Color" -> R.string.color
+        "Image" -> R.string.image
+        "Blur" -> R.string.blur
+        "Rotate" -> R.string.rotate
+        "Advanced" -> R.string.advanced
+        "Normal" -> R.string.normal
+        "Volume" -> R.string.volume
+        "Speed" -> R.string.speed
+        "Replace" -> R.string.replace
+        "Retouch" -> R.string.retouch
+        "Style" -> R.string.style
+        "Recommended" -> R.string.recommended
+        "Trending" -> R.string.trending
+        "Tools" -> R.string.tools
+        "Flip video horizontally" -> R.string.flip_video_horizontally
+        "Add auto captions" -> R.string.add_auto_captions
+        "Reduce video noise" -> R.string.reduce_video_noise
+        "Noise reduction" -> R.string.noise_reduction
+        "Add a clip first" -> R.string.add_a_clip_first
+        "Loudness adjustment" -> R.string.loudness_adjustment
+        "Takes the hum and hiss out from behind the sound." -> R.string.noise_reduction_description
+        "Full screen" -> R.string.full_screen
+        "Exit full screen" -> R.string.exit_full_screen
+        "App language" -> R.string.language
         "Clear cache" -> R.string.clear_cache
         "Licences" -> R.string.licences
         "About CapCraft" -> R.string.about_capcraft
@@ -177,7 +201,7 @@ fun localizedText(context: Context, source: String): String {
         "Basic" -> R.string.basic
         "Tracking" -> R.string.tracking
         "Edit captions" -> R.string.edit_captions
-        "Text to speech" -> R.string.speech_to_text
+        "Text to speech" -> R.string.text_to_speech
         "Splice" -> R.string.splice
         "Beats" -> R.string.beats
         "Crop" -> R.string.crop
