@@ -162,6 +162,8 @@ fun localizedText(context: Context, source: String): String {
         "Take a video's sound out as a clip of its own." -> R.string.extract_description
         "Export" -> R.string.export
         "Export failed" -> R.string.export_failed
+        "Exporting video" -> R.string.exporting_video
+        "Exports" -> R.string.export_notification_channel
         "Try again" -> R.string.try_again
         "New project" -> R.string.new_project
         "You can leave CapCraft while the video saves" -> R.string.export_background_tip
