@@ -58,6 +58,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.common.ConfirmDialog
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Panel
@@ -299,7 +300,7 @@ private fun ColumnScope.PackagesContent(vm: EditorViewModel, kind: String, targe
         }
         if (keptTab && query.isBlank() && shown.isEmpty()) {
             Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
-                Text("Press and hold one to keep it here", style = Type.Small)
+                Text(localizedText("Press and hold one to keep it here"), style = Type.Small)
             }
             return@run
         }
