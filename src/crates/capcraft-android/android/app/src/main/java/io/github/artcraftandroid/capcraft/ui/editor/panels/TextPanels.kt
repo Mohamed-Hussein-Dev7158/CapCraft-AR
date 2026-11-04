@@ -408,7 +408,7 @@ fun TextPanel(vm: EditorViewModel, clipId: String?, startTab: Int = 3) {
                                             verticalArrangement = Arrangement.Center,
                                         ) {
                                             Glyph(LucideIcons.Plus, Palette.Text, size = 16.dp)
-                                            Text("Import", style = Type.Small.copy(color = Palette.Text, fontSize = 11.sp))
+                                            Text(localizedText("Import"), style = Type.Small.copy(color = Palette.Text, fontSize = 11.sp))
                                         }
                                         return@forEach
                                     }
@@ -611,7 +611,7 @@ private fun BubbleSample(b: Bubble) {
             if (edge != null) outlines.forEach { drawPath(it, edge, style = androidx.compose.ui.graphics.drawscope.Stroke(width = 3.dp.toPx(), join = androidx.compose.ui.graphics.StrokeJoin.Round)) }
             outlines.forEach { drawPath(it, fill) }
         }
-        Text("Hi!", style = Type.BodyStrong.copy(fontSize = 13.sp, color = ink), modifier = Modifier.offset(y = if (b.shape == "speech" || b.shape == "thought" || b.shape == "oval") (-6).dp else 0.dp))
+        Text(localizedText("Hi!"), style = Type.BodyStrong.copy(fontSize = 13.sp, color = ink), modifier = Modifier.offset(y = if (b.shape == "speech" || b.shape == "thought" || b.shape == "oval") (-6).dp else 0.dp))
     }
 }
 
@@ -961,7 +961,7 @@ private fun TemplatesTab(style: JSONObject, onKept: (Boolean) -> Unit, onPick: (
     }
     KindsRow(TEMPLATE_KINDS, kind, query, { kind = it; keptTab = false }, { query = it }, "Search templates", keptTab) { keptTab = true }
     if (keptTab && shown.isEmpty()) {
-        Text("Press and hold one to keep it here", style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
+        Text(localizedText("Press and hold one to keep it here"), style = Type.Small, modifier = Modifier.padding(vertical = 24.dp))
     }
     Column(Modifier.padding(vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         shown.chunked(4).forEach { row ->
@@ -1630,7 +1630,7 @@ internal fun SwatchRow(selected: String?, allowNone: Boolean = false, vm: Editor
                     }
                 },
                 contentAlignment = Alignment.Center,
-            ) { Glyph(LucideIcons.Pipette, if (picking) Palette.Black else Palette.Text, size = 15.dp, description = "Pick a colour") }
+            ) { Glyph(LucideIcons.Pipette, if (picking) Palette.Black else Palette.Text, size = 15.dp, description = localizedText("Pick a colour")) }
         }
         Box(
             Modifier.size(28.dp).clip(CircleShape).background(androidx.compose.ui.graphics.Brush.sweepGradient(HUES))
