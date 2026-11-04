@@ -383,4 +383,18 @@
     <string name="not_affiliated_short">لا يتبع ByteDance أو CapCut ولا يحظى باعتمادهما أو تأييدهما.</string>
     <string name="add_keyframe">إضافة إطار مفتاحي</string>
     <string name="remove_keyframe">إزالة الإطار المفتاحي</string>
+    <string name="save_preset">حفظ النمط</string>
+    <string name="undo_last_stroke">التراجع عن آخر رسمة</string>
+    <string name="pen">قلم</string>
+    <string name="eraser">ممحاة</string>
+    <string name="own_photo">صورة من جهازك</string>
+    <string name="bookmark">إضافة إلى المحفوظات</string>
+    <string name="use">استخدام</string>
+    <string name="cut_this_line">قص هذا السطر</string>
+    <string name="pick_a_colour">اختيار لون</string>
+    <string name="duration_seconds">المدة: %1$.1f ثانية</string>
+    <string name="hi_preview">أهلًا!</string>
+    <string name="search_animation_label">ابحث عن الحركات</string>
+    <string name="apply_all">تطبيق على الكل</string>
+    <string name="reset_label">إعادة ضبط</string>
 </resources>
