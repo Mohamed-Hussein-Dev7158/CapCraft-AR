@@ -43,6 +43,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Thumbs
 import kotlin.math.abs
@@ -108,7 +109,7 @@ fun BeatsPanel(vm: EditorViewModel) {
                 Glyph(if (deleting) LucideIcons.Minus else LucideIcons.Plus, Color.Black, size = 16.dp)
                 Spacer(Modifier.width(6.dp))
                 Text(
-                    if (deleting) "Delete beat" else "Add beat",
+                    localizedText(if (deleting) "Delete beat" else "Add beat"),
                     style = Type.Body.copy(color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.SemiBold),
                 )
             }
@@ -121,7 +122,7 @@ fun BeatsPanel(vm: EditorViewModel) {
                     if (auto) find(intense) else vm.setBeats(clip.mediaId, null)
                 }
                 Spacer(Modifier.height(8.dp))
-                Text(if (finding) "Listening…" else "Auto-generate", style = Type.Small.copy(color = Palette.Text, fontSize = 13.sp))
+                Text(localizedText(if (finding) "Listening…" else "Auto-generate"), style = Type.Small.copy(color = Palette.Text, fontSize = 13.sp))
             }
             Box(Modifier.width(1.dp).height(52.dp).background(Color(0xFF3A3A3A)))
             Column(Modifier.weight(1f).padding(start = 14.dp)) {
@@ -133,9 +134,9 @@ fun BeatsPanel(vm: EditorViewModel) {
                 }
                 Row(Modifier.fillMaxWidth()) {
                     val tone = if (auto) Palette.Text else Palette.TextSecondary
-                    Text("Light", style = Type.Small.copy(color = tone, fontSize = 13.sp))
+                    Text(localizedText("Light"), style = Type.Small.copy(color = tone, fontSize = 13.sp))
                     Spacer(Modifier.weight(1f))
-                    Text("Intense", style = Type.Small.copy(color = tone, fontSize = 13.sp))
+                    Text(localizedText("Intense"), style = Type.Small.copy(color = tone, fontSize = 13.sp))
                 }
             }
         }
