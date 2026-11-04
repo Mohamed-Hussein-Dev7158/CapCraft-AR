@@ -1,5 +1,6 @@
 package io.github.artcraftandroid.capcraft.ui.editor
 
+import android.content.Context
 import android.graphics.Bitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
@@ -13,6 +14,7 @@ import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -38,7 +40,9 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.input.pointer.positionChange
 import androidx.compose.ui.input.pointer.util.VelocityTracker
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalViewConfiguration
 import androidx.compose.ui.text.TextStyle
@@ -46,6 +50,7 @@ import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -56,6 +61,7 @@ import io.github.artcraftandroid.capcraft.engine.clock
 import io.github.artcraftandroid.capcraft.engine.seconds1
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.floor
@@ -305,6 +311,15 @@ private class Layout(
 
 @Composable
 fun Timeline(vm: EditorViewModel, modifier: Modifier) {
+    // Time always advances left-to-right. Only surrounding editor controls follow the app locale.
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+        TimelineContent(vm, modifier)
+    }
+}
+
+@Composable
+private fun TimelineContent(vm: EditorViewModel, modifier: Modifier) {
+    val context = LocalContext.current
     val density = LocalDensity.current
     val dp = density.density
     val touchSlop = LocalViewConfiguration.current.touchSlop
@@ -621,7 +636,7 @@ fun Timeline(vm: EditorViewModel, modifier: Modifier) {
                         drawRect(Color(0xFF1C1C1C), Offset(r.center.x - 1 * dp, r.center.y - 4.5f * dp), Size(2 * dp, 9 * dp))
                     }
                 }
-                drawLeadingTiles(vm, layout, measurer, volumeOn, volumeOff, pencilIcon)
+                drawLeadingTiles(vm, layout, measurer, volumeOn, volumeOff, pencilIcon, context)
                 // the first row of each kind keeps its kind's tile at the left
                 layout.rows.forEachIndexed { i, row ->
                     val icon = when (row.kind) {
@@ -825,6 +840,7 @@ private fun DrawScope.drawLeadingTiles(
     on: androidx.compose.ui.graphics.vector.VectorPainter,
     off: androidx.compose.ui.graphics.vector.VectorPainter,
     pencil: androidx.compose.ui.graphics.vector.VectorPainter,
+    context: Context,
 ) {
     val dp = layout.dp
     val main = layout.rows.firstOrNull() ?: return
@@ -858,7 +874,7 @@ private fun DrawScope.drawLeadingTiles(
             with(pencil) { draw(Size(p, p), colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(Color.White)) }
         }
         val label = measurer.measure(
-            "Cover",
+            localizedText(context, "Cover"),
             TextStyle(color = Color.White, fontSize = 11.sp, shadow = androidx.compose.ui.graphics.Shadow(Color(0x99000000), blurRadius = 4f)),
         )
         drawText(label, topLeft = Offset(cover.left + (cover.width - label.size.width) / 2, cover.top + 29 * dp))
