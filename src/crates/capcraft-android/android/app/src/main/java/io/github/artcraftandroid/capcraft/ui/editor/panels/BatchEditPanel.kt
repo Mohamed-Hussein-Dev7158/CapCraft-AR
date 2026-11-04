@@ -40,6 +40,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import org.json.JSONObject
 
@@ -87,7 +88,7 @@ fun BatchEditPanel(vm: EditorViewModel) {
                 modifier = Modifier.align(Alignment.Center),
             )
             Box(Modifier.size(44.dp).align(Alignment.CenterEnd).clickable(onClick = ::done), contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Check, Palette.Text, size = 26.dp, description = "Done")
+                Glyph(LucideIcons.Check, Palette.Text, size = 26.dp, description = localizedText("Done"))
             }
         }
         Box(Modifier.fillMaxWidth().height(1.dp).background(Color(0xFF2E2E2E)))
@@ -127,7 +128,7 @@ private fun BarItem(icon: androidx.compose.ui.graphics.vector.ImageVector, label
     Column(Modifier.clickable(enabled = enabled, onClick = onClick).padding(horizontal = 18.dp, vertical = 6.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Glyph(icon, tint, size = 22.dp)
         Spacer(Modifier.height(4.dp))
-        Text(label, style = Type.DockLabel.copy(color = tint))
+        Text(localizedText(label), style = Type.DockLabel.copy(color = tint))
     }
 }
 
@@ -159,7 +160,7 @@ private fun CaptionLine(vm: EditorViewModel, id: String, start: Long, current: B
                     vm.start()
                 },
                 contentAlignment = Alignment.Center,
-            ) { Glyph(LucideIcons.Play, if (current) Palette.Text else Palette.TextSecondary, size = 14.dp, description = "Play") }
+            ) { Glyph(LucideIcons.Play, if (current) Palette.Text else Palette.TextSecondary, size = 14.dp, description = localizedText("Play")) }
         }
         Text(clock(start), style = Type.Small.copy(color = if (current) Palette.Text else Palette.TextSecondary), modifier = Modifier.width(48.dp))
         BasicTextField(
