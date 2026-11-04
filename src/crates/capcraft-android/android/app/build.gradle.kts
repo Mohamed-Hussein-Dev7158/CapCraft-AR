@@ -174,7 +174,9 @@ abstract class CopyFiles : DefaultTask() {
         out.deleteRecursively()
         for (file in files) {
             val target = targets.get()[file.name] ?: continue
-            file.copyTo(File(out, target), overwrite = true)
+            val destination = File(out, target)
+            destination.parentFile?.mkdirs()
+            file.copyTo(destination, overwrite = true)
         }
     }
 }
