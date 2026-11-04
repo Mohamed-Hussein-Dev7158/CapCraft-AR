@@ -69,6 +69,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -382,7 +383,7 @@ private fun MediaPickerPage(req: MediaRequest, onClose: () -> Unit, onDone: (Lis
                         }
                     }
                     Row(Modifier.fillMaxWidth().height(58.dp).padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
-                        if (collage) Text("Choose 2 to 9", style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 13.sp))
+                        if (collage) Text(localizedText("Choose 2 to 9"), style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 13.sp))
                         Spacer(Modifier.weight(1f))
                         val ready = if (collage) chosen.size >= 2 else chosen.isNotEmpty()
                         Box(
@@ -506,7 +507,7 @@ private fun MediaPreview(item: Item, place: Int, multiple: Boolean, onClose: () 
         Box(
             Modifier.align(Alignment.BottomEnd).navigationBarsPadding().padding(16.dp).clip(RoundedCornerShape(8.dp))
                 .background(Palette.Accent).clickable(onClick = onAdd).padding(horizontal = 22.dp, vertical = 10.dp),
-        ) { Text("Add", style = Type.BodyStrong.copy(color = Color.White, fontSize = 14.sp)) }
+        ) { Text(localizedText("Add"), style = Type.BodyStrong.copy(color = Color.White, fontSize = 14.sp)) }
     }
 }
 
