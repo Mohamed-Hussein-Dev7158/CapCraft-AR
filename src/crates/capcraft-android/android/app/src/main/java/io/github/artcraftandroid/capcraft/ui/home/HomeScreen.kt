@@ -660,7 +660,7 @@ private fun ToolsSheet(title: String, tools: List<Triple<String, String, String>
             Box(
                 Modifier.size(52.dp).clip(androidx.compose.foundation.shape.CircleShape).background(Home.Round).clickable(onClick = onClose),
                 contentAlignment = Alignment.Center,
-            ) { Glyph(LucideIcons.X, Home.Ink, size = 20.dp, description = "Close") }
+            ) { Glyph(LucideIcons.X, Home.Ink, size = 20.dp, description = localizedText("Close")) }
         }
     }
 }
@@ -719,7 +719,7 @@ private fun StripTile(p: ProjectSummary, onClick: () -> Unit) {
         Row(Modifier.align(Alignment.BottomStart).padding(horizontal = 5.dp, vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
             Glyph(if (isPhoto(p)) LucideIcons.Image else LucideIcons.Scissors, Color.White, size = 10.dp)
             Spacer(Modifier.width(3.dp))
-            Text(p.name.ifBlank { "Untitled" }, style = ink(10.5f, FontWeight.Medium, Color.White), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text(p.name.ifBlank { localizedText("Untitled") }, style = ink(10.5f, FontWeight.Medium, Color.White), maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }
@@ -796,7 +796,7 @@ private fun ProjectsTab(
                 } else {
                     Text(localizedText("Projects"), style = ink(22f, FontWeight.Bold), modifier = Modifier.weight(1f))
                     Box(Modifier.size(44.dp).clip(RoundedCornerShape(22.dp)).clickable { onSearching(true) }, contentAlignment = Alignment.Center) {
-                        Glyph(LucideIcons.Search, Home.Ink, size = 24.dp, description = "Search projects")
+                        Glyph(LucideIcons.Search, Home.Ink, size = 24.dp, description = localizedText("Search projects"))
                     }
                 }
             }
