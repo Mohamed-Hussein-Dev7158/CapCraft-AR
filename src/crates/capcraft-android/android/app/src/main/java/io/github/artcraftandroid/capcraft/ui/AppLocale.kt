@@ -414,6 +414,7 @@ fun localizedText(context: Context, source: String): String {
         "Pick a colour" -> R.string.pick_a_colour
         "Duration: %1$.1f s" -> R.string.duration_seconds
         "Hi!" -> R.string.hi_preview
+        "%.0f MB download" -> R.string.download_size_suffix
         else -> 0
     }
     return if (id == 0) source else context.getString(id)
