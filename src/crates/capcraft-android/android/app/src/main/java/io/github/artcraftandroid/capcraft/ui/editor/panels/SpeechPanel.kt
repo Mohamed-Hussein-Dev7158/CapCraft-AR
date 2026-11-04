@@ -46,6 +46,7 @@ import io.github.artcraftandroid.capcraft.engine.Threads
 import io.github.artcraftandroid.capcraft.engine.userMessage
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -153,7 +154,7 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                     cursorBrush = androidx.compose.ui.graphics.SolidColor(Palette.Accent),
                     decorationBox = { inner ->
                         Box {
-                            if (words.isEmpty()) Text("Type the words to be read aloud", style = Type.Body.copy(color = Palette.TextSecondary))
+                            if (words.isEmpty()) Text(localizedText("Type the words to be read aloud"), style = Type.Body.copy(color = Palette.TextSecondary))
                             inner()
                         }
                     },
@@ -161,7 +162,7 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                 )
                 Spacer(Modifier.height(12.dp))
             }
-            Text(if (captions) "Spoken language" else "Voice model", style = Type.Small)
+            Text(localizedText(if (captions) "Spoken language" else "Voice model"), style = Type.Small)
             Spacer(Modifier.height(8.dp))
             Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 models.forEachIndexed { i, m ->
@@ -176,7 +177,7 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
             }
             if (!captions) {
                 Spacer(Modifier.height(12.dp))
-                Text("Voice", style = Type.Small)
+                Text(localizedText("Voice"), style = Type.Small)
                 Spacer(Modifier.height(8.dp))
                 FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     voiceList.filter { chosen == null || it.family == chosen.family }.take(40).forEach { v ->
@@ -186,12 +187,12 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
             }
             if (captions && existing > 0) {
                 Spacer(Modifier.height(8.dp))
-                CheckChip("Clear current captions", replace) { replace = !replace }
+                CheckChip(localizedText("Clear current captions"), replace) { replace = !replace }
             }
             Spacer(Modifier.height(16.dp))
             when (val j = job) {
                 is Job.Running -> {
-                    Text(j.label, style = Type.Small)
+                    Text(localizedText(j.label), style = Type.Small)
                     Spacer(Modifier.height(6.dp))
                     LinearProgressIndicator(
                         progress = { j.fraction },
@@ -200,14 +201,14 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                         trackColor = Palette.Disabled,
                     )
                     Spacer(Modifier.height(10.dp))
-                    Text("Cancel", style = Type.BodyStrong, modifier = Modifier.clickable { runCatching { cancelSpeech() }; job = Job.Idle })
+                    Text(localizedText("Cancel"), style = Type.BodyStrong, modifier = Modifier.clickable { runCatching { cancelSpeech() }; job = Job.Idle })
                 }
                 Job.Idle -> {
                     val m = chosen
                     val ready = m?.downloaded == true
                     val label = when {
                         m == null -> "…"
-                        !ready -> "Download (${mb(m.sizeBytes)})"
+                        !ready -> "${localizedText("Download")} (${mb(m.sizeBytes)})"
                         captions -> "Generate"
                         else -> "Generate"
                     }
@@ -217,14 +218,14 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                             .clickable(enabled = m != null) {
                                 val target = m ?: return@clickable
                                 if (!target.downloaded) {
-                                    job = Job.Running("Downloading", 0f)
+                                    job = Job.Running(localizedText("Downloading"), 0f)
                                     runCatching { downloadSpeechModel(target.id, target.family, listener) }
                                         .onFailure { job = Job.Idle; vm.message = it.userMessage }
                                     return@clickable
                                 }
                                 val s = vm.session ?: return@clickable
                                 if (captions) {
-                                    job = Job.Running("Reading the sound", 0f)
+                                    job = Job.Running(localizedText("Reading the sound"), 0f)
                                     scope.launch(Threads.commands) {
                                         runCatching { s.autoCaptions(target.id, replace && existing > 0, listener) }
                                             .onFailure { e -> launch(Dispatchers.Main) { job = Job.Idle; vm.message = e.userMessage } }
@@ -232,7 +233,7 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                                 } else {
                                     val v = voice ?: return@clickable
                                     if (typed && words.isBlank()) return@clickable
-                                    job = Job.Running("Generating", 0f)
+                                    job = Job.Running(localizedText("Generating"), 0f)
                                     val at = vm.playhead
                                     scope.launch(Threads.commands) {
                                         runCatching {
@@ -245,7 +246,7 @@ fun SpeechPanel(vm: EditorViewModel, captions: Boolean, clipId: String?) {
                     ) { Text(label, style = Type.BodyStrong.copy(color = if (m == null) Palette.TextSecondary else Palette.OnAccent)) }
                     Spacer(Modifier.height(8.dp))
                     Text(
-                        "Runs on this phone. The model is downloaded once.",
+                        localizedText("Runs on this phone. The model is downloaded once."),
                         style = Type.Tiny,
                     )
                 }
