@@ -381,4 +381,6 @@
     <string name="trash_retention_note">تُحذف المشاريع الموجودة هنا نهائيًا بعد 30 يومًا.</string>
     <string name="about_project_description">محرر فيديو مجاني يحتفظ بمشاريعك على هاتفك. يعتمد على محرك Concat، وهو برنامج حر بموجب رخصة GNU Affero العامة الإصدار الثالث أو أي إصدار أحدث.</string>
     <string name="not_affiliated_short">لا يتبع ByteDance أو CapCut ولا يحظى باعتمادهما أو تأييدهما.</string>
+    <string name="add_keyframe">إضافة إطار مفتاحي</string>
+    <string name="remove_keyframe">إزالة الإطار المفتاحي</string>
 </resources>
