@@ -367,4 +367,10 @@
     <string name="photo_under_playhead">The picture under the playhead, saved as a photo</string>
     <string name="estimated_file_size">Estimated file size: %1$s MB</string>
     <string name="suggested_for_video">Suggested for this video: %1$d</string>
+    <string name="smaller_files_faster">Smaller files load faster</string>
+    <string name="more_pictures_smoother">More pictures, smoother motion</string>
+    <string name="very_smooth_motion">Very smooth motion</string>
+    <string name="steady_motion">Steady, everyday motion</string>
+    <string name="export_resolution">Resolution</string>
+    <string name="estimated_size">Estimated file size: %1$s MB</string>
 </resources>
