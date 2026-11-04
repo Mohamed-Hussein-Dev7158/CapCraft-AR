@@ -129,7 +129,7 @@ fun localizedText(context: Context, source: String): String {
         "Audio tools" -> R.string.audio_tools
         "Photo tools" -> R.string.photo_tools
         "AutoCut" -> R.string.autocut
-        "Retouch" -> R.string.retouch
+
         "Shoot and record" -> R.string.shoot_and_record
         "Auto enhance" -> R.string.auto_enhance
         "Cover maker" -> R.string.cover_maker
@@ -238,8 +238,8 @@ fun localizedText(context: Context, source: String): String {
         "Auto split" -> R.string.auto_split
         "Object" -> R.string.object
         "Describe what you want to do" -> R.string.describe_edit
-        "Full screen" -> R.string.full_screen
-        "Exit full screen" -> R.string.exit_full_screen
+
+
         "Opacity" -> R.string.opacity
         "Fade" -> R.string.fade
         "Fade in" -> R.string.fade_in
