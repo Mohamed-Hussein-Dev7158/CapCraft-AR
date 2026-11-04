@@ -80,17 +80,18 @@ fun CapCraftTheme(content: @Composable () -> Unit) {
         FontFamily.Default
     }
 
-    ProvideTextStyle(value = TextStyle(fontFamily = appTypeface)) {
-        MaterialTheme(
-            colorScheme = darkColorScheme(
-                primary = Palette.Accent,
-                onPrimary = Palette.OnAccent,
-                background = Palette.Black,
-                surface = Palette.Panel,
-                onSurface = Palette.Text,
-                onBackground = Palette.Text,
-            ),
-            content = content,
-        )
+    MaterialTheme(
+        colorScheme = darkColorScheme(
+            primary = Palette.Accent,
+            onPrimary = Palette.OnAccent,
+            background = Palette.Black,
+            surface = Palette.Panel,
+            onSurface = Palette.Text,
+            onBackground = Palette.Text,
+        ),
+    ) {
+        ProvideTextStyle(value = TextStyle(fontFamily = appTypeface)) {
+            content()
+        }
     }
 }
