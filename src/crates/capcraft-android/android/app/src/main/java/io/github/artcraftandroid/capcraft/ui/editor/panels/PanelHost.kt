@@ -288,7 +288,7 @@ fun ValueSlider(
 ) {
     Row(modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
         title?.let {
-            Text(it, style = Type.Small, modifier = Modifier.width(72.dp))
+            Text(localizedText(it), style = Type.Small, modifier = Modifier.width(72.dp))
         }
         CapSlider(value, range, label, onChange, onDone, Modifier.weight(1f), track, filled)
     }
