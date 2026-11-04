@@ -325,4 +325,23 @@
     <string name="super_resolution_description">تحسين وضوح الصورة على هذا الهاتف. الصور تستغرق لحظات، أما الفيديو فيُعالج إطارًا تلو الآخر وقد يستغرق وقتًا.</string>
     <string name="blur_label">جارٍ التمويه</string>
     <string name="try_another_item">لا يوجد عنصر بهذا الاسم</string>
+    <string name="search_fonts">ابحث عن الخطوط</string>
+    <string name="cube_import_description">استيراد نمط ألوان بصيغة ‎.cube</string>
+    <string name="teleprompter">ملقّن النص</string>
+    <string name="recording_tap_stop">جارٍ التسجيل %1$s · اضغط للإيقاف</string>
+    <string name="tap_to_stop">اضغط للإيقاف</string>
+    <string name="tap_to_record">اضغط للتسجيل</string>
+    <string name="voice_changer">مغيّر الصوت</string>
+    <string name="transcript_edit_description">حوّل الكلام إلى نص، ثم قص الفيديو بحذف السطور التي لا تحتاجها.</string>
+    <string name="download_and_transcribe">تنزيل وتفريغ الكلام (%1$.0f ميجابايت)</string>
+    <string name="transcribe">تفريغ الكلام</string>
+    <string name="runs_on_phone_model_downloaded">يعمل على هذا الهاتف. يتم تنزيل النموذج مرة واحدة.</string>
+    <string name="clear_current_captions">مسح الترجمة النصية الحالية</string>
+    <string name="voice_model">نموذج الصوت</string>
+    <string name="auto_fast">تلقائي (سريع)</string>
+    <string name="download">تنزيل</string>
+    <string name="generating">جارٍ الإنشاء</string>
+    <string name="smooth">تنعيم</string>
+    <string name="brighten">تفتيح</string>
+    <string name="record_voiceover">تسجيل تعليق صوتي</string>
 </resources>
