@@ -4,12 +4,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.graphicsLayer
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.PathParser
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -41,8 +44,15 @@ internal fun material(name: String, vararg paths: String): ImageVector {
     return b.build()
 }
 
-/** An icon at [size], tinted. */
+/** An icon at [size], tinted. Navigation chevrons and arrows mirror in RTL; action icons do not. */
 @Composable
 fun Glyph(image: ImageVector, tint: Color, modifier: Modifier = Modifier, size: Dp = 24.dp, description: String? = null) {
-    Icon(image, contentDescription = description, tint = tint, modifier = modifier.size(size))
+    val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
+    val directional = image.name.lowercase() in setOf(
+        "chevron-left", "chevron-right", "chevrons-left", "chevrons-right",
+        "arrow-left", "arrow-right", "arrow-left-circle", "arrow-right-circle",
+        "corner-up-left", "corner-up-right",
+    )
+    val iconModifier = if (rtl && directional) modifier.graphicsLayer { scaleX = -1f } else modifier
+    Icon(image, contentDescription = description, tint = tint, modifier = iconModifier.size(size))
 }
