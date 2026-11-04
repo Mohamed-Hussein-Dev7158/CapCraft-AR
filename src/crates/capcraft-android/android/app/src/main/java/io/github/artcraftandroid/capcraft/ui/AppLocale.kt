@@ -102,10 +102,15 @@ fun localizedText(context: Context, source: String): String {
         "Added to favorites" -> R.string.added_to_favorites
         "Removed from favorites" -> R.string.removed_from_favorites
         "Takes the hum and hiss out from behind the sound." -> R.string.noise_reduction_description
+        "Cleared %1$s of temporary files" -> R.string.cache_cleared
         "Full screen" -> R.string.full_screen
         "Exit full screen" -> R.string.exit_full_screen
 
         "Clear cache" -> R.string.clear_cache
+        "Move the playhead inside the clip to split it" -> R.string.move_playhead_to_split
+        "The text now shows for the whole video" -> R.string.text_shows_for_whole_video
+        "Add a clip first" -> R.string.add_a_clip_first
+        "Applied to all" -> R.string.applied_to_all
         "Licences" -> R.string.licences
         "GNU Affero General Public License" -> R.string.gnu_agpl
         "Engine third-party notices" -> R.string.engine_third_party_notices
