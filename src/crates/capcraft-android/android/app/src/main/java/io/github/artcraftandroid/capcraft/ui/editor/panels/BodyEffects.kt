@@ -116,7 +116,7 @@ fun BodyEffectsPanel(vm: EditorViewModel) {
         val p = progress
         if (p != null) {
             Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text("${p.first}… ${(p.second * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
+                Text("${localizedText(p.first)}… ${(p.second * 100).roundToInt()}%", style = Type.Small.copy(color = Palette.Text), modifier = Modifier.weight(1f))
                 Text(
                     "Stop",
                     style = Type.Small.copy(color = Palette.Text),
