@@ -371,4 +371,10 @@
     <string name="photo_under_playhead">الصورة عند موضع مؤشر التشغيل، وسيتم حفظها كصورة</string>
     <string name="estimated_file_size">حجم الملف المتوقع: %1$s ميجابايت</string>
     <string name="suggested_for_video">المقترح لهذا الفيديو: %1$d</string>
+    <string name="smaller_files_faster">الملفات الأصغر تُحمّل أسرع</string>
+    <string name="more_pictures_smoother">إطارات أكثر وحركة أنعم</string>
+    <string name="very_smooth_motion">حركة فائقة السلاسة</string>
+    <string name="steady_motion">حركة ثابتة للاستخدام اليومي</string>
+    <string name="export_resolution">الدقة</string>
+    <string name="estimated_size">حجم الملف المتوقع: %1$s ميجابايت</string>
 </resources>
