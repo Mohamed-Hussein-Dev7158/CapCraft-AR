@@ -41,6 +41,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -190,7 +191,7 @@ fun CameraTrackingPanel(vm: EditorViewModel) {
     }
     PanelFrame("Camera tracking", vm, height = 300.dp, titleOnTop = true) {
         Column(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp)) {
-            Text("Select tracking subject", style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 13.sp))
+            Text(localizedText("Select tracking subject"), style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 13.sp))
             Spacer(Modifier.height(10.dp))
             Box(
                 Modifier.size(width = 104.dp, height = 56.dp).clip(RoundedCornerShape(6.dp)).background(Color(0xFF262626))
@@ -199,7 +200,7 @@ fun CameraTrackingPanel(vm: EditorViewModel) {
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Glyph(LucideIcons.Crosshair, Palette.Accent, size = 20.dp)
-                    Text("Custom", style = Type.Small.copy(color = Palette.Accent, fontSize = 12.sp))
+                    Text(localizedText("Custom"), style = Type.Small.copy(color = Palette.Accent, fontSize = 12.sp))
                 }
             }
             Spacer(Modifier.height(6.dp))
