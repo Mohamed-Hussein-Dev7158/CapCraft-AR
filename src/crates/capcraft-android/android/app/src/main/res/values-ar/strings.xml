@@ -317,4 +317,12 @@
     <string name="type_words_effect">اكتب الكلمات أولًا، ثم أضف إليها تأثيرًا.</string>
     <string name="type_words_style">اكتب الكلمات أولًا، ثم طبّق عليها هذا النمط.</string>
     <string name="read_by_tts">القراءة بواسطة: تحويل النص إلى كلام</string>
+    <string name="delete_beat">حذف النبضة</string>
+    <string name="add_beat">إضافة نبضة</string>
+    <string name="stop">إيقاف</string>
+    <string name="try_example">جرّب مثالًا</string>
+    <string name="script_hint">اكتب نصًا أو الصقه هنا. كل سطر يتحول إلى ترجمة مستقلة.</string>
+    <string name="super_resolution_description">تحسين وضوح الصورة على هذا الهاتف. الصور تستغرق لحظات، أما الفيديو فيُعالج إطارًا تلو الآخر وقد يستغرق وقتًا.</string>
+    <string name="blur_label">جارٍ التمويه</string>
+    <string name="try_another_item">لا يوجد عنصر بهذا الاسم</string>
 </resources>
