@@ -547,7 +547,7 @@ private fun AlbumList(items: List<Item>, current: Long?, onChoose: (Long?) -> Un
                 Thumb(a.cover, Modifier.size(56.dp).clip(RoundedCornerShape(6.dp)))
                 Spacer(Modifier.width(14.dp))
                 Column(Modifier.weight(1f)) {
-                    Text(localizedText(a.name), style = Type.Body.copy(color = if (a.id == current) Palette.Accent else Color.White), maxLines = 1)
+                    Text(a.name, style = Type.Body.copy(color = if (a.id == current) Palette.Accent else Color.White), maxLines = 1)
                     Text("${a.count}", style = Type.Small.copy(color = Palette.TextSecondary, fontSize = 12.sp))
                 }
             }
