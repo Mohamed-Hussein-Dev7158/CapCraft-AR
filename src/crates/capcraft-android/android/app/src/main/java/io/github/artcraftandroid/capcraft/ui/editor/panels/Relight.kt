@@ -40,6 +40,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import kotlin.math.cos
 import kotlin.math.roundToInt
@@ -135,7 +136,7 @@ fun RelightPanel(vm: EditorViewModel) {
     PanelFrame("Relight", vm, height = 220.dp, titleOnTop = true, header = {
         Row(Modifier.fillMaxWidth().padding(start = 12.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(40.dp).clickable { set(null, null, null) }, contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Ban, if (current == null) Palette.Text else Palette.TextSecondary, size = 20.dp, description = "None")
+                Glyph(LucideIcons.Ban, if (current == null) Palette.Text else Palette.TextSecondary, size = 20.dp, description = localizedText("None"))
             }
             Row(Modifier.horizontalScroll(rememberScrollState())) {
                 LIGHTS.forEachIndexed { i, (name, _) ->
