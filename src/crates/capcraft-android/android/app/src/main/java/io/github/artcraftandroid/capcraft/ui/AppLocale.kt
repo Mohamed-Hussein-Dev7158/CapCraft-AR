@@ -109,7 +109,7 @@ fun localizedText(context: Context, source: String): String {
         "Clear cache" -> R.string.clear_cache
         "Move the playhead inside the clip to split it" -> R.string.move_playhead_to_split
         "The text now shows for the whole video" -> R.string.text_shows_for_whole_video
-        "Add a clip first" -> R.string.add_a_clip_first
+
         "Applied to all" -> R.string.applied_to_all
         "Licences" -> R.string.licences
         "GNU Affero General Public License" -> R.string.gnu_agpl
