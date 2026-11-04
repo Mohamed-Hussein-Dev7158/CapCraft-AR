@@ -44,9 +44,10 @@ This document records the terminology and behavior decisions for the Arabic-firs
 ## RTL and direction rules
 
 - The application-level layout direction follows the selected language.
-- Navigation chevrons and directional arrows mirror in RTL.
+- Navigation chevrons and directional arrows mirror in RTL through the shared `Glyph` component.
 - Non-directional action icons (undo, redo, scissors, play, audio, and effect symbols) do not mirror.
-- The timeline remains LTR in both languages because time progresses from left to right in the existing editing model. Its drawing coordinates, scrubbing, clip order, and drag behavior must not be reversed when the surrounding editor is RTL.
+- `Timeline.kt` explicitly provides LTR to the timeline content in both languages because time progresses from left to right in the existing editing model. Its drawing coordinates, scrubbing, clip order, and drag behavior must not be reversed when the surrounding editor is RTL.
+- The application root follows the selected locale. Shared sheets, dialogs, and editor panels inherit the active layout direction unless they intentionally contain an LTR data surface.
 - Text direction and Arabic glyph shaping in the native text renderer are separate from interface direction; both must be checked in preview and exported media.
 
 ## Visual identity
@@ -61,10 +62,12 @@ This document records the terminology and behavior decisions for the Arabic-firs
 
 The app label and launcher tint use the CapCraft AR identity. The upstream Kotlin namespace is deliberately unchanged in this first pass; only the Android application ID is set to `com.alaaeldinlabs.capcraftar`. This avoids a broad source-package migration while the localization foundation is being established.
 
-## Known scope limits in this pass
+## Localization and typography implementation status
 
-- This is the first localization pass, not a claim that every panel, dialog, accessibility label, or engine error is translated.
-- Several specialized panels still contain upstream English copy and will be migrated to the central string catalog in follow-up work.
-- The existing Noto Sans Arabic UI subset is now wired into Android's generated `res/font` resources and selected as the default Compose text family when Arabic is active. The source font and its SIL Open Font License remain in the upstream text crate and third-party notices. This wiring has not been build- or device-verified.
-- Arabic shaping and bidi logic exist in the native renderer, but Arabic preview/export behavior has not been device-tested in this pass.
-- No Android build or APK generation was run, as requested. Static repository checks do not replace a build or on-device QA.
+- The Android resource catalogs currently contain 380 English string keys and 380 Arabic counterparts. Static checks found no missing counterparts, duplicate resource keys, or unescaped XML ampersands.
+- `AppLocale.kt` contains 354 distinct source-string mappings to Android resources. All mapped resource references were checked against the English catalog, and literal `localizedText("...")` calls across the 60 Kotlin source files were checked for matching mappings.
+- The updated coverage includes the home/project library, editor dock and search, common sheets and dialogs, media picker, text and caption tools, audio tools, clip controls, effects and adjustment panels, export settings, progress states, and accessibility descriptions.
+- User-created project names, filenames, media metadata, effect/model identifiers, transcript text, and other content supplied by the user are intentionally not translated. Some upstream package names, model names, and engine-originated messages may remain in their original language.
+- The Noto Sans Arabic UI subset is wired into Android's generated `res/font` resources and selected as the default Compose text family when Arabic is active. The source font and its SIL Open Font License remain in the native text crate and third-party notices. This wiring has not been build- or device-verified.
+- The native text renderer contains Arabic shaping and bidirectional-text support and a Rust glyph-coverage test that includes Arabic text. This does not prove visual correctness in the Android UI, editor preview, or exported video.
+- No Android build or APK generation was run in this pass. Static repository checks do not replace a build or on-device QA.
