@@ -46,6 +46,7 @@ import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.editor.EditorViewModel
 import io.github.artcraftandroid.capcraft.ui.editor.Thumbs
 import kotlin.math.roundToInt
@@ -84,7 +85,7 @@ fun ArrangeLayersPanel(vm: EditorViewModel) {
                     Modifier.padding(start = 16.dp, top = 10.dp).clickable { menu = !menu }.padding(vertical = 6.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(if (textOnly) "Text and stickers" else "All", style = Type.Body.copy(color = Palette.Text))
+                    Text(localizedText(if (textOnly) "Text and stickers" else "All"), style = Type.Body.copy(color = Palette.Text))
                     Spacer(Modifier.width(4.dp))
                     Glyph(if (menu) LucideIcons.ChevronUp else LucideIcons.ChevronDown, Palette.Text, size = 14.dp)
                 }
@@ -96,7 +97,7 @@ fun ArrangeLayersPanel(vm: EditorViewModel) {
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         if (layers.isEmpty()) {
-                            Text("Nothing on screen here to arrange", style = Type.Small)
+                            Text(localizedText("Nothing on screen here to arrange"), style = Type.Small)
                         }
                         val slot = with(LocalDensity.current) { (LAYER_TILE + 10.dp).toPx() }
                         layers.forEachIndexed { i, c ->
@@ -220,6 +221,6 @@ private fun EndButton(icon: androidx.compose.ui.graphics.vector.ImageVector, lab
             Glyph(icon, tint, size = 18.dp, description = label)
         }
         Spacer(Modifier.height(6.dp))
-        Text(label, style = Type.Small.copy(color = tint), maxLines = 1)
+        Text(localizedText(label), style = Type.Small.copy(color = tint), maxLines = 1)
     }
 }
