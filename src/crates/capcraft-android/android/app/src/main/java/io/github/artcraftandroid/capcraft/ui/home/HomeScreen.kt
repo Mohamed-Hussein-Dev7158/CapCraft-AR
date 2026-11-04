@@ -13,7 +13,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -70,6 +69,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.github.artcraftandroid.capcraft.R
 import io.github.artcraftandroid.capcraft.core.ProjectSummary
 import io.github.artcraftandroid.capcraft.core.createProject
 import io.github.artcraftandroid.capcraft.core.deleteProject
@@ -82,11 +82,13 @@ import io.github.artcraftandroid.capcraft.core.renameProject
 import io.github.artcraftandroid.capcraft.engine.Threads
 import io.github.artcraftandroid.capcraft.engine.clock
 import io.github.artcraftandroid.capcraft.engine.userMessage
+import io.github.artcraftandroid.capcraft.ui.AppLocale
 import io.github.artcraftandroid.capcraft.ui.Glyph
 import io.github.artcraftandroid.capcraft.ui.LucideIcons
 import io.github.artcraftandroid.capcraft.ui.MaterialIcons
 import io.github.artcraftandroid.capcraft.ui.Palette
 import io.github.artcraftandroid.capcraft.ui.Type
+import io.github.artcraftandroid.capcraft.ui.localizedText
 import io.github.artcraftandroid.capcraft.ui.common.Toast
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -162,7 +164,7 @@ private val DarkHome = HomeColors(
 )
 
 private val Home: HomeColors
-    @Composable @ReadOnlyComposable get() = if (isSystemInDarkTheme()) DarkHome else LightHome
+    @Composable @ReadOnlyComposable get() = DarkHome
 
 @Composable
 @ReadOnlyComposable
@@ -547,15 +549,15 @@ private fun EditTab(
                 Row(Modifier.fillMaxWidth().height(48.dp).padding(horizontal = 8.dp), verticalAlignment = Alignment.CenterVertically) {
                     Spacer(Modifier.weight(1f))
                     Box(Modifier.size(44.dp).clip(RoundedCornerShape(22.dp)).clickable(onClick = onSearch), contentAlignment = Alignment.Center) {
-                        Glyph(LucideIcons.Search, Color.White, size = 24.dp, description = "Search projects")
+                        Glyph(LucideIcons.Search, Color.White, size = 24.dp, description = localizedText("Search projects"))
                     }
                 }
                 Spacer(Modifier.height(176.dp))
                 Column(Modifier.padding(horizontal = 16.dp).clickable(onClick = onNewVideo)) {
-                    Text("Ready when you are", style = ink(14f, color = Color.White.copy(alpha = 0.92f)))
+                    Text(localizedText("Ready when you are"), style = ink(14f, color = Color.White.copy(alpha = 0.92f)))
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("Make your next video", style = ink(21f, FontWeight.Bold, Color.White))
+                        Text(localizedText("Make your next video"), style = ink(21f, FontWeight.Bold, Color.White))
                         Spacer(Modifier.width(6.dp))
                         Box(Modifier.size(18.dp).clip(RoundedCornerShape(4.dp)).background(Color.White.copy(alpha = 0.3f)), contentAlignment = Alignment.Center) {
                             Glyph(LucideIcons.ChevronRight, Color.White, size = 14.dp)
@@ -588,7 +590,7 @@ private fun EditTab(
                     Modifier.align(Alignment.CenterEnd).padding(end = 16.dp).size(46.dp, 70.dp)
                         .clip(RoundedCornerShape(6.dp)).background(Home.More).clickable(onClick = onAllProjects),
                     contentAlignment = Alignment.Center,
-                ) { Glyph(LucideIcons.ChevronRight, Color.White, size = 24.dp, description = "All projects") }
+                ) { Glyph(LucideIcons.ChevronRight, Color.White, size = 24.dp, description = localizedText("All projects")) }
             }
             Spacer(Modifier.height(12.dp))
         }
@@ -601,7 +603,7 @@ private fun EditTab(
                     ) {
                         Glyph(s.icon, Home.Ink, size = 26.dp)
                         Spacer(Modifier.height(10.dp))
-                        Text(s.label, style = ink(13f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        Text(localizedText(s.label), style = ink(13f), maxLines = 1, overflow = TextOverflow.Ellipsis)
                     }
                 }
                 repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
@@ -624,7 +626,7 @@ private fun ToolsSheet(title: String, tools: List<Triple<String, String, String>
             .clickable(interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }, indication = null) {},
     ) {
         Column(Modifier.align(Alignment.BottomStart).fillMaxWidth().navigationBarsPadding().padding(start = 24.dp, end = 24.dp, bottom = 24.dp)) {
-            Text(title, style = ink(22f, FontWeight.Bold))
+            Text(localizedText(title), style = ink(22f, FontWeight.Bold))
             Spacer(Modifier.height(18.dp))
             tools.forEach { (id, name, line) ->
                 Row(
@@ -648,8 +650,8 @@ private fun ToolsSheet(title: String, tools: List<Triple<String, String, String>
                     }
                     Spacer(Modifier.width(16.dp))
                     Column {
-                        Text(name, style = ink(16f, FontWeight.Medium))
-                        Text(line, style = ink(13f, color = Home.Muted))
+                        Text(localizedText(name), style = ink(16f, FontWeight.Medium))
+                        Text(localizedText(line), style = ink(13f, color = Home.Muted))
                     }
                 }
                 Spacer(Modifier.height(8.dp))
@@ -775,7 +777,7 @@ private fun ProjectsTab(
                         Glyph(LucideIcons.Search, Home.Muted, size = 18.dp)
                         Spacer(Modifier.width(8.dp))
                         Box(Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
-                            if (query.isEmpty()) Text("Search projects", style = ink(15f, color = Home.Muted))
+                            if (query.isEmpty()) Text(localizedText("Search projects"), style = ink(15f, color = Home.Muted))
                             BasicTextField(
                                 value = query,
                                 onValueChange = { query = it },
@@ -792,7 +794,7 @@ private fun ProjectsTab(
                         modifier = Modifier.clickable { query = ""; onSearching(false) }.padding(horizontal = 10.dp, vertical = 8.dp),
                     )
                 } else {
-                    Text("Projects", style = ink(22f, FontWeight.Bold), modifier = Modifier.weight(1f))
+                    Text(localizedText("Projects"), style = ink(22f, FontWeight.Bold), modifier = Modifier.weight(1f))
                     Box(Modifier.size(44.dp).clip(RoundedCornerShape(22.dp)).clickable { onSearching(true) }, contentAlignment = Alignment.Center) {
                         Glyph(LucideIcons.Search, Home.Ink, size = 24.dp, description = "Search projects")
                     }
@@ -806,7 +808,7 @@ private fun ProjectsTab(
                         Modifier.clickable { onShowTrash(isTrash) }.padding(horizontal = 10.dp, vertical = 8.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Text(label, style = ink(15f, if (on) FontWeight.SemiBold else FontWeight.Normal, if (on) Home.Ink else Home.Muted))
+                        Text(localizedText(label), style = ink(15f, if (on) FontWeight.SemiBold else FontWeight.Normal, if (on) Home.Ink else Home.Muted))
                         Spacer(Modifier.height(6.dp))
                         Box(Modifier.size(28.dp, 2.dp).background(if (on) Home.Ink else Color.Transparent))
                     }
@@ -823,7 +825,7 @@ private fun ProjectsTab(
                 when {
                     bin == null -> Unit
                     bin.isEmpty() -> Box(Modifier.fillMaxWidth().padding(top = 96.dp), contentAlignment = Alignment.Center) {
-                        Text("The Trash is empty", style = ink(14f, color = Home.Muted))
+                        Text(localizedText("The Trash is empty"), style = ink(14f, color = Home.Muted))
                     }
                     else -> LazyColumn(Modifier.fillMaxSize()) {
                         items(bin, key = { it.path }) { p -> ProjectRow(p, ticked = null, onOpen = { onTrashMenu(p) }, onMenu = { onTrashMenu(p) }) }
@@ -839,14 +841,14 @@ private fun ProjectsTab(
                                 .border(if (i == kind) 1.5.dp else 1.dp, if (i == kind) Home.Ink else Home.Hairline, RoundedCornerShape(8.dp))
                                 .clickable { kind = i }.padding(horizontal = 18.dp),
                             contentAlignment = Alignment.Center,
-                        ) { Text(name, style = ink(14f, if (i == kind) FontWeight.Medium else FontWeight.Normal)) }
+                        ) { Text(localizedText(name), style = ink(14f, if (i == kind) FontWeight.Medium else FontWeight.Normal)) }
                     }
                 }
                 val count = shown?.size ?: projects.size
                 Row(Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text("$count project${if (count == 1) "" else "s"}", style = ink(16f, FontWeight.Medium), modifier = Modifier.weight(1f))
+                    Text(androidx.compose.ui.platform.LocalContext.current.resources.getQuantityString(R.plurals.project_count, count, count), style = ink(16f, FontWeight.Medium), modifier = Modifier.weight(1f))
                     Text(
-                        if (managing == null) "Select" else "Done",
+                        localizedText(if (managing == null) "Select" else "Done"),
                         style = ink(15f, color = Home.Muted),
                         modifier = Modifier.clickable { onManaging(if (managing == null) emptySet() else null) }.padding(8.dp),
                     )
@@ -857,7 +859,7 @@ private fun ProjectsTab(
                     CircularProgressIndicator(color = Palette.Accent, modifier = Modifier.size(28.dp), strokeWidth = 2.dp)
                 }
                 shown.isEmpty() -> Box(Modifier.fillMaxWidth().padding(top = 96.dp), contentAlignment = Alignment.Center) {
-                    Text(if (searching && query.isNotBlank()) "No projects found" else "No projects yet", style = ink(14f, color = Home.Muted))
+                    Text(localizedText(if (searching && query.isNotBlank()) "No projects found" else "No projects yet"), style = ink(14f, color = Home.Muted))
                 }
                 else -> LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(bottom = 88.dp)) {
                     items(shown, key = { it.path }) { p ->
@@ -890,7 +892,7 @@ private fun ProjectsTab(
                     Glyph(LucideIcons.Plus, Palette.Accent, size = 16.dp)
                 }
                 Spacer(Modifier.width(8.dp))
-                Text("Create", style = ink(17f, FontWeight.Medium, Color.White))
+                Text(localizedText("Create"), style = ink(17f, FontWeight.Medium, Palette.OnAccent))
             }
         }
     }
@@ -933,7 +935,7 @@ private fun ProjectRow(p: ProjectSummary, ticked: Boolean?, onOpen: () -> Unit, 
         }
         if (ticked == null) {
             Box(Modifier.size(40.dp).clip(RoundedCornerShape(20.dp)).clickable(onClick = onMenu), contentAlignment = Alignment.Center) {
-                Glyph(LucideIcons.Ellipsis, Home.Muted, size = 20.dp, description = "More")
+                Glyph(LucideIcons.Ellipsis, Home.Muted, size = 20.dp, description = localizedText("More"))
             }
         } else {
             Box(
@@ -967,10 +969,10 @@ private fun SelectBar(all: Boolean, count: Int, onAll: () -> Unit, onDelete: () 
     Column(Modifier.fillMaxWidth().background(Home.Background).navigationBarsPadding()) {
         Box(Modifier.fillMaxWidth().height(1.dp).background(Home.Hairline))
         Row(Modifier.fillMaxWidth().height(56.dp).padding(horizontal = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text(if (all) "Deselect all" else "Select all", style = ink(15f), modifier = Modifier.clickable(onClick = onAll).padding(8.dp))
+            Text(localizedText(if (all) "Deselect all" else "Select all"), style = ink(15f), modifier = Modifier.clickable(onClick = onAll).padding(8.dp))
             Spacer(Modifier.weight(1f))
             Text(
-                "Delete ($count)",
+                localizedText("Delete") + " ($count)",
                 style = ink(15f, FontWeight.SemiBold, if (count == 0) Home.Muted else Palette.Danger),
                 modifier = Modifier.clickable(enabled = count > 0, onClick = onDelete).padding(8.dp),
             )
@@ -1017,7 +1019,7 @@ private fun BottomBar(tab: Int, latest: ProjectSummary?, onTab: (Int) -> Unit) {
                         else -> Glyph(icon, if (on) Home.Ink else Home.Muted, size = 23.dp)
                     }
                     Spacer(Modifier.height(3.dp))
-                    Text(label, style = ink(11f, if (on) FontWeight.SemiBold else FontWeight.Normal, if (on) Home.Ink else Home.Muted))
+                    Text(localizedText(label), style = ink(11f, if (on) FontWeight.SemiBold else FontWeight.Normal, if (on) Home.Ink else Home.Muted))
                 }
             }
         }
@@ -1034,17 +1036,43 @@ private fun MeTab(onLicences: () -> Unit, onAbout: () -> Unit, onCleared: (Strin
     val version = remember { appVersion(context) }
     var cache by remember { mutableStateOf<Long?>(null) }
     var clearing by remember { mutableStateOf(false) }
+    var choosingLanguage by remember { mutableStateOf(false) }
+    val languageLabel = context.getString(if (AppLocale.isArabic(context)) R.string.language_arabic else R.string.language_english)
     LaunchedEffect(Unit) { cache = withContext(Threads.commands) { cacheSize(context) } }
     Column(Modifier.fillMaxSize().statusBarsPadding()) {
         Row(Modifier.fillMaxWidth().height(56.dp).padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("Settings", style = ink(22f, FontWeight.Bold))
+            Text(localizedText("Settings"), style = ink(22f, FontWeight.Bold))
         }
         Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState())) {
+            SettingRow(localizedText("App language"), languageLabel) { choosingLanguage = true }
             SettingRow("Clear cache", cache?.let(::size) ?: "") { clearing = true }
             SettingRow("Licences", null, onLicences)
             SettingRow("About CapCraft", null, onAbout)
             SettingRow("Version", version, null)
         }
+    }
+    if (choosingLanguage) {
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { choosingLanguage = false },
+            title = { Text(context.getString(R.string.language_dialog_title), style = ink(18f, FontWeight.SemiBold)) },
+            text = {
+                Column {
+                    Text(context.getString(R.string.language_dialog_message), style = ink(14f, color = Home.Muted))
+                    Spacer(Modifier.height(12.dp))
+                    androidx.compose.material3.TextButton(onClick = { AppLocale.change(context, "ar") }) {
+                        Text(context.getString(R.string.language_arabic), style = ink(15f, FontWeight.Medium))
+                    }
+                    androidx.compose.material3.TextButton(onClick = { AppLocale.change(context, "en") }) {
+                        Text(context.getString(R.string.language_english), style = ink(15f, FontWeight.Medium))
+                    }
+                }
+            },
+            confirmButton = {
+                androidx.compose.material3.TextButton(onClick = { choosingLanguage = false }) {
+                    Text(localizedText("Cancel"), style = ink(14f, FontWeight.Medium))
+                }
+            },
+        )
     }
     if (clearing) {
         HomeConfirm(
@@ -1084,7 +1112,7 @@ private fun Page(title: String, onBack: () -> Unit, content: @Composable () -> U
     androidx.activity.compose.BackHandler(onBack = onBack)
     Column(Modifier.fillMaxSize().background(Home.Background).statusBarsPadding().navigationBarsPadding()) {
         Box(Modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
-            Text(title, style = ink(17f, FontWeight.SemiBold))
+            Text(localizedText(title), style = ink(17f, FontWeight.SemiBold))
             Box(Modifier.align(Alignment.CenterStart).padding(start = 4.dp).size(44.dp).clickable(onClick = onBack), contentAlignment = Alignment.Center) {
                 Glyph(LucideIcons.ChevronLeft, Home.Ink, size = 24.dp, description = "Back")
             }
@@ -1094,7 +1122,7 @@ private fun Page(title: String, onBack: () -> Unit, content: @Composable () -> U
 }
 
 /** Where the app's source lives. */
-private const val SOURCE_URL = "https://github.com/artcraft-android/capcraft-android"
+private const val SOURCE_URL = "https://github.com/Mohamed-Hussein-Dev7158/CapCraft-AR"
 
 /** What CapCraft is, who made the engine under it, and that it is nobody else's app. */
 @Composable
@@ -1104,23 +1132,22 @@ private fun AboutScreen(onBack: () -> Unit) {
     Page("About CapCraft", onBack) {
         Column(Modifier.fillMaxWidth().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Spacer(Modifier.height(24.dp))
-            Text("CapCraft", style = ink(26f, FontWeight.Bold))
+            Text("CapCraft AR", style = ink(26f, FontWeight.Bold))
             Spacer(Modifier.height(6.dp))
-            Text("Version $version", style = ink(13f, color = Home.Muted))
+            Text("${localizedText("Version")} $version", style = ink(13f, color = Home.Muted))
             Spacer(Modifier.height(28.dp))
             Text(
-                "A free video editor that keeps your work on your phone. Built on Concat's engine; free " +
-                    "software under the GNU Affero General Public License, version 3 or later.",
+                localizedText("A free video editor that keeps your work on your phone. Built on Concat's engine; free software under the GNU Affero General Public License, version 3 or later."),
                 style = ink(13f, color = Home.Muted).copy(textAlign = androidx.compose.ui.text.style.TextAlign.Center),
             )
             Spacer(Modifier.height(16.dp))
             Text(
-                "Not affiliated with or endorsed by ByteDance or CapCut.",
+                localizedText("Not affiliated with or endorsed by ByteDance or CapCut."),
                 style = ink(13f, color = Home.Muted).copy(textAlign = androidx.compose.ui.text.style.TextAlign.Center),
             )
             Spacer(Modifier.height(28.dp))
             // the source, as the licence asks of every copy handed on
-            Text("Source code", style = ink(13f, color = Home.Muted))
+            Text(localizedText("Source code"), style = ink(13f, color = Home.Muted))
             Spacer(Modifier.height(4.dp))
             Text(
                 SOURCE_URL.removePrefix("https://"),
@@ -1244,8 +1271,8 @@ private fun TrashSheet(p: ProjectSummary, onDismiss: () -> Unit, onRestore: () -
                 }
             }
             Box(Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 4.dp).height(1.dp).background(Home.Hairline))
-            SheetRow(LucideIcons.RotateCcw, "Restore", onRestore)
-            SheetRow(LucideIcons.Trash2, "Delete for good", onDelete)
+            SheetRow(LucideIcons.RotateCcw, localizedText("Restore"), onRestore)
+            SheetRow(LucideIcons.Trash2, localizedText("Delete for good"), onDelete)
         }
     }
 }
@@ -1272,9 +1299,9 @@ private fun ProjectSheet(p: ProjectSummary, onDismiss: () -> Unit, onRename: () 
                 }
             }
             Box(Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 4.dp).height(1.dp).background(Home.Hairline))
-            SheetRow(LucideIcons.Pencil, "Rename", onRename)
-            SheetRow(LucideIcons.Copy, "Duplicate", onDuplicate)
-            SheetRow(LucideIcons.Trash2, "Delete", onDelete)
+            SheetRow(LucideIcons.Pencil, localizedText("Rename"), onRename)
+            SheetRow(LucideIcons.Copy, localizedText("Duplicate"), onDuplicate)
+            SheetRow(LucideIcons.Trash2, localizedText("Delete"), onDelete)
         }
     }
 }
@@ -1284,7 +1311,7 @@ private fun SheetRow(icon: ImageVector, label: String, onClick: () -> Unit) {
     Row(Modifier.fillMaxWidth().height(54.dp).clickable(onClick = onClick).padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
         Glyph(icon, Home.Ink, size = 22.dp)
         Spacer(Modifier.width(14.dp))
-        Text(label, style = ink(16f))
+        Text(localizedText(label), style = ink(16f))
     }
 }
 
@@ -1300,7 +1327,7 @@ private fun RenameSheet(current: String, onDismiss: () -> Unit, onDone: (String)
                 .navigationBarsPadding().imePadding().padding(horizontal = 16.dp).padding(bottom = 12.dp),
         ) {
             Box(Modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
-                Text("Rename", style = ink(16f, FontWeight.Bold))
+                Text(localizedText("Rename"), style = ink(16f, FontWeight.Bold))
                 Box(Modifier.align(Alignment.CenterEnd).size(40.dp).clickable(onClick = onDismiss), contentAlignment = Alignment.CenterEnd) {
                     Glyph(LucideIcons.X, Home.Ink, size = 22.dp, description = "Close")
                 }
@@ -1332,7 +1359,7 @@ private fun RenameSheet(current: String, onDismiss: () -> Unit, onDone: (String)
                     .background(if (ok) Palette.Accent else Palette.Accent.copy(alpha = 0.4f))
                     .clickable(enabled = ok) { onDone(text.text.trim()) },
                 contentAlignment = Alignment.Center,
-            ) { Text("Confirm", style = ink(15f, FontWeight.Medium, Color.White)) }
+            ) { Text(localizedText("Confirm"), style = ink(15f, FontWeight.Medium, Palette.OnAccent)) }
         }
     }
 }
@@ -1345,17 +1372,17 @@ private fun HomeConfirm(text: String, confirm: String, onDismiss: () -> Unit, on
             Modifier.padding(horizontal = 40.dp).fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(Home.Sheet).padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(text, style = ink(16f).copy(textAlign = androidx.compose.ui.text.style.TextAlign.Center))
+            Text(localizedText(text), style = ink(16f).copy(textAlign = androidx.compose.ui.text.style.TextAlign.Center))
             Spacer(Modifier.height(20.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Box(
                     Modifier.weight(1f).height(44.dp).clip(RoundedCornerShape(6.dp)).background(Home.Field).clickable(onClick = onDismiss),
                     contentAlignment = Alignment.Center,
-                ) { Text("Cancel", style = ink(15f, FontWeight.Medium)) }
+                ) { Text(localizedText("Cancel"), style = ink(15f, FontWeight.Medium)) }
                 Box(
                     Modifier.weight(1f).height(44.dp).clip(RoundedCornerShape(6.dp)).background(Palette.Accent).clickable(onClick = onConfirm),
                     contentAlignment = Alignment.Center,
-                ) { Text(confirm, style = ink(15f, FontWeight.Medium, Color.White)) }
+                ) { Text(localizedText(confirm), style = ink(15f, FontWeight.Medium, Palette.OnAccent)) }
             }
         }
     }
