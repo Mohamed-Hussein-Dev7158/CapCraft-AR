@@ -220,4 +220,7 @@
     <string name="text_shows_for_whole_video">سيظل النص ظاهرًا طوال الفيديو.</string>
     <string name="applied_to_all">تم التطبيق على الكل</string>
     <string name="cache_cleared">تم مسح %1$s من الملفات المؤقتة</string>
+
+    <string name="export_notification_channel">عمليات التصدير</string>
+    <string name="exporting_video">جارٍ تصدير الفيديو</string>
 </resources>
