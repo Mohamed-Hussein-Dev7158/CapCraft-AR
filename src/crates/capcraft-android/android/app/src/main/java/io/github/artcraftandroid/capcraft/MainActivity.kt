@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.core.content.IntentCompat
@@ -120,7 +121,8 @@ private fun Loading() {
 
 @Composable
 private fun Failed(message: String) {
+    val context = LocalContext.current
     Box(Modifier.fillMaxSize().background(Palette.Black), contentAlignment = Alignment.Center) {
-        Text("The editor could not start: $message", style = Type.Body)
+        Text(context.getString(R.string.editor_start_failed, message), style = Type.Body)
     }
 }
